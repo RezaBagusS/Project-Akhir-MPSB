@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* background-color: #242424; */
+:root {
+  background-color: #FDFAE2;
+}
+
+.cust-container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.cust-outer-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1700px;
+}
