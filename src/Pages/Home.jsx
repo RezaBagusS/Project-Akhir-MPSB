@@ -1,9 +1,9 @@
-import Courses from "../Component/Courses";
-import NavbarHome from "../Component/NavbarHome";
-import Welcoming from "../Component/Welcoming";
-import About from "./About";
-import Contact from "./Contact";
-import FooterHome from "../Component/FooterHome";
+import Courses from "../Component/HomeComp/Courses";
+import NavbarHome from "../Component/HomeComp/NavbarHome";
+import Welcoming from "../Component/HomeComp/Welcoming";
+import About from "../Component/HomeComp/About";
+import Contact from "../Component/HomeComp/Contact";
+import FooterHome from "../Component/HomeComp/FooterHome";
 
 
 const Home = () => {
