@@ -5,7 +5,7 @@ const dataCard = [
         "HTML is a markup language used to create beautiful and attractive web pages by managing appearance and content.",
       svg: (
         <svg viewBox="0 0 452 520"
-          className="w-44 h-44 mx-auto">
+          className="w-28 sm:w-44 sm:h-44 mx-auto">
           <title>HTML5 Logo Badge</title>
           <path fill="RGB(227,79,38)" d="M 41,460 L 0,0 451,0 410,460 225,512" />
           <path fill="RGB(239,101,42)" d="M 226,472 L 375,431 410,37 226,37" />
@@ -27,7 +27,7 @@ const dataCard = [
         "CSS is a styling language used to define the appearance of web pages made with HTML.",
       svg: (
         <svg viewBox="0 0 452 520"
-        className="w-44 h-44 mx-auto">
+        className="w-28 sm:w-44 sm:h-44 mx-auto">
           <title>CSS3 Logo Badge</title>
           <path fill="RGB(12,115,184)" d="M 41,460 L 0,0 451,0 410,460 225,512" />
           <path fill="RGB(48,169,220)" d="M 226,472 L 375,431 410,37 226,37" />
@@ -48,7 +48,7 @@ const dataCard = [
       description:"JavaScript is a multi-platform (Client & Server) programming language used to create interactive and dynamic web pages.",
       svg: (
           <svg viewBox="0 0 452 520"
-          className="w-44 h-44 mx-auto">
+          className="w-28 sm:w-44 sm:h-44 mx-auto">
         <title>Javascript Logo Badge</title>
         <path fill='RGB(229,162,40)' d='M 0,0 L 451,0 410,460 225,512 41,460'/>
         <path fill='RGB(241,191,38)' d='M 226,472 L375,431 410,37 226,37'/>
@@ -66,7 +66,7 @@ const dataCard = [
       }
   
     return (
-      <div className="w-4/12 h-[470px] relative rounded-lg mx-4 drop-shadow-md bg-gray-800 border-gray-700">
+      <div className="w-10/12 sm:w-8/12 md:w-5/12 lg:w-[30%] h-[485px] relative rounded-lg my-2 mx-4 lg:mx-2 drop-shadow-md bg-gray-800 border-gray-700">
         <div className="p-5">
           <div className="w-full cursor-pointer bg-slate-300 p-5 rounded-lg group">
             <div className="group-hover:scale-75 transition-all duration-700">

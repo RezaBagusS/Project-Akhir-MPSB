@@ -1,12 +1,12 @@
 const Contact = () => {
   return (
     <div className="py-10">
-      <div className="grid grid-cols-2 gap-x-10 py-5">
+      <div className="grid lg:grid-cols-2 gap-x-10 py-5">
         <form action="#" 
           className="mx-auto w-10/12 p-5"  
         >
-          <h2 className="text-start text-4xl font-bold pt-5 pb-2">Contact</h2>
-          <p className="opacity-50 italic mb-5">
+          <h2 className="text-center lg:text-start mb-5 lg:mb-0 text-4xl font-bold pt-5 pb-2">Contact</h2>
+          <p className="text-center lg:text-start opacity-50 italic mb-5">
             Fill out the form below to get in touch with us or simply send us an email.
           </p>
           <div className="grid grid-cols-2 gap-x-5 py-5">
@@ -14,7 +14,7 @@ const Contact = () => {
               <p className="font-semibold absolute -top-4 -left-20 pointer-events-none group-focus-within:left-2 group-focus-within:transition-all group-focus-within:duration-500">
                 Name
               </p>
-              <p className="absolute pl-2 pt-2 pointer-events-none group-focus-within:hidden">
+              <p className="absolute italic pl-2 pt-2 pointer-events-none group-focus-within:hidden">
                 Name
               </p>
               <input type="text" 
@@ -49,7 +49,7 @@ const Contact = () => {
         </form>
         <div
           className="bg-[url('https://res.cloudinary.com/dr0lbokc5/image/upload/v1683199758/Contact_tupztu.svg')]
-                    bg-no-repeat bg-cover bg-center h-96 w-10/12 my-auto ml-16
+                    bg-no-repeat bg-cover bg-center h-96 w-10/12 my-auto ml-16 hidden lg:flex
                     "
         ></div>
       </div>
