@@ -9,6 +9,9 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      backgroundImage:{
+        "hero-pattern": "url('https://res.cloudinary.com/dr0lbokc5/image/upload/v1682941478/topography_y1faek.svg')",
+      },
       colors: {
         "cust-yellow": "#f9d816",
         "cust-orange": "#ff6611",

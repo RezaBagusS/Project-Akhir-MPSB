@@ -70,7 +70,7 @@ const Login = () => {
               <div className="flex justify-center align-middle px-2 mt-1">
                 <p className="font-light text-sm opacity-50">Not a Member??</p>
                 <a
-                  onClick={() => navigate("/signup")}
+                  onClick={() => navigate("/auth/signup")}
                   className="cursor-pointer font-semibold ml-2 text-sm"
                 >
                   Sign up

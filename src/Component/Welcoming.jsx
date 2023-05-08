@@ -12,7 +12,7 @@ const Welcoming = () => {
           </p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
             <a
-              href="/"
+              href="/dashboard"
               className="group inline-flex font-bold justify-center items-center py-3 px-5 text-base text-center text-white rounded-lg bg-cust-blue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             >
               Get started
@@ -27,10 +27,10 @@ const Welcoming = () => {
               </svg>
             </a>
             <a
-              href="#"
-              className="inline-flex justify-center items-center py-3 px-5 text-base text-center font-semibold text-cust-black rounded-lg border-gray-700 bg-gray-200 hover:bg-gray-400 focus:ring-gray-800 transition-all duration-200"
+              href="/auth/login"
+              className="underline inline-flex justify-center items-center py-3 px-5 text-base text-center font-semibold rounded-lg border-gray-700 hover:text-cust-purple transition-all duration-200"
             >
-              Learn more
+              Login
             </a>
           </div>
         </div>

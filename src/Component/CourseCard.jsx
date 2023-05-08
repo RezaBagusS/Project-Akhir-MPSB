@@ -69,7 +69,7 @@ const dataCard = [
       <div className="w-4/12 h-[470px] relative rounded-lg mx-4 drop-shadow-md bg-gray-800 border-gray-700">
         <div className="p-5">
           <div className="w-full cursor-pointer bg-slate-300 p-5 rounded-lg group">
-            <div className="group-hover:scale-75 transition-all duration-300">
+            <div className="group-hover:scale-75 transition-all duration-700">
               {handleProps().svg}
             </div>
           </div>
@@ -80,13 +80,13 @@ const dataCard = [
             {handleProps().description}
           </p>
           <a
-            href="/"
+            href="/dashboard"
             className="absolute group inline-flex font-bold justify-center items-center 
             py-3 px-5 text-base text-center text-white rounded-lg bg-cust-blue 
             hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900
             bottom-5 left-3"
           >
-            Start
+            Learn
             <svg
               aria-hidden="true"
               className="ml-2 -mr-1 w-5 h-5 group-hover:ml-5 transition-all duration-300"

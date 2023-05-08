@@ -125,7 +125,7 @@ const SignUp = () => {
                   Do you have account??
                 </p>
                 <a
-                  onClick={() => navigate("/login")}
+                  onClick={() => navigate("/auth/login")}
                   className="cursor-pointer font-semibold ml-2 text-sm"
                 >
                   Login

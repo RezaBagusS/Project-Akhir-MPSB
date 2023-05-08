@@ -1,32 +1,42 @@
-import { useEffect, useState } from "react";
-import supabase from "../data/dataUser";
+import Courses from "../Component/Courses";
+import NavbarDash from "../Component/NavbarDash";
+import Welcoming from "../Component/Welcoming";
+import About from "./About";
+import Contact from "./Contact";
+import FooterDash from "./FooterDash";
+
 
 const Home = () => {
-
-    const [data2, setData2] = useState([]);
-    
-    useEffect(() => {
-      getData2();
-    }, []);
-
-    async function getData2(){
-      const data = await supabase.from("dataUser").select();
-      console.log(data.data);
-      setData2(data.data);
-    }
-
-    return (
-      <>
-        <ul className="text-white">
-          {data2.map((data) => (
-            <li key={data.id}>{data.username}</li>
-          ))}
-        </ul>
-        <div className="font-bold text-white">
-            {localStorage.getItem("username")}
+  return (
+    <>
+      <NavbarDash />
+      <div className="cust-outer-container bg-white w-full">
+        <div className="cust-container font-medium text-cust-blue">
+            <Welcoming />
         </div>
-      </>
-    )
-}
+      </div>
+      <div className="cust-outer-container bg-cust-beige w-full">
+        <div className="cust-container font-medium text-cust-blue">
+            <Courses />
+        </div>
+      </div>
+      <div className="cust-outer-container bg-white w-full">
+        <div className="cust-container font-medium text-cust-blue">
+            <About />
+        </div>
+      </div>
+      <div className="cust-outer-container bg-white w-full">
+        <div className="cust-container font-medium text-cust-blue">
+            <Contact />
+        </div>
+      </div>
+      <div className="cust-outer-container bg-white w-full">
+        <div className="cust-container font-medium text-cust-blue">
+            <FooterDash />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Home;

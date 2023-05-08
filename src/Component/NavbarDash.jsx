@@ -19,12 +19,12 @@ const NavbarDash = () => {
               </span>
             </a>
             <div className="flex md:order-2">
-              <button
-                type="button"
+              <a
+                href="/dashboard"
                 className="text-white bg-purple-500 font-medium rounded-lg text-sm px-4 py-2 text-center hover:bg-purple-800 transition-all duration-300"
               >
                 Get Started
-              </button>
+              </a>
             </div>
             <div
               className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
