@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const NavbarDash = () => {
+const NavbarHome = () => {
   const navigate = useNavigate();
 
   return (
@@ -72,4 +72,4 @@ const NavbarDash = () => {
   );
 };
 
-export default NavbarDash;
+export default NavbarHome;

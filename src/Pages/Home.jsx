@@ -1,15 +1,15 @@
 import Courses from "../Component/Courses";
-import NavbarDash from "../Component/NavbarDash";
+import NavbarHome from "../Component/NavbarHome";
 import Welcoming from "../Component/Welcoming";
 import About from "./About";
 import Contact from "./Contact";
-import FooterDash from "./FooterDash";
+import FooterHome from "../Component/FooterHome";
 
 
 const Home = () => {
   return (
     <>
-      <NavbarDash />
+      <NavbarHome />
       <div className="cust-outer-container bg-white w-full">
         <div className="cust-container font-medium text-cust-blue">
             <Welcoming />
@@ -32,7 +32,7 @@ const Home = () => {
       </div>
       <div className="cust-outer-container bg-white w-full">
         <div className="cust-container font-medium text-cust-blue">
-            <FooterDash />
+            <FooterHome />
         </div>
       </div>
     </>

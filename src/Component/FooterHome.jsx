@@ -1,4 +1,4 @@
-const FooterDash = () => {
+const FooterHome = () => {
     return(
         <footer
             className="pb-5"
@@ -9,4 +9,4 @@ const FooterDash = () => {
     );
 }
 
-export default FooterDash;
+export default FooterHome;
