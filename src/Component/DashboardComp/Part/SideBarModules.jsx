@@ -1,6 +1,6 @@
 const SideBarModules = ({isClose}) => {
 
-const styleIcon = `${isClose && 'mr-0'} w-6 h-6 mr-3 fill-cust-beige`;
+const styleIcon = `${isClose && 'mr-0'} w-6 h-6 fill-cust-beige`;
 
   const dataModules = [
     {
@@ -61,9 +61,9 @@ const styleIcon = `${isClose && 'mr-0'} w-6 h-6 mr-3 fill-cust-beige`;
     return (
       <section className="w-full h-18 px-3 py-2" key={module.id}>
         <div className="relative hover:bg-slate-500 bg-slate-600 cursor-pointer px-3 py-3 rounded-lg transition-all duration-300">
-          <div className={`flex items-center overflow-hidden ${isClose ? 'justify-center' : 'justify-start'}`}>
+          <div className={`flex items-center ${isClose ? 'justify-center' : 'justify-start'}`}>
             {module.icon}
-            <p className={`${isClose ? 'absolute -right-40' : 'flex -right-0'} transition-all duration-700`}>{module.name}</p>
+            <p className={`${isClose ? 'absolute -right-40 hidden' : 'flex -right-0 ml-3 '} transition-all duration-700`}>{module.name}</p>
           </div>
         </div>
       </section>

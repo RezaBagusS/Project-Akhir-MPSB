@@ -5,15 +5,15 @@ const SidebarLeft = () => {
     const [isClose, setIsClose] = useState(false);
 
   return (
-    <div className={`bg-slate-600 h-screen w-7/12 sm:w-5/12 md:w-4/12 lg:w-3/12 text-cust-beige
-        ${isClose ? 'w-20 sm:w-20 md:w-20 lg:w-20 ' : ''}
-    transition-all duration-500 `}>
+    <div className={`bg-slate-600 overflow-hidden h-screen w-7/12 sm:w-5/12 md:w-4/12 lg:w-3/12 text-cust-beige
+        ${isClose ? 'w-[80px] sm:w-[80px] md:w-[80px] lg:w-[80px]' : ''}
+    transition-all duration-500`}>
       <div className="relative flex justify-center items-center bg-slate-700 h-[15vh] py-2 ps-6 pe-3">
         <div className="w-full font-semibold text-xl transition-all duration-300">
             Academy
         </div>
-        <div className={`absolute flex justify-center items-center w-2/12 h-10 mr-2 right-0
-            ${isClose && 'w-full bg-slate-700 mr-0'}
+        <div className={`absolute flex justify-center items-center w-2/12 h-10 right-0
+            ${isClose && 'w-full bg-slate-700'}
         transition-all duration-700`}>
           <div className="flex justify-center items-center w-6 h-6 cursor-pointer bg-cust-orange hover:ring-4 hover:ring-slate-500 rounded-sm transition-all duration-300">
             <svg 
