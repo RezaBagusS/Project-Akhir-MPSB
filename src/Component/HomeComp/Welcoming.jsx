@@ -14,7 +14,7 @@ const Welcoming = () => {
               Unlock your potential and unleash the best version of yourself!
             </h1>
             <p className="mb-8 md:text-lg text-md font-normal lg:text-xl text-gray-400">
-              Here at XXXX, we focus on human resource development related to web
+              Here at LearnByCode, we focus on human resource development related to web
               development technology.
             </p>
           </div>

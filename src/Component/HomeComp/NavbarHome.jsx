@@ -22,8 +22,8 @@ const NavbarHome = ({ moveTo }) => {
                 className="h-8 mr-3"
                 alt="Flowbite Logo"
               />
-              <span className="self-center hidden sm:block text-2xl font-semibold whitespace-nowrap text-white">
-                Nama App
+              <span className="self-center hidden sm:block lg:text-2xl text-xl font-semibold whitespace-nowrap text-white">
+                LearnByCode
               </span>
             </a>
             <div className="flex md:order-2">
@@ -47,7 +47,7 @@ const NavbarHome = ({ moveTo }) => {
                       setIsOpen4(false);
                       handleClick(moveTo.toWelcoming);
                     }}
-                    className={`block cursor-pointer py-2 pl-3 pr-4 rounded md:bg-transparent md:hover:text-blue-500 "text-blue-500"
+                    className={`block cursor-pointer py-2 pl-2 rounded md:bg-transparent md:hover:text-blue-500 "text-blue-500"
                     ${
                       isOpen1 ? "text-blue-500" : "text-white"
                     }`}
@@ -65,7 +65,7 @@ const NavbarHome = ({ moveTo }) => {
                       setIsOpen4(false);
                       handleClick(moveTo.toCourses);
                     }}
-                    className={`block cursor-pointer py-2 pl-3 pr-4 rounded md:hover:text-blue-500 md:hover:bg-transparent 
+                    className={`block cursor-pointer py-2 pl-2 rounded md:hover:text-blue-500 md:hover:bg-transparent 
                     ${
                       isOpen2 ? "text-blue-500" : "text-white"
                     }`}
@@ -82,7 +82,7 @@ const NavbarHome = ({ moveTo }) => {
                       setIsOpen4(false);
                       handleClick(moveTo.toAbout);
                     }}
-                    className={`block cursor-pointer py-2 pl-3 pr-4 rounded md:hover:text-blue-500  md:hover:bg-transparent
+                    className={`block cursor-pointer py-2 pl-2 rounded md:hover:text-blue-500  md:hover:bg-transparent
                     ${
                       isOpen3 ? "text-blue-500" : "text-white"
                     }`}
@@ -99,7 +99,7 @@ const NavbarHome = ({ moveTo }) => {
                       setIsOpen4(true);
                       handleClick(moveTo.toContact);
                     }}
-                    className={`block cursor-pointer py-2 pl-3 pr-4 rounded md:hover:text-blue-500 md:hover:bg-transparent
+                    className={`block cursor-pointer py-2 pl-2 rounded md:hover:text-blue-500 md:hover:bg-transparent
                     ${
                       isOpen4 ? "text-blue-500" : "text-white"
                     }`}
