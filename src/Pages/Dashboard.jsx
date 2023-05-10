@@ -1,10 +1,8 @@
-import SidebarLeft from "../Component/DashboardComp/SidebarLeft"
-
 const Dashboard = () => {
 
     return (
       <>
-        <SidebarLeft />
+        <h1>Dashboard</h1>
       </>
     )
 }
