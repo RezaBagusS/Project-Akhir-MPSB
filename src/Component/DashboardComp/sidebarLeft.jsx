@@ -1,4 +1,4 @@
-const sidebarLeft = () => {
+const SidebarLeft = () => {
     return (
         <div>
             <h1>SideBar</h1>
@@ -6,4 +6,4 @@ const sidebarLeft = () => {
     );
 }
 
-export default sidebarLeft;
+export default SidebarLeft;
