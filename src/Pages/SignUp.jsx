@@ -23,7 +23,7 @@ const SignUp = () => {
 
   const handleSign = (e) => {
     e.preventDefault();
-    SignupValidation() ? navigate("/login") : setSignError(true);
+    SignupValidation() ? navigate("/auth/login") : setSignError(true);
   };
 
   function isUsernameTaken(username) {
