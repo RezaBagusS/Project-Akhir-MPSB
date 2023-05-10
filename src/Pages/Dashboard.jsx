@@ -1,8 +1,12 @@
+import SidebarLeft from "../Component/DashboardComp/sidebarLeft";
+
 const Dashboard = () => {
 
     return (
       <>
-        <h1>Dashboard</h1>
+        <div className="cust-outer-container bg-cust-beige font-poppins">
+          <SidebarLeft />
+        </div>
       </>
     )
 }
