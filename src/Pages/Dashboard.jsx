@@ -4,7 +4,7 @@ const Dashboard = () => {
 
     return (
       <>
-        <div className="cust-outer-container bg-cust-beige font-poppins">
+        <div className="cust-outer-container overflow-hidden bg-cust-beige font-poppins">
           <SidebarLeft />
         </div>
       </>
