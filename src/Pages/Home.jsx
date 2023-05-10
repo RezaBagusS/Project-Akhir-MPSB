@@ -4,28 +4,37 @@ import Welcoming from "../Component/HomeComp/Welcoming";
 import About from "../Component/HomeComp/About";
 import Contact from "../Component/HomeComp/Contact";
 import FooterHome from "../Component/HomeComp/FooterHome";
+import { useRef } from "react";
 
 
 const Home = () => {
+
+  const toWelcoming = useRef(null);
+  const toCourses = useRef(null);
+  const toAbout = useRef(null);
+  const toContact = useRef(null);
+
   return (
     <>
-      <NavbarHome />
-      <div className="cust-outer-container bg-white w-full">
+      <NavbarHome moveTo={{toWelcoming, toCourses, toAbout, toContact}} />
+      <div 
+        ref={toWelcoming}
+        className="cust-outer-container bg-white w-full">
         <div className="cust-container font-medium text-cust-blue">
             <Welcoming />
         </div>
       </div>
-      <div className="cust-outer-container bg-cust-beige w-full">
+      <div ref={toCourses} className="cust-outer-container bg-cust-beige w-full">
         <div className="cust-container font-medium text-cust-blue">
             <Courses />
         </div>
       </div>
-      <div className="cust-outer-container bg-white w-full">
+      <div ref={toAbout} className="cust-outer-container bg-white w-full">
         <div className="cust-container font-medium text-cust-blue">
             <About />
         </div>
       </div>
-      <div className="cust-outer-container bg-white w-full">
+      <div ref={toContact} className="cust-outer-container bg-white w-full">
         <div className="cust-container font-medium text-cust-blue">
             <Contact />
         </div>
