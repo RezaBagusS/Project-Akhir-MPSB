@@ -1,6 +1,7 @@
 const SecDashboard = () => {
   return (
     <>
+      {/* Header */}
       <div className="relative flex items-center h-[15vh] px-5 bg-cust-orange">
         <h3 className="font-bold text-3xl">Dashboard</h3>
         <div className="absolute flex items-center right-0 mx-2">
@@ -23,7 +24,16 @@ const SecDashboard = () => {
           </div>
         </div>
       </div>
-      <div></div>
+
+      {/* Content */}
+      <div className="flex flex-wrap items-center justify-center text-center h-[15vh] p-2 bg-lime-400">
+        <div className="bg-cyan-600">
+          <h3 className="w-full font-bold text-3xl">Hi, Anonymous 👋</h3>
+          <p className="w-full font-medium text-lg py-2">
+            Bagaimana kabarmu? senang bisa berjumpa kembali !!
+          </p>
+        </div>
+      </div>
     </>
   );
 };

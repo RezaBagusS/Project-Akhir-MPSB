@@ -1,5 +1,4 @@
 import SidebarLeft from "../Component/DashboardComp/sidebarLeft";
-import FooterHome from "../Component/HomeComp/footerHome";
 import SecDashboard from "../Modules/Sec_Dashboard";
 
 const Dashboard = () => {
