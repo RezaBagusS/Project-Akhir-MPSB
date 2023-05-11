@@ -3,8 +3,8 @@ const FooterHome = () => {
         <footer
             className="pb-5 text-center"
         >
-            <hr className="mb-6 border-gray-200 sm:mx-auto dark:border-gray-700" />
-            <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" className="hover:underline">LearnByCode™</a>. All Rights Reserved.</span>
+            <hr className="mb-6 sm:mx-auto border-gray-700" />
+            <span className="block text-sm sm:text-center text-gray-400">© 2023 <a href="/" className="hover:underline">LearnByCode™</a>. All Rights Reserved.</span>
         </footer>
     );
 }
