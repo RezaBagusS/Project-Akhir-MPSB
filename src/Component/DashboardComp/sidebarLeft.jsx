@@ -13,7 +13,7 @@ const SidebarLeft = () => {
         }
     transition-all duration-200`}
     >
-      <div className="relative flex justify-center items-center w-full h-[15vh] py-2 ps-6 pe-3">
+      <div className="relative flex justify-center items-center w-full h-[15vh] py-2 ps-6 pe-5 me-8">
         <div
           className={`w-full font-semibold text-xl transition-all duration-300
           ${isClose && "hidden"}
@@ -37,8 +37,8 @@ const SidebarLeft = () => {
           </svg>
         </div>
         <div
-          className={`absolute flex justify-center items-center w-2/12 h-10 right-0 pr-2
-            ${isClose && "relative w-fit translate-x-14 sm:translate-x-0"}
+          className={`absolute translate-x-0 flex justify-center items-center w-2/12 h-10 right-0 pr-2
+            ${isClose && "sm:relative w-fit translate-x-8 sm:translate-x-0"}
         transition-all duration-400`}
         >
           <div className="flex justify-center items-center w-6 h-6 cursor-pointer bg-cust-orange hover:ring-4 hover:ring-slate-500 rounded-sm transition-all duration-300">
