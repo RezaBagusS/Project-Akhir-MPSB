@@ -1,6 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const SideBarModules = ({isClose}) => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const styleIcon = `${isClose && 'mr-0'} w-6 h-6 fill-cust-beige`;
 
@@ -63,14 +66,16 @@ const SideBarModules = ({isClose}) => {
     },
   ];
 
-  const navigate = useNavigate();
-
   return dataModules.map((module) => {
     return (
       <section 
-        onClick={() => navigate(module.link)}
+        onClick={() => {
+          navigate(module.link)
+        }}
         className="w-full h-18 px-3 py-2" key={module.id}>
-        <div className="relative hover:bg-slate-500 bg-slate-600 cursor-pointer px-3 py-3 rounded-lg transition-all duration-300">
+        <div className={`relative hover:bg-slate-500 cursor-pointer px-3 py-3 rounded-lg transition-all duration-300
+          ${location.pathname === module.link ? 'bg-slate-500' : 'bg-slate-600'}
+          `}>
           <div className={`flex items-center ${isClose ? 'justify-center' : 'justify-start'}`}>
             {module.icon}
             <p className={`${isClose ? 'absolute -right-40 hidden' : 'flex -right-0 ml-3 '} transition-all duration-700`}>{module.name}</p>
