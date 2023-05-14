@@ -1,10 +1,16 @@
 import { useState } from "react";
+import CoursesCard from "../Component/HomeComp/CourseCard";
 
 const courses = () => {
   const [isDown, setIsDown] = useState(false);
+  const [openOption, setOpenOption] = useState(false);
 
   const handleClick = () => {
     setIsDown((prev) => !prev);
+  };
+
+  const handleOpenOption = () => {
+    setOpenOption((prev) => !prev);
   };
 
   return (
@@ -46,6 +52,61 @@ const courses = () => {
             </svg>
           </div>
         </div>
+      </div>
+
+      <div className="mx-2 sm:mx-5">
+        <div className="font-bold text-3xl text-cust-blue py-5">
+          <h3>Klaim kelasmu sekarang !!</h3>
+        </div>
+        <div className="flex flex-wrap items-center py-2 group">
+          <div className="relative flex w-full drop-shadow-md">
+            <input
+              onClick={handleOpenOption}
+              type="text"
+              placeholder="Pilih kelas yang tersedia :"
+              className="w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent"
+            />
+            <div 
+              onClick={handleOpenOption}
+              className={`absolute hover:cursor-pointer z-10 p-2 rounded-sm right-5 top-2 hover:bg-slate-200
+                ${openOption && "bg-slate-200"}
+              `}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className={`h-3 hover:h-3.5 group-focus-within:h-3.5 transition-all duration-200
+                    ${openOption && "-rotate-180"}
+                  `}
+              >
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            </div>
+            <div
+              className={`absolute z-auto top-12 cursor-pointer font-medium text-slate-800 bg-white w-full rounded-sm overflow-hidden
+                ${
+                  openOption
+                    ? "max-h-80 drop-shadow-md"
+                    : "max-h-0"
+                }
+                transition-all duration-300
+              `}
+            >
+              <option value="HTML" className="w-full p-2 hover:bg-sky-200">
+                HTML
+              </option>
+              <option value="CSS" className="w-full p-2 hover:bg-sky-200">
+                CSS
+              </option>
+              <option value="Javascript" className="w-full p-2 hover:bg-sky-200">
+                Javascript
+              </option>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-x-5 justify-evenly w-10/12 sm:w-9/12 mx-auto py-5">
+        
       </div>
     </>
   );
