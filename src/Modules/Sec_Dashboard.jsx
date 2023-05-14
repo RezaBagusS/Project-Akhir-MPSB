@@ -3,7 +3,6 @@ import DashboardCardNoIMG from "../Component/DashboardComp/DashboardCardNoIMG";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
- 
 const SecDashboard = () => {
   const [isDown, setIsDown] = useState(false);
 
@@ -18,11 +17,11 @@ const SecDashboard = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            className="w-6 h-6 fill-cust-blue mr-2 hidden sm:flex sm:mr-3"
+            className="w-6 h-6 fill-black mr-2"
           >
             <path d="M432 64H208c-8.8 0-16 7.2-16 16V96H128V80c0-44.2 35.8-80 80-80H432c44.2 0 80 35.8 80 80V304c0 44.2-35.8 80-80 80H416V320h16c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16zM0 192c0-35.3 28.7-64 64-64H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V192zm64 32c0 17.7 14.3 32 32 32H288c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32 14.3-32 32z" />
           </svg>
-          Dashboard
+          Courses
         </h3>
         <div
           onClick={handleClick}
@@ -81,7 +80,16 @@ const SecDashboard = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="mt-5"
                 initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0, transition: {type:"spring" , duration: 1.5, damping:10, stiffness:80 } }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    type: "spring",
+                    duration: 1.5,
+                    damping: 10,
+                    stiffness: 80,
+                  },
+                }}
               >
                 <rect width="679" height="166" fill="#19397F" />
                 <path
