@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CoursesCard from "../Component/HomeComp/CourseCard";
+import CoursesCardModule from "../Component/ModulesComp/CoursesCardModule";
 
 const courses = () => {
   const [isDown, setIsDown] = useState(false);
@@ -14,7 +14,7 @@ const courses = () => {
   };
 
   return (
-    <>
+    <div className="h-full">
       <div className="relative flex items-center h-[15vh] mx-2 sm:mx-5 sm:mt-0">
         <h3 className="flex font-bold text-xl ml-6 sm:ml-0">
           <svg
@@ -66,15 +66,16 @@ const courses = () => {
               placeholder="Pilih kelas yang tersedia :"
               className="w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent"
             />
-            <div 
+            <div
               onClick={handleOpenOption}
-              className={`absolute hover:cursor-pointer z-10 p-2 rounded-sm right-5 top-2 hover:bg-slate-200
+              className={`absolute hover:cursor-pointer z-10 p-2 rounded-full right-5 top-2 hover:bg-slate-200
                 ${openOption && "bg-slate-200"}
-              `}>
+              `}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
-                className={`h-3 hover:h-3.5 group-focus-within:h-3.5 transition-all duration-200
+                className={`h-3 transition-all duration-200
                     ${openOption && "-rotate-180"}
                   `}
               >
@@ -82,12 +83,8 @@ const courses = () => {
               </svg>
             </div>
             <div
-              className={`absolute z-auto top-12 cursor-pointer font-medium text-slate-800 bg-white w-full rounded-sm overflow-hidden
-                ${
-                  openOption
-                    ? "max-h-80 drop-shadow-md"
-                    : "max-h-0"
-                }
+              className={`absolute z-50 top-12 cursor-pointer font-medium text-slate-800 bg-white w-full rounded-sm overflow-hidden
+                ${openOption ? "max-h-80 drop-shadow-md" : "max-h-0"}
                 transition-all duration-300
               `}
             >
@@ -97,7 +94,10 @@ const courses = () => {
               <option value="CSS" className="w-full p-2 hover:bg-sky-200">
                 CSS
               </option>
-              <option value="Javascript" className="w-full p-2 hover:bg-sky-200">
+              <option
+                value="Javascript"
+                className="w-full p-2 hover:bg-sky-200"
+              >
                 Javascript
               </option>
             </div>
@@ -105,10 +105,15 @@ const courses = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-x-5 justify-evenly w-10/12 sm:w-9/12 mx-auto py-5">
-        
+      <div className="mx-2 sm:mx-5 h-fit">
+        <div className="py-2 mb-2 w-full font-medium text-cust-blue">
+          <h4>Terdapat XX Kelas yang tersedia</h4>
+        </div>
+        <div className="flex flex-wrap gap-5 justify-center h-fit pb-10">
+          <CoursesCardModule />
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
