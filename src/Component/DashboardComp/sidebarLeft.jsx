@@ -4,6 +4,14 @@ import SideBarModules from "./Part/SideBarModules";
 const SidebarLeft = () => {
   const [isClose, setIsClose] = useState(true);
 
+  const getClicked = () => {
+    if (!isClose) {
+      setIsClose(
+        prev => !prev
+      );
+    }
+  }
+
   return (
     <div
       className={`bg-slate-600 absolute z-10 sm:sticky h-screen w-full sm:w-5/12 md:w-4/12 lg:w-3/12 text-cust-beige
@@ -58,7 +66,7 @@ const SidebarLeft = () => {
         </div>
       </div>
       <div className="h-[75vh] w-full py-2 font-medium text-md">
-        <SideBarModules isClose={isClose} />
+        <SideBarModules isClose={isClose} sendData={getClicked} />
       </div>
     </div>
   );
