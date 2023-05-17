@@ -4,8 +4,8 @@ const CoursesCardModule = () => {
   return dataCoursesModule.map((item) => {
     return (
       <div className="xl:w-[32%] lg:w-[40%] md:w-[45%] h-fit sm:h-[490px] bg-white p-2 rounded-md" key={item.id}>
-        <div className="w-full h-[40%] sm:h-[50%] bg-slate-300 py-4 rounded-t-md">
-          {item.svg}
+        <div className="flex justify-center items-center w-full h-[40%] sm:h-[50%] bg-slate-300 py-4 rounded-t-md">
+          <div className="w-4/5 h-4/5">{item.svg}</div>
         </div>
         <main className="w-full h-[40%] sm:h-[30%] text-cust-blue px-3">
           <h2 className="text-xl font-semibold py-3">

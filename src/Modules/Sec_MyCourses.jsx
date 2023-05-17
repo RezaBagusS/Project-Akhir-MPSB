@@ -58,11 +58,12 @@ const MyCourses = () => {
 
         <FilterMyCourses />
 
+        <div className="my-2"></div>
+
         <MyCoursesCard />
-      </div>
-
-      <div className="p-2 h-[50vh]">
-
+        <MyCoursesCard />
+        <MyCoursesCard />
+        <MyCoursesCard />
       </div>
     </div>
   );

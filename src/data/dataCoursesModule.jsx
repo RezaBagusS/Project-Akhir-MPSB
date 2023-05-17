@@ -6,7 +6,7 @@ const dataCoursesModule = [
     description:
       "HTML adalah bahasa markup yang digunakan untuk membuat struktur halaman web dengan mengelola tampilan dan konten.",
     svg: (
-      <svg viewBox="0 0 452 520" className="w-28 sm:w-44 sm:h-44 mx-auto">
+      <svg viewBox="0 0 452 520" className="w-full h-full mx-auto">
         <title>HTML5 Logo Badge</title>
         <path fill="RGB(227,79,38)" d="M 41,460 L 0,0 451,0 410,460 225,512" />
         <path fill="RGB(239,101,42)" d="M 226,472 L 375,431 410,37 226,37" />
@@ -33,7 +33,7 @@ const dataCoursesModule = [
     description:
       "CSS adalah styling language yang digunakan untuk menentukan tampilan halaman web yang dibuat dengan HTML.",
     svg: (
-      <svg viewBox="0 0 452 520" className="w-28 sm:w-44 sm:h-44 mx-auto">
+      <svg viewBox="0 0 452 520" className="w-full h-full mx-auto">
         <title>CSS3 Logo Badge</title>
         <path fill="RGB(12,115,184)" d="M 41,460 L 0,0 451,0 410,460 225,512" />
         <path fill="RGB(48,169,220)" d="M 226,472 L 375,431 410,37 226,37" />
@@ -60,7 +60,7 @@ const dataCoursesModule = [
     description:
       "JavaScript adalah bahasa pemrograman server dan client yang digunakan untuk membuat halaman web yang interaktif dan dinamis.",
     svg: (
-      <svg viewBox="0 0 452 520" className="w-28 sm:w-44 sm:h-44 mx-auto">
+      <svg viewBox="0 0 452 520" className="w-full h-full mx-auto">
         <title>Javascript Logo Badge</title>
         <path fill="RGB(229,162,40)" d="M 0,0 L 451,0 410,460 225,512 41,460" />
         <path fill="RGB(241,191,38)" d="M 226,472 L375,431 410,37 226,37" />
