@@ -20,10 +20,10 @@ const Welcoming = () => {
           </div>
           <div className="flex flex-col justify-center md:justify-start space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
             <a
-              href="/dashboard"
+              href="/auth/login"
               className="group inline-flex font-bold justify-center items-center py-3 px-5 text-base text-center text-white rounded-lg bg-cust-blue hover:bg-blue-800 focus:ring-4 focus:ring-blue-900"
             >
-              Get started
+              Login
               <svg
                 aria-hidden="true"
                 className="ml-2 -mr-1 w-5 h-5 group-hover:ml-5 transition-all duration-300"
@@ -35,10 +35,10 @@ const Welcoming = () => {
               </svg>
             </a>
             <a
-              href="/auth/login"
+              href="/auth/signup"
               className="mx-auto w-1/3 hover:underline inline-flex justify-center items-center py-3 px-5 text-base text-center font-semibold rounded-lg border-gray-700 hover:text-cust-purple transition-all duration-200"
             >
-              Login
+              Sign up
             </a>
           </div>
         </div>

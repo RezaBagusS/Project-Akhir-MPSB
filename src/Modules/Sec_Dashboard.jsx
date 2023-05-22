@@ -1,55 +1,12 @@
 import DashboardCardIMG from "../Component/DashboardComp/DashboardCardIMG";
 import DashboardCardNoIMG from "../Component/DashboardComp/DashboardCardNoIMG";
-import { useState } from "react";
 import { motion } from "framer-motion";
+import HeaderDashboard from "../Component/DashboardComp/HeaderDashboard";
 
 const SecDashboard = () => {
-  const [isDown, setIsDown] = useState(false);
-
-  const handleClick = () => {
-    setIsDown((prev) => !prev);
-  };
-
   return (
     <>
-      <div className="relative flex items-center h-[15vh] mx-2 sm:mx-5 sm:mt-0">
-        <h3 className="flex font-bold text-xl ml-6 sm:ml-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            className="w-6 h-6 fill-black mr-2"
-          >
-            <path d="M432 64H208c-8.8 0-16 7.2-16 16V96H128V80c0-44.2 35.8-80 80-80H432c44.2 0 80 35.8 80 80V304c0 44.2-35.8 80-80 80H416V320h16c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16zM0 192c0-35.3 28.7-64 64-64H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V192zm64 32c0 17.7 14.3 32 32 32H288c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32 14.3-32 32z" />
-          </svg>
-          Dashboard
-        </h3>
-        <div
-          onClick={handleClick}
-          className={`absolute flex items-center right-0 ml-2 group hover:bg-slate-300 rounded-lg p-2 cursor-pointer transition-all duration-300
-          ${isDown && "bg-slate-300 ring-2 ring-slate-400"}
-        `}
-        >
-          <p className="text-md px-2 hidden sm:flex">Anonymous</p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-            className="h-5"
-          >
-            <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-          </svg>
-          <div className="py-2 ps-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className={`h-3 ${
-                isDown && "-rotate-180"
-              } transition-all duration-500`}
-            >
-              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-            </svg>
-          </div>
-        </div>
-      </div>
+      <HeaderDashboard name={"Dashboard"} />
 
       {/* welcome */}
       <div className="flex flex-wrap items-center justify-center text-center py-2 mb-12 bg-cust-blue">
