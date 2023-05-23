@@ -47,7 +47,7 @@ export const dataHeaderDashboard = [
   },
   {
     Id: 4,
-    title: "Challange",
+    title: "Challanges",
     link: "/dashboard/challanges",
     icon: (
       <svg

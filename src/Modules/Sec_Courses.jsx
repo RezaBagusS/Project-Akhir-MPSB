@@ -16,8 +16,8 @@ const courses = () => {
       <HeaderDashboard name={"Courses"} />
 
       <div className="mx-2 sm:mx-5">
-        <div className="font-bold text-3xl text-cust-blue py-5">
-          <h3>Klaim kelasmu sekarang !!</h3>
+        <div className="font-bold text-2xl sm:text-3xl text-cust-blue py-5">
+          <h3>Klaim kelasmu sekarang!!</h3>
         </div>
         <div className="flex flex-wrap items-center py-2 group">
           <div className="relative flex w-full drop-shadow-md">
