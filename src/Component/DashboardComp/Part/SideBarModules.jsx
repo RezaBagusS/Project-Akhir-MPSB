@@ -1,11 +1,10 @@
 import { useNavigate, useLocation } from "react-router-dom";
 
-const SideBarModules = ({isClose, sendData}) => {
-
+const SideBarModules = ({ isClose, sendData }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const styleIcon = `${isClose && 'mr-0'} w-6 h-6 fill-cust-beige`;
+  const styleIcon = `${isClose && "mr-0"} w-6 h-6 fill-cust-beige`;
 
   const dataModules = [
     {
@@ -68,18 +67,29 @@ const SideBarModules = ({isClose, sendData}) => {
 
   return dataModules.map((module) => {
     return (
-      <section 
-        onClick={() => {
-          navigate(module.link)
-          sendData();
-        }}
-        className="w-full h-18 px-3 py-2" key={module.id}>
-        <div className={`relative hover:bg-slate-500 cursor-pointer px-3 py-3 rounded-lg transition-all duration-300
-          ${location.pathname === module.link ? 'bg-slate-500' : 'bg-slate-600'}
-          `}>
-          <div className={`flex items-center ${isClose ? 'justify-center' : 'justify-start'}`}>
+      <section className="w-full h-18 px-3 py-2" key={module.id}>
+        <div
+          onClick={() => {
+            navigate(module.link);
+            sendData();
+          }}
+          className={`relative hover:bg-slate-500 cursor-pointer px-3 py-3 rounded-lg transition-all duration-300
+          ${location.pathname === module.link ? "bg-slate-500" : "bg-slate-600"}
+          `}
+        >
+          <div
+            className={`flex items-center ${
+              isClose ? "justify-center" : "justify-start"
+            }`}
+          >
             {module.icon}
-            <p className={`${isClose ? 'absolute -right-40 hidden' : 'flex -right-0 ml-3 '} transition-all duration-700`}>{module.name}</p>
+            <p
+              className={`${
+                isClose ? "absolute -right-40 hidden" : "flex -right-0 ml-3 "
+              } transition-all duration-700`}
+            >
+              {module.name}
+            </p>
           </div>
         </div>
       </section>

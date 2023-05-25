@@ -7,7 +7,12 @@ const NavbarCourse = ({ course }) => {
     return (
     <div className="h-[100px] bg-cust-blue grid items-center sm:mt-0 drop-shadow-md">
       <div className="flex flex-col sm:flex-row sm:justify-between cust-container bg-cust-blue rounded-md mt-5 p-3">
-        <div>
+        <div
+          onClick={() => {
+            window.open("/dashboard", "_self");
+          }}
+          className="cursor-pointer"
+          >
           <svg
             className="h-12 sm:h-16 mx-auto sm:mx-0"
             viewBox="0 0 679 166"
@@ -25,7 +30,13 @@ const NavbarCourse = ({ course }) => {
             />
           </svg>
         </div>
-        <div className="px-4 sm:px-5 mx-auto sm:mx-0 font-bold text-lg sm:text-2xl flex items-center text-cust-beige">
+        <div 
+          onClick={
+            () => {
+              window.open("/dashboard/mycourses", "_self");
+            }
+          }
+          className="px-4 sm:px-5 mx-auto sm:mx-0 cursor-pointer font-bold text-lg sm:text-2xl flex items-center text-cust-beige">
           {
             getCourse.title
           }
