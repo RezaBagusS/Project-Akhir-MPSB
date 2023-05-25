@@ -5,6 +5,32 @@ const dataCoursesModule = [
     title: "HTML Full Course",
     description:
       "HTML adalah bahasa markup yang digunakan untuk membuat struktur halaman web dengan mengelola tampilan dan konten.",
+    descriptionDetail:
+      "HTML (Hypertext Markup Language) adalah bahasa pemrograman yang digunakan untuk membuat dan mengatur struktur halaman web. Sebagai bahasa dasar dalam pengembangan web, HTML memungkinkan pengguna untuk menentukan bagaimana elemen-elemen seperti teks, gambar, tautan, tabel, dan formulir akan ditampilkan dan berinteraksi di dalam browser. Dengan menggunakan tag-tag HTML yang disusun secara hierarkis, pengembang web dapat menciptakan halaman web yang menarik, responsif, dan mudah dinavigasi. Kemampuan HTML yang fleksibel dan kompatibilitasnya dengan berbagai browser membuatnya menjadi dasar yang tak tergantikan dalam membangun sebuah website.",
+    tujuanPembelajaran: [
+      "memahami profesi yang ada dalam pengembangan web.",
+      "memahami alur pengembangan aplikasi web.",
+      "memahami dasar-dasar HTML.",
+      "memahami penggunaan daftar urutan HTML.",
+      "memahami penggunaan hyperlink HTML.",
+      "memahami penggunaan tabel HTML.",
+      "mengetahui jenis input dan formulir HTML.",
+    ],
+    persiapanKelas: [
+      "Gunakan komputer atau laptop dengan koneksi internet yang stabil.",
+      "Siapkan text editor ( disarankan menggunakan Visual Studio Code ).",
+      "Install browser ( disarankan menggunakan Chrome ).",
+      "Jika kamu belum pernah mempelajari programming sebelumnya, tidak masalah.",
+    ],
+    materi: [
+      "Pengenalan profesi pengembangan aplikasi web.",
+      "Alur pengembangan aplikasi web.",
+      "Pengenalan HTML.",
+      "Jenis list dalam HTML.",
+      "Penggunaan hyperlink dalam HTML.",
+      "Penggunaan tabel dalam HTML.",
+      "Jenis input dan formulir dalam HTML.",
+    ],
     svg: (
       <svg viewBox="0 0 452 520" className="w-full h-full mx-auto">
         <title>HTML5 Logo Badge</title>
@@ -33,6 +59,32 @@ const dataCoursesModule = [
     title: "CSS Full Course",
     description:
       "CSS adalah styling language yang digunakan untuk menentukan tampilan halaman web yang dibuat dengan HTML.",
+    descriptionDetail:
+      "HTML (Hypertext Markup Language) adalah bahasa pemrograman yang digunakan untuk membuat dan mengatur struktur halaman web. Sebagai bahasa dasar dalam pengembangan web, HTML memungkinkan pengguna untuk menentukan bagaimana elemen-elemen seperti teks, gambar, tautan, tabel, dan formulir akan ditampilkan dan berinteraksi di dalam browser. Dengan menggunakan tag-tag HTML yang disusun secara hierarkis, pengembang web dapat menciptakan halaman web yang menarik, responsif, dan mudah dinavigasi. Kemampuan HTML yang fleksibel dan kompatibilitasnya dengan berbagai browser membuatnya menjadi dasar yang tak tergantikan dalam membangun sebuah website.",
+    tujuanPembelajaran: [
+      "memahami profesi yang ada dalam pengembangan web.",
+      "memahami alur pengembangan aplikasi web.",
+      "memahami dasar-dasar HTML.",
+      "memahami penggunaan daftar urutan HTML.",
+      "memahami penggunaan hyperlink HTML.",
+      "memahami penggunaan tabel HTML.",
+      "mengetahui jenis input dan formulir HTML.",
+    ],
+    persiapanKelas: [
+      "Gunakan komputer atau laptop dengan koneksi internet yang stabil.",
+      "Siapkan text editor ( disarankan menggunakan Visual Studio Code ).",
+      "Install browser ( disarankan menggunakan Chrome ).",
+      "Jika kamu belum pernah mempelajari programming sebelumnya, tidak masalah.",
+    ],
+    materi: [
+      "Pengenalan profesi pengembangan aplikasi web.",
+      "Alur pengembangan aplikasi web.",
+      "Pengenalan HTML.",
+      "Jenis list dalam HTML.",
+      "Penggunaan hyperlink dalam HTML.",
+      "Penggunaan tabel dalam HTML.",
+      "Jenis input dan formulir dalam HTML.",
+    ],
     svg: (
       <svg viewBox="0 0 452 520" className="w-full h-full mx-auto">
         <title>CSS3 Logo Badge</title>
@@ -57,10 +109,36 @@ const dataCoursesModule = [
 
   {
     id: 3,
-    tag: "JS",
+    tag: "Javascript",
     title: "JS Fundamental",
     description:
       "JavaScript adalah bahasa pemrograman server dan client yang digunakan untuk membuat halaman web yang interaktif dan dinamis.",
+    descriptionDetail:
+      "HTML (Hypertext Markup Language) adalah bahasa pemrograman yang digunakan untuk membuat dan mengatur struktur halaman web. Sebagai bahasa dasar dalam pengembangan web, HTML memungkinkan pengguna untuk menentukan bagaimana elemen-elemen seperti teks, gambar, tautan, tabel, dan formulir akan ditampilkan dan berinteraksi di dalam browser. Dengan menggunakan tag-tag HTML yang disusun secara hierarkis, pengembang web dapat menciptakan halaman web yang menarik, responsif, dan mudah dinavigasi. Kemampuan HTML yang fleksibel dan kompatibilitasnya dengan berbagai browser membuatnya menjadi dasar yang tak tergantikan dalam membangun sebuah website.",
+    tujuanPembelajaran: [
+      "memahami profesi yang ada dalam pengembangan web.",
+      "memahami alur pengembangan aplikasi web.",
+      "memahami dasar-dasar HTML.",
+      "memahami penggunaan daftar urutan HTML.",
+      "memahami penggunaan hyperlink HTML.",
+      "memahami penggunaan tabel HTML.",
+      "mengetahui jenis input dan formulir HTML.",
+    ],
+    persiapanKelas: [
+      "Gunakan komputer atau laptop dengan koneksi internet yang stabil.",
+      "Siapkan text editor ( disarankan menggunakan Visual Studio Code ).",
+      "Install browser ( disarankan menggunakan Chrome ).",
+      "Jika kamu belum pernah mempelajari programming sebelumnya, tidak masalah.",
+    ],
+    materi: [
+      "Pengenalan profesi pengembangan aplikasi web.",
+      "Alur pengembangan aplikasi web.",
+      "Pengenalan HTML.",
+      "Jenis list dalam HTML.",
+      "Penggunaan hyperlink dalam HTML.",
+      "Penggunaan tabel dalam HTML.",
+      "Jenis input dan formulir dalam HTML.",
+    ],
     svg: (
       <svg viewBox="0 0 452 520" className="w-full h-full mx-auto">
         <title>Javascript Logo Badge</title>
