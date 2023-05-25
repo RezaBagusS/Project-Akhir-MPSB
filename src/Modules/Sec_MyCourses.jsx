@@ -18,8 +18,6 @@ const MyCourses = () => {
           <h4>Berikut kelas yang telah saya klaim :</h4>
         </div>
           <MyCoursesCard />
-          <MyCoursesCard />
-          <MyCoursesCard />
       </div>
     </div>
   );

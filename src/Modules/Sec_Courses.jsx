@@ -1,6 +1,7 @@
 
 import CoursesCardModule from "../Component/ModulesComp/CoursesCardModule";
 import HeaderDashboard from "../Component/DashboardComp/HeaderDashboard";
+import dataCoursesModule from "../data/dataCoursesModule";
 import { useState } from "react";
 
 const courses = () => {
@@ -68,7 +69,7 @@ const courses = () => {
 
       <div className="mx-2 sm:mx-5 h-fit">
         <div className="py-2 mb-2 w-full font-medium text-cust-blue">
-          <h4>Terdapat XX Kelas yang tersedia</h4>
+          <h4>Terdapat {dataCoursesModule.length} Kelas yang tersedia</h4>
         </div>
         <div className="flex flex-wrap gap-5 justify-center h-fit pb-10">
           <CoursesCardModule />

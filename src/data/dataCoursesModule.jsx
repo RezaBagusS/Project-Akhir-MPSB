@@ -24,6 +24,7 @@ const dataCoursesModule = [
     statusDiskon: true,
     totalDiskon: 100,
     harga: "Rp. 200.000",
+    linkCourses: `/dashboard/mycourses/html`,
   },
 
   {
@@ -47,10 +48,11 @@ const dataCoursesModule = [
         />
       </svg>
     ),
-    status: "BELI",
-    statusDiskon: false,
-    totalDiskon: 0,
+    status: "GRATIS",
+    statusDiskon: true,
+    totalDiskon: 100,
     harga: "Rp. 200.000",
+    linkCourses: `/dashboard/mycourses/css`,
   },
 
   {
@@ -78,6 +80,7 @@ const dataCoursesModule = [
     statusDiskon: false,
     totalDiskon: 0,
     harga: "Rp. 500.000",
+    linkCourses: `/dashboard/mycourses/javascript`,
   },
 ];
 

@@ -9,7 +9,7 @@ const Contact = () => {
           <p className="text-center lg:text-start opacity-50 italic mb-5">
             Fill out the form below to get in touch with us or simply send us an email.
           </p>
-          <div className="grid grid-cols-2 gap-x-5 py-5">
+          <div className="grid grid-cols-2 gap-x-5 py-5 overflow-hidden">
             <div className="flex flex-wrap justify-start relative group overflow-x-clip">
               <p className="font-semibold absolute -top-4 -left-20 pointer-events-none group-focus-within:left-2 group-focus-within:transition-all group-focus-within:duration-500">
                 Name
