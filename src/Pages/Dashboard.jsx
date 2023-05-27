@@ -1,18 +1,17 @@
 import { useLocation } from "react-router-dom";
 import SidebarLeft from "../Component/DashboardComp/sidebarLeft";
 import SecDashboard from "../Modules/Sec_Dashboard";
-import SecCourses from '../Modules/Sec_Courses';
-import SecMyCourses from '../Modules/Sec_MyCourses';
-import SecChallange from '../Modules/Sec_Challange';
+import SecCourses from "../Modules/Sec_Courses";
+import SecMyCourses from "../Modules/Sec_MyCourses";
+import SecChallange from "../Modules/Sec_Challange";
 import { useEffect } from "react";
 
 const Dashboard = () => {
-
   let location = useLocation();
 
   useEffect(() => {
     console.log(location.pathname);
-  },[location.pathname]);
+  }, [location.pathname]);
 
   const handlePath = () => {
     if (location.pathname === "/dashboard") {

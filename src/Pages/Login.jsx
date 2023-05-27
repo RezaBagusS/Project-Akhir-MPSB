@@ -1,48 +1,44 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoginputComp from "../Component/LoginputComp.jsx";
 import { dataSVG } from "../data/dataSVG.jsx";
-import supabase from "../data/dataUser.jsx";
+import { LoginValidation } from "../Helpers/AuthHelpers.jsx";
+import ModalLoading from "../Component/ModalLoading.jsx";
 
 const Login = () => {
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState(false);
-  const [dataDB, setDataDB] = useState([]);
-  // const [isLoginSuccess, setIsLoginSuccess] = useState(false);
-  let isLoginSuccess = false;
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fecthData();
-  }, []);
-
-  async function fecthData() {
-    const { data } = await supabase.from("dataUser").select();
-    // console.log(data);
-    setDataDB(data);
-  }
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    LoginValidation();
-    isLoginSuccess ? navigate("/dashboard") : setLoginError(true);
-    isLoginSuccess = false;
-  };
-
-  const LoginValidation = () => {
     let username = document.getElementById("Username").value;
     let password = document.getElementById("Password").value;
+    processLogin(username, password);
+  };
 
-    dataDB.forEach((user) => {
-      if (username === user.username && password === user.password) {
-        localStorage.setItem("username", username);
-        isLoginSuccess = !isLoginSuccess;
+  const processLogin = async (username, password) => {
+    setLoading(true);
+
+    try {
+      const result = await LoginValidation(username, password);
+      if (result) {
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
+      } else {
+        setLoginError(true);
       }
-    });
+    } catch (error) {
+      setLoginError(true);
+      console.log(error);
+    }
   };
 
   return (
     <div className="bg-hero-pattern fill-cust-blue bg-cust-beige bg-cover h-[100vh] w-[100vw]">
-      <div className="cust-outer-container font-poppins">
+      <div className="relative cust-outer-container font-poppins">
+        {loading && <ModalLoading />}
         <div className="cust-container text-[#f6f6f6] w-full pt-32">
           <div className="bg-cust-black p-5 rounded-xl flex justify-center align-middle flex-wrap w-[80%] sm:w-[60%] mx-auto">
             <div className="w-full flex justify-center p-5">
@@ -52,7 +48,7 @@ const Login = () => {
               <form id="form" action="#" onSubmit={handleLogin}>
                 {loginError && (
                   <div className="bg-red-600 p-2 rounded-md w-full text-center">
-                    <h3>Incorect Username or Password</h3>
+                    <h3>Incorrect Username or Password</h3>
                   </div>
                 )}
                 <LoginputComp label="Username" svg={dataSVG.userSVG} />

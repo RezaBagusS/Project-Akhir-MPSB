@@ -72,6 +72,7 @@ const DetailCourseCard = ({ course }) => {
               menjadi pengembang web yang handal!
             </p>
             <a 
+              href={`/dashboard/mycourses/${course}/material`}
               className="font-bold text-lg cursor-pointer bg-cust-blue text-cust-beige hover:bg-sky-600 hover:scale-95 py-2 px-5 rounded-md hover:drop-shadow-md transition-all duration-300">
               Lets Start
             </a>

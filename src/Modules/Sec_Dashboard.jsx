@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import HeaderDashboard from "../Component/DashboardComp/HeaderDashboard";
 
 const SecDashboard = () => {
+
   return (
     <>
       <HeaderDashboard name={"Dashboard"} />
@@ -12,7 +13,7 @@ const SecDashboard = () => {
       <div className="flex flex-wrap items-center justify-center text-center py-2 mb-12 bg-cust-blue">
         <div className="py-2 text-cust-beige">
           <h3 className="w-full font-bold text-2xl sm:text-3xl">
-            Hi, Anonymous 👋
+            Hi, {localStorage.getItem("username")} 👋
           </h3>
           <p className="w-full font-medium text-md sm:text-lg py-2">
             Bagaimana kabarmu? senang bisa berjumpa kembali !!

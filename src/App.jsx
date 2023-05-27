@@ -9,6 +9,7 @@ import SecMyCourses from "./Modules/Sec_MyCourses";
 import SecChallange from "./Modules/Sec_Challange";
 import NotFound from "./Pages/NotFound";
 import Courses from "./Pages/Courses";
+import Material from "./Pages/Material";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="/dashboard/mycourses/:courseId" element={<Courses />} />
+        <Route path="/dashboard/mycourses/:courseId/material" element={<Material />} />
       </Routes>
     </Router>
   );
