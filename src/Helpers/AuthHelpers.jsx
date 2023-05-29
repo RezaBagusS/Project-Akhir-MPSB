@@ -15,7 +15,7 @@ export const LoginValidation = async (username, password) => {
     }
 
     const response = await axios.post(
-      "http://localhost:3000/api/auth/login",
+      "https://project-akhir-mpsb.vercel.app/api/auth/login",
       {
         username: username,
         password: password,
