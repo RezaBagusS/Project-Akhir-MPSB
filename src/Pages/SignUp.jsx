@@ -1,85 +1,48 @@
-import SigninputComp from "../Component/SigninputComp";
 import { dataSVG } from "../data/dataSVG.jsx";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import supabase from "../data/dataUser";
+import SigninputComp from "../Component/SigninputComp";
+import { SignupValidation } from "../Helpers/AuthHelpers";
+import ModalLoading from "../Component/ModalLoading.jsx";
+import { useState } from "react";
 
 const SignUp = () => {
   const navigate = useNavigate();
 
   const [signError, setSignError] = useState(false);
-  const [msgError, setMsgError] = useState(" ");
-  const [dataDB, setDataDB] = useState([]);
-
-  useEffect(() => {
-    fetchDB();
-  }, []);
-
-  const fetchDB = async () => {
-    const { data } = await supabase.from("dataUser").select();
-    console.log(data);
-    setDataDB(data);
-  };
+  const [msgError, setMsgError] = useState("Account Already Exist!");
+  const [loading, setLoading] = useState(false);
 
   const handleSign = (e) => {
     e.preventDefault();
-    SignupValidation() ? navigate("/auth/login") : setSignError(true);
+    SignupProcess();
   };
 
-  function isUsernameTaken(username) {
-    return dataDB.some((user) => user.username === username);
-  }
-
-  function isEmailTaken(email) {
-    return dataDB.some((user) => user.email === email);
-  }
-
-  function isPasswordValid(password) {
-    return password.length >= 8;
-  }
-
-  const SignupValidation = () => {
+  const SignupProcess = async () => {
     let username = document.getElementById("Username").value;
     let password = document.getElementById("Password").value;
     let email = document.getElementById("Email").value;
+    setLoading(true);
 
-    if (isUsernameTaken(username)) {
+    try {
+      const result = await SignupValidation(username, email, password);
+      if (result) {
+        setTimeout(() => {
+          navigate("/auth/login");
+        }, 2000);
+      } else {
+        setSignError(true);
+      }
+    } catch (error) {
       setSignError(true);
-      setMsgError("Username already taken!");
-      return false;
+      console.log(error);
     }
-
-    if (isEmailTaken(email)) {
-      setSignError(true);
-      setMsgError("Email already taken!");
-      return false;
-    }
-
-    if (!isPasswordValid(password)) {
-      setSignError(true);
-      setMsgError("Password must be at least 8 characters!");
-      return false;
-    }
-
-    console.log("Sign Up Success !!");
-    addUser(username, email, password);
-
-    return true;
-  };
-
-  const addUser = async (username, email, password) => {
-    const { error } = await supabase
-      .from("dataUser")
-      .insert([{ username: username, email: email, password: password }]);
-
-    if (error) {
-      console.error(error);
-    }
+    // console.log("Sign Up Success !!");
   };
 
   return (
     <div className="bg-hero-pattern bg-cust-beige bg-cover h-[100vh] w-[100vw]">
       <div className="cust-outer-container font-poppins">
+        {loading && <ModalLoading />}
         <div className="cust-container text-[#f6f6f6] w-full pt-20">
           <div className="bg-cust-black p-5 rounded-xl flex justify-center align-middle flex-wrap w-[80%] sm:w-[60%] mx-auto">
             <div className="w-full flex justify-center p-5">

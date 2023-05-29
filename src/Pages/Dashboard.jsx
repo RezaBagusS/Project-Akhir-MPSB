@@ -28,8 +28,18 @@ const Dashboard = () => {
     }
   };
 
+  const isLogin = () => {
+    if (localStorage.getItem("token")) {
+      return true;
+    }
+    return false;
+  }
+
   return (
     <>
+      {
+        !isLogin() && window.location.replace("/auth/login")
+      }
       <div className="cust-outer-container overflow-hidden bg-slate-600 font-poppins flex">
         <SidebarLeft />
         <div className="bg-slate-100 w-full pb-10">

@@ -11,10 +11,7 @@ const Contact = () => {
           </p>
           <div className="grid grid-cols-2 gap-x-5 py-5 overflow-hidden">
             <div className="flex flex-wrap justify-start relative group overflow-x-clip">
-              <p className="font-semibold absolute -top-4 -left-20 pointer-events-none group-focus-within:left-2 group-focus-within:transition-all group-focus-within:duration-500">
-                Name
-              </p>
-              <p className="absolute italic pl-2 pt-2 pointer-events-none group-focus-within:hidden">
+              <p className="font-semibold absolute -top-5 pointer-events-none left-2 transition-all duration-500">
                 Name
               </p>
               <input type="text" 
@@ -22,10 +19,7 @@ const Contact = () => {
               />
             </div>
             <div className="flex flex-wrap justify-start relative group overflow-x-clip">
-              <p className="font-semibold absolute -top-4 -left-20 pointer-events-none group-focus-within:left-2 group-focus-within:transition-all group-focus-within:duration-500">
-                Email
-              </p>
-              <p className="absolute pl-2 pt-2 pointer-events-none group-focus-within:hidden">
+              <p className="font-semibold absolute -top-5 pointer-events-none left-2 transition-all duration-500">
                 Email
               </p>
               <input type="text" 

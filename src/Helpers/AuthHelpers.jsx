@@ -33,6 +33,29 @@ export const LoginValidation = async (username, password) => {
   }
 };
 
+export const SignupValidation = async (username, email, password) => {
+  try {
+
+    const response = await axios.post(
+      "https://project-akhir-mpsb-back-end.vercel.app/api/auth/signup",
+      // "http://localhost:3000/api/auth/signup",
+      {
+        username: username,
+        password: password,
+        email: email,
+      }
+    );
+
+    const msg = response.data.message;
+    console.log(msg);
+
+    return true;
+  } catch (error) {
+    console.error("Error:", error);
+    return false;
+  }
+};
+
 export const Logout = () => {
   localStorage.removeItem("token");
   window.location.reload();
@@ -43,22 +66,17 @@ export const isLogin = () => {
     return true;
   }
   return false;
-}
+};
 
 export const getDataFromToken = async (token) => {
-
   try {
     const response = await axios.post(
-      "https://vercel.com/rezabaguss/project-akhir-mpsb-back-end/api/data", {token : token}
+      "https://vercel.com/rezabaguss/project-akhir-mpsb-back-end/api/data",
+      { token: token }
     );
 
-    // console.log(response.data.data);
     localStorage.setItem("data", response.data.data);
-
   } catch (error) {
     console.error("Error:", error);
   }
-
-}
-
-
+};
