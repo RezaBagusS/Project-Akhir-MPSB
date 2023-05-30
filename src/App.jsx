@@ -10,6 +10,7 @@ import SecChallange from "./Modules/Sec_Challange";
 import NotFound from "./Pages/NotFound";
 import Courses from "./Pages/Courses";
 import Material from "./Pages/Material";
+import Quiz from "./Pages/Quiz";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/dashboard/mycourses/:courseId" element={<Courses />} />
         <Route path="/dashboard/mycourses/:courseId/material" element={<Material />} />
+        <Route path="/dashboard/mycourses/:courseId/quiz" element={<Quiz />} />
       </Routes>
     </Router>
   );
