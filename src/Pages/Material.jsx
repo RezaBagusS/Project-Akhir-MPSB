@@ -5,6 +5,7 @@ import HTML_M1_2 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_2";
 import HTML_M1_3 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_3";
 import HTML_M1_4 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_4";
 import ModalConfirm from "../Component/ModalConfirm";
+import ModalLoading from "../Component/ModalLoading";
 
 const Material = () => {
   const [isDown, setIsDown] = useState(false);
@@ -45,8 +46,21 @@ const Material = () => {
     document.body.style.overflowY = "auto";
   };
 
+  const isLogin = () => {
+    if (localStorage.getItem("token")) {
+      return true;
+    }
+    setTimeout(() => {
+      <ModalLoading
+        text={"Anda Belum Login, Silahkan Login terlebih dahulu"}
+      />;
+    }, 2000);
+    return window.location.replace("/auth/login");
+  };
+
   return (
     <>
+      {isLogin()}
       <div className="">
         {showModalConfirm && (
           <ModalConfirm
@@ -149,7 +163,7 @@ const Material = () => {
                 ${
                   isDownMateri
                     ? "max-h-full mt-1 mb-3 transition-all duration-500"
-                    : "max-h-0 mb-0 mt-0 transition-all duration-200"
+                    : "max-h-0 mb-0 mt-0 transition-all duration-150"
                 }
               `}
                 >

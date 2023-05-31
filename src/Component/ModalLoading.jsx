@@ -1,4 +1,4 @@
-const ModalLoading = () => {
+const ModalLoading = ({ text }) => {
   return (
     <div className="absolute z-50 w-full h-screen grid justify-center items-center bg-black bg-opacity-80">
       <div className="w-[400px] h-[300px] p-10 bg-slate-500 opacity-80 rounded-3xl grid justify-center items-center">
@@ -19,7 +19,11 @@ const ModalLoading = () => {
               fill="currentFill"
             />
           </svg>
-          <h1 className="mx-auto text-center mt-4 text-lg font-medium text-yellow-400">Loading ...</h1>
+          <h1 className="mx-auto text-center mt-4 text-lg font-medium text-yellow-400">
+            {
+              text ? text : "Loading ..."
+            }
+          </h1>
         </div>
       </div>
     </div>

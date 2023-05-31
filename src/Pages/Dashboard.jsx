@@ -5,6 +5,7 @@ import SecCourses from "../Modules/Sec_Courses";
 import SecMyCourses from "../Modules/Sec_MyCourses";
 import SecChallange from "../Modules/Sec_Challange";
 import { useEffect } from "react";
+import { verifyToken } from "../Helpers/AuthHelpers";
 
 const Dashboard = () => {
   let location = useLocation();
@@ -30,21 +31,18 @@ const Dashboard = () => {
 
   const isLogin = () => {
     if (localStorage.getItem("token")) {
+      verifyToken();
       return true;
     }
-    return false;
-  }
+    return window.location.replace("/auth/login");
+  };
 
   return (
     <>
-      {
-        !isLogin() && window.location.replace("/auth/login")
-      }
+      {isLogin()}
       <div className="cust-outer-container overflow-hidden bg-slate-600 font-poppins flex">
         <SidebarLeft />
-        <div className="bg-slate-100 w-full pb-10">
-          {handlePath()}
-        </div>
+        <div className="bg-slate-100 w-full pb-10">{handlePath()}</div>
       </div>
     </>
   );

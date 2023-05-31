@@ -4,7 +4,7 @@ import Welcoming from "../Component/HomeComp/Welcoming";
 import About from "../Component/HomeComp/About";
 import Contact from "../Component/HomeComp/Contact";
 import FooterHome from "../Component/HomeComp/FooterHome";
-import { useRef, useEffect, useState} from "react";
+import { useRef } from "react";
 
 
 const Home = () => {

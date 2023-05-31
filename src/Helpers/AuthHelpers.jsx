@@ -16,6 +16,7 @@ export const LoginValidation = async (username, password) => {
 
     const response = await axios.post(
       "https://project-akhir-mpsb-back-end.vercel.app/api/auth/login",
+      // "http://localhost:3000/api/auth/login",
       {
         username: username,
         password: password,
@@ -35,7 +36,6 @@ export const LoginValidation = async (username, password) => {
 
 export const SignupValidation = async (username, email, password) => {
   try {
-
     const response = await axios.post(
       "https://project-akhir-mpsb-back-end.vercel.app/api/auth/signup",
       // "http://localhost:3000/api/auth/signup",
@@ -61,11 +61,29 @@ export const Logout = () => {
   window.location.reload();
 };
 
-export const isLogin = () => {
-  if (localStorage.getItem("token")) {
-    return true;
+export const verifyToken = async () => {
+  try {
+    const response = await axios.post(
+      "https://project-akhir-mpsb-back-end.vercel.app/api/verifyToken",
+      // "http://localhost:3000/api/verifyToken",
+      {
+        token: localStorage.getItem("token"),
+      }
+    );
+
+    console.log(response.data.status);
+
+    if (response.data.status === "success") {
+      return true;
+    } else {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      return window.location.replace("/auth/login");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    return false;
   }
-  return false;
 };
 
 export const getDataFromToken = async (token) => {
