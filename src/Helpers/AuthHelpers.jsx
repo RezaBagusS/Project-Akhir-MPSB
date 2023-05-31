@@ -71,7 +71,7 @@ export const verifyToken = async () => {
       }
     );
 
-    console.log(response.data.status);
+    // console.log(response.data.status);
 
     if (response.data.status === "success") {
       return true;
