@@ -5,7 +5,7 @@ import HTML_M1_2 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_2";
 import HTML_M1_3 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_3";
 import HTML_M1_4 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_4";
 import ModalConfirm from "../Component/ModalConfirm";
-import ModalLoading from "../Component/ModalLoading";
+import { verifyToken } from "../Helpers/AuthHelpers";
 
 const Material = () => {
   const [isDown, setIsDown] = useState(false);
@@ -48,13 +48,9 @@ const Material = () => {
 
   const isLogin = () => {
     if (localStorage.getItem("token")) {
+      verifyToken();
       return true;
     }
-    setTimeout(() => {
-      <ModalLoading
-        text={"Anda Belum Login, Silahkan Login terlebih dahulu"}
-      />;
-    }, 2000);
     return window.location.replace("/auth/login");
   };
 
