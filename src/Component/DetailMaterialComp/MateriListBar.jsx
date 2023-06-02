@@ -47,7 +47,7 @@ const MateriListBar = ({ sendValue }) => {
             handleClickMateri(item.id);
           }}
           className={`flex flex-row justify-between cursor-pointer pl-3 pr-2 py-3 text-base font-medium rounded-md
-            ${id === item.id ? "bg-gray-500 text-white" : "bg-gray-200 text-cust-blue"}
+            ${id === item.id ? "bg-blue-800 text-white" : "bg-gray-200 text-cust-blue"}
           `}
         >
           {item.judul}
@@ -76,8 +76,11 @@ const MateriListBar = ({ sendValue }) => {
             return (
               <div
                 key={index}
+                onClick={() => {
+                  sendValue.setActiveSubJudul(index + 1);
+                }}
                 className={`w-11/12 mx-auto pl-3 pr-3 py-2 text-base font-medium rounded-md cursor-pointer
-                  ${index + 1 === sendValue.getActiveSubJudul() ? "bg-gray-500 text-white" : "bg-gray-300 text-cust-blue"}
+                  ${index + 1 === sendValue.getActiveSubJudul() ? "bg-blue-800 text-white" : "bg-gray-300 text-cust-blue"}
                 `}
               >
                 {item}

@@ -30,11 +30,16 @@ const MateriBar = ({ sendValue }) => {
     return activeComponent;
   };
 
+  const setActiveSubJudul = (id) => {
+    sendValue.handleActiveComponent(id);
+    setActiveComponent(id);
+  }
+
   return (
     <>
       <div className="col-span-4 flex flex-col gap-y-3 px-4 pr-5 bg-white">
         <div className="flex flex-col gap-y-1">
-          <MateriListBar sendValue={{getActiveJudul, getActiveSubJudul}} />
+          <MateriListBar sendValue={{getActiveJudul, getActiveSubJudul, setActiveSubJudul}} />
         </div>
         <div className="flex flex-row justify-between mt-5 pb-5">
           <button

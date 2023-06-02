@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getMaterial } from "../data/dataMaterial";
+import { getCourse } from "../data/dataCoursesModule";
 import ModalConfirm from "../Component/ModalConfirm";
 import NavMateri from "../Component/DetailMaterialComp/NavMateri";
 import MateriBar from "../Component/DetailMaterialComp/MateriBar";
@@ -45,6 +46,11 @@ const Material = () => {
     return materi;
   };
 
+  const getFullJudul = () => {
+    let judul = getCourse(courseId).materi[activeJudul - 1];
+    return judul;
+  } 
+
   const getIdJudul = (id) => {
     setActiveJudul(id);
   };
@@ -69,11 +75,11 @@ const Material = () => {
         <NavMateri />
         <div className="cust-container p-5 pr-0 grid grid-cols-12 h-fit text-cust-blue bg-white">
           <div className="col-span-12 flex justify-center items-center p-3 mb-5">
-            <h1 className="font-bold text-4xl">
-              Pengenalan Profesi dalam Pengembangan Web
+            <h1 className="font-bold text-2xl text-center lg:text-4xl">
+              {getFullJudul()}
             </h1>
           </div>
-          <div className="col-span-8 pr-2 h-[85vh] overflow-y-auto">
+          <div className="col-span-8 pr-2 max-h-[700px] overflow-y-auto">
             {getMateriOnCourse().map((item, key) => {
               return (
                 <div key={key}>

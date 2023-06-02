@@ -162,4 +162,9 @@ const dataCoursesModule = [
   },
 ];
 
+export const getCourse = (courseId) => {
+  const data = dataCoursesModule.filter((item) => item.tag.toLowerCase() === courseId.toLowerCase())[0];
+  return data;
+}
+
 export default dataCoursesModule;
