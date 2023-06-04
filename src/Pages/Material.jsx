@@ -55,6 +55,10 @@ const Material = () => {
     setActiveJudul(id);
   };
 
+  const getActiveJudul = () => {
+    return activeJudul;
+  }
+
   return (
     <>
       {isLogin()}
@@ -67,7 +71,7 @@ const Material = () => {
               text={
                 "Apakah anda yakin telah membaca materi & siap menyelesaikan quiz ? "
               }
-              sendValue={handleModalConfirmValue}
+              sendValue={{handleModalConfirmValue, getActiveJudul}}
             />
           ))}
       </div>

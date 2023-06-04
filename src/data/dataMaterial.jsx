@@ -6,6 +6,7 @@ import HTML_M1_4 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_4";
 const dataMaterial = [
     {
         tag: 'html',
+        kelas: "HTML Full Course",
         materi: [
             {
                 id: 1,

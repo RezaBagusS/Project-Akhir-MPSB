@@ -11,25 +11,30 @@ import NotFound from "./Pages/NotFound";
 import Courses from "./Pages/Courses";
 import Material from "./Pages/Material";
 import Quiz from "./Pages/Quiz";
+import Evaluate from "./Pages/Evaluate";
+import { QuizProvider } from "./Helpers/QuizContext";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route path="courses" element={<SecCourses />} />
-          <Route path="mycourses" element={<SecMyCourses />} />
-          <Route path="challanges" element={<SecChallange />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/dashboard/mycourses/:courseId" element={<Courses />} />
-        <Route path="/dashboard/mycourses/:courseId/material" element={<Material />} />
-        <Route path="/dashboard/mycourses/:courseId/quiz" element={<Quiz />} />
-      </Routes>
-    </Router>
+    <QuizProvider> 
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/dashboard/*" element={<Dashboard />}>
+            <Route path="courses" element={<SecCourses />} />
+            <Route path="mycourses" element={<SecMyCourses />} />
+            <Route path="challanges" element={<SecChallange />} />
+          </Route>
+          <Route path="/dashboard/mycourses/:courseId" element={<Courses />} />
+          <Route path="/dashboard/mycourses/:courseId/material" element={<Material />} />
+          <Route path="/dashboard/mycourses/:courseId/quiz/:quizCode" element={<Quiz />} />
+          <Route path="/dashboard/mycourses/:courseId/quiz/:quizCode/result" element={<Evaluate />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </QuizProvider>
   );
 }
 

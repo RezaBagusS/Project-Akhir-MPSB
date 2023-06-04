@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { getMaterial } from "../data/dataMaterial";
 
 const ModalConfirm = ({ text, sendValue }) => {
   const { courseId } = useParams();
@@ -6,9 +7,12 @@ const ModalConfirm = ({ text, sendValue }) => {
   const handleValue = (value) => {
     // console.log("Data dalam Modal Confirm: ", value);
     if (!value) {
-      sendValue(value);
+      sendValue.handleModalConfirmValue(value);
     } else {
-      window.location.replace(`/dashboard/mycourses/${courseId}/quiz`);
+      getMaterial(courseId).length == sendValue.getActiveJudul() ? 
+      window.location.replace(`/dashboard/mycourses/${courseId}/quiz/final`) 
+      :
+      window.location.replace(`/dashboard/mycourses/${courseId}/quiz/${sendValue.getActiveJudul()}`);
     }
   };
 
