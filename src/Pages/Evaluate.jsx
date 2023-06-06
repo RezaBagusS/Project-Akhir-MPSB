@@ -7,10 +7,15 @@ import { useEffect, useState } from "react";
 import { getQuiz } from "../data/dataQuiz";
 
 const Evaluate = () => {
-  const { totalBenar, getIdSoalBenar } = useQuizContext();
+  const { getIdSoalBenar } = useQuizContext();
   const { courseId, quizCode } = useParams();
   const [noSoal, setNoSoal] = useState(1);
   const navigate = useNavigate();
+
+  const clearDuplicateOnIdSoal = () => {
+    let IdSoalBenar = [...new Set(getIdSoalBenar)];
+    return IdSoalBenar;
+  }
 
   const isLogin = () => {
     if (localStorage.getItem("token")) {
@@ -25,7 +30,7 @@ const Evaluate = () => {
   });
 
   const checkHasAttemptQuiz = () => {
-    if (totalBenar && getIdSoalBenar) {
+    if (clearDuplicateOnIdSoal().length !== 0) {
       return true;
     }
     return window.location.replace(
@@ -34,7 +39,8 @@ const Evaluate = () => {
   };
 
   const getStyleTotalBenar = () => {
-    let getTotalBenar = totalBenar;
+    let getTotalBenar = clearDuplicateOnIdSoal().length;
+    console.log("TotalBenar : ",getTotalBenar);
     if (getTotalBenar === 0) {
       return `w-0 hidden`;
     } else if (getTotalBenar === 5) {
@@ -44,7 +50,7 @@ const Evaluate = () => {
   };
 
   const getStyleTotalSalah = () => {
-    let getTotalSalah = 5 - totalBenar;
+    let getTotalSalah = 5 - clearDuplicateOnIdSoal().length;
     if (getTotalSalah === 0) {
       return `w-0 hidden`;
     } else if (getTotalSalah === 5) {
@@ -54,7 +60,7 @@ const Evaluate = () => {
   };
 
   const getPresentase = () => {
-    let getTotalBenar = totalBenar;
+    let getTotalBenar = clearDuplicateOnIdSoal().length;
     let getPresentase = (getTotalBenar / 5) * 100;
     return {
       benar: `${getPresentase}%`,
@@ -80,7 +86,8 @@ const Evaluate = () => {
   };
 
   const handleCorrection = () => {
-    const bgCorrection = getIdSoalBenar.includes(noSoal)
+    console.log(clearDuplicateOnIdSoal());
+    const bgCorrection = clearDuplicateOnIdSoal().includes(noSoal)
       ? {
           benar: "bg-green-600",
           salah: "bg-cust-purple",
@@ -137,7 +144,7 @@ const Evaluate = () => {
               <div className="flex flex-col text-xl justify-center items-center mb-10">
                 <h1>Skor Kamu : </h1>
                 <h3 className="text-5xl mt-3 text-cust-yellow">
-                  {totalBenar * 20}
+                  {clearDuplicateOnIdSoal().length * 20}
                 </h3>
               </div>
               <h1>Detail :</h1>
@@ -163,17 +170,17 @@ const Evaluate = () => {
               <h1 className="mt-5">Statistik :</h1>
               <div className="grid grid-cols-2 gap-x-5">
                 <div className="flex flex-col justify-center items-center h-20 bg-[#40223C] rounded-md">
-                  <h3 className="text-3xl">{totalBenar}</h3>
+                  <h3 className="text-3xl">{clearDuplicateOnIdSoal().length}</h3>
                   <h1>Benar</h1>
                 </div>
                 <div className="flex flex-col justify-center items-center h-20 bg-[#40223C] rounded-md">
-                  <h3 className="text-3xl">{5 - totalBenar}</h3>
+                  <h3 className="text-3xl">{5 - clearDuplicateOnIdSoal().length}</h3>
                   <h1>Salah</h1>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-[#40223C] text-cust-beige mx-auto mb-10 w-10/12 p-4 rounded-lg border-2 border-gray-200 drop-shadow-[0px_5px_5px_rgb(0,0,0,0.5)]">
+          <div className="bg-[#40223C] relative text-cust-beige mx-auto mb-10 w-10/12 h-[360px] p-4 rounded-lg border-2 border-gray-200 drop-shadow-[0px_5px_5px_rgb(0,0,0,0.5)]">
             <h1 className="text-base font-semibold text-center">
               -- Evaluasi --
             </h1>
@@ -198,7 +205,7 @@ const Evaluate = () => {
                 <h1>{handleQuiz()[noSoal - 1].jawabanSalah}</h1>
               </div>
             </div>
-            <div className="flex flex-row justify-between gap-5 mx-5">
+            <div className="absolute bottom-3 left-0 w-full flex flex-row justify-between gap-5 px-10">
               <div>
                 <h1>{handleCorrection().msg}</h1>
               </div>

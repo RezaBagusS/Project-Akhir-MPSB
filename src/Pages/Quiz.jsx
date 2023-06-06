@@ -9,7 +9,6 @@ import QuizField from "../Component/QuizComp/QuizField";
 
 const Quiz = () => {
   const { courseId, quizCode } = useParams();
-  const [activeComponent, setActiveComponent] = useState(1);
   const [startQuiz, setStartQuiz] = useState(false);
 
   const isLogin = () => {
@@ -29,8 +28,9 @@ const Quiz = () => {
   };
 
   const handleQuiz = () => {
-    const quiz = getQuiz(courseId, quizCode).find((item) => item).soalQuiz;
-    return quiz;
+    const kodeQuiz = quizCode;
+    const quizFilter = getQuiz(courseId, quizCode)[kodeQuiz-1].soalQuiz;
+    return quizFilter;
   };
 
   const getVisibleGetReady = (value) => {

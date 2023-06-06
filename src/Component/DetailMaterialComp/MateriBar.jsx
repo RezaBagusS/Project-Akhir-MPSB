@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MateriListBar from "./MateriListBar";
+import { getMaterial } from "../../data/dataMaterial";
+import { useParams } from "react-router-dom";
 
 const MateriBar = ({ sendValue }) => {
   const [activeComponent, setActiveComponent] = useState(1);
+  const [idJudul, setIdJudul] = useState(1);
+  let { courseId } = useParams();
+
+  useEffect(() => {
+    setActiveComponent(1);
+    sendValue.handleActiveComponent(1);
+  },[idJudul]);
+
+  const subJudulLength = getMaterial(courseId)[idJudul - 1].subJudul.length;
 
   const handlePrev = () => {
     if (activeComponent > 1) {
@@ -12,17 +23,18 @@ const MateriBar = ({ sendValue }) => {
   };
 
   const handleNext = () => {
-    if (activeComponent === 4) {
+    if (activeComponent === subJudulLength) {
       sendValue.handleModalConfirmisShow(true);
     }
 
-    if (activeComponent < 4) {
+    if (activeComponent < subJudulLength) {
       sendValue.handleActiveComponent(activeComponent + 1);
       setActiveComponent(activeComponent + 1);
     }
   };
 
   const getActiveJudul = (id) => {
+    setIdJudul(id);
     sendValue.getIdJudul(id);
   };
 
@@ -66,13 +78,13 @@ const MateriBar = ({ sendValue }) => {
             onClick={handleNext}
             className={`text-white bg-[#2557D6] hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#2557D6]/50 mr-2 mb-2
                   ${
-                    activeComponent === 4
+                    activeComponent === subJudulLength
                       ? "bg-green-500 hover:bg-green-700"
                       : ""
                   }
               `}
           >
-            {activeComponent === 4 ? (
+            {activeComponent === subJudulLength ? (
               <>
                 Finish
                 <svg

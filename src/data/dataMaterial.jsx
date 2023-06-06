@@ -1,7 +1,18 @@
+// Component Courses HTML 
 import HTML_M1_1 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_1";
 import HTML_M1_2 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_2";
 import HTML_M1_3 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_3";
 import HTML_M1_4 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_4";
+import HTML_M1_5 from "../Component/DetailMaterialComp/HTML/Profesi/HTML_M1_5";
+
+import HTML_M2_1 from "../Component/DetailMaterialComp/HTML/AlurWeb/HTML_M2_1";
+import HTML_M2_2 from "../Component/DetailMaterialComp/HTML/AlurWeb/HTML_M2_2";
+import HTML_M2_3 from "../Component/DetailMaterialComp/HTML/AlurWeb/HTML_M2_3";
+
+import HTML_M3_1 from "../Component/DetailMaterialComp/HTML/PengenalanHTML/HTML_M3_1";
+import HTML_M3_2 from "../Component/DetailMaterialComp/HTML/PengenalanHTML/HTML_M3_2";
+import HTML_M3_3 from "../Component/DetailMaterialComp/HTML/PengenalanHTML/HTML_M3_3";
+import HTML_M3_4 from "../Component/DetailMaterialComp/HTML/PengenalanHTML/HTML_M3_4";
 
 const dataMaterial = [
     {
@@ -12,7 +23,7 @@ const dataMaterial = [
                 id: 1,
                 judul: 'Profesi dalam Pengembangan Web',
                 subJudul: [
-                    'Pendahuluan','Profesi dalam Pengembangan Website','Pengenalan Website','Pengenalan URL'
+                    'Pendahuluan','Syarat & Keterampilan Pengembang Web','Profesi dalam Pengembangan Website','Tantangan dan Tren','Kesimpulan'
                 ],
                 file: [
                     {
@@ -30,22 +41,54 @@ const dataMaterial = [
                     {
                         id: 4,
                         page: <HTML_M1_4 />,
+                    },
+                    {
+                        id: 5,
+                        page: <HTML_M1_5 />
                     }
                 ],
-                fileQuiz: `<HTML_M1_Quiz />`
             },
             {
                 id: 2,
                 judul: 'Alur pengembangan aplikasi web.',
-                subJudul: ['Alur1', 'Alur2', 'Alur3', 'Alur4'],
-                file: [`HTML_M2_1`, `HTML_M2_2`, `HTML_M2_3`, `HTML_M2_4`],
-                fileQuiz: `HTML_M2_Quiz`,
-            },{
+                subJudul: ['Pendahuluan', 'Tahapan dalam alur pengembangan aplikasi web', 'Kesimpulan'],
+                file: [
+                    {
+                        id: 1,
+                        page: <HTML_M2_1 />,
+                    },
+                    {
+                        id: 2,
+                        page: <HTML_M2_2 />,
+                    },
+                    {
+                        id: 3,
+                        page: <HTML_M2_3 />,
+                    },
+                ],
+            },
+            {
                 id: 3,
                 judul: 'Pengenalan HTML.',
-                subJudul: ['html1', 'html2', 'html3', 'html4'],
-                file: [`HTML_M3_1`, `HTML_M3_2`, `HTML_M3_3`, `HTML_M3_4`],
-                fileQuiz: `HTML_M3_Quiz`,
+                subJudul: ['Pendahuluan', 'Struktur Dasar Halaman dengan HTML', 'Tag HTML Dasar', 'Atribut HTML'],
+                file: [
+                    {
+                        id: 1,
+                        page: <HTML_M3_1 />,
+                    },
+                    {
+                        id: 2,
+                        page: <HTML_M3_2 />,
+                    },
+                    {
+                        id: 3,
+                        page: <HTML_M3_3 />,
+                    },
+                    {
+                        id: 4,
+                        page: <HTML_M3_4 />,
+                    },
+                ],
             },
             {
                 id: 4,

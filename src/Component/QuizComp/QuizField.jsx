@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useQuizContext } from "../../Helpers/QuizContext";
 
 const QuizField = ({ data }) => {
-  const { updateTotalBenar, updateGetIdSoalBenar } = useQuizContext();
+  const { updateGetIdSoalBenar } = useQuizContext();
   const [noSoal, setNoSoal] = useState(1);
   const [dataShuffle, setDataShuffle] = useState([]);
   const [showSubmit, setShowSubmit] = useState(false);
@@ -23,7 +23,6 @@ const QuizField = ({ data }) => {
   };
 
   const handleTotalBenar = (id) => {
-    updateTotalBenar((prev) => prev + 1);
     updateGetIdSoalBenar((prev) => [...prev, id]);
     console.log(id);
   };
@@ -84,8 +83,8 @@ const QuizField = ({ data }) => {
   };
 
   return (
-    <div className="flex flex-col justify-between rounded-md h-full p-2">
-      <div className="flex justify-center items-center px-5 py-10">
+    <div className="flex flex-col justify-between rounded-md h-[450px] p-2">
+      <div className="flex justify-center items-center px-3 py-10">
         <h1 className="text-2xl font-semibold text-center">
           {data()[noSoal - 1].soal}
         </h1>

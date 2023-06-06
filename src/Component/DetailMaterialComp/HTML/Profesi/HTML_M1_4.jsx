@@ -1,49 +1,89 @@
 const HTML_M1_3 = () => {
   return (
     <>
-      <h1 className="font-semibold text-2xl">MATERI 4 - Pengenalan URL</h1>
-      <div className="py-5 text-black opacity-70 flex flex-col gap-y-4 font-medium">
+      <h1 className="font-semibold text-2xl">
+        MATERI 4 - Tantangan dan Tren dalam Profesi Pengembangan Aplikasi Web
+      </h1>
+      <div className="py-5 text-black opacity-70 flex flex-col gap-y-4 font-normal">
         <p>
-          Sebuah halaman web adalah dokumen elektronik yang ditulis dalam bahasa
-          komputer yang disebut HTML, singkatan dari Hypertext Markup Language.
-          Setiap halaman web memiliki alamat yang unik, yang disebut URL atau
-          Uniform Eerources Locator yang mengidentifikasi di mana web server
-          yang memuat dokumen web.
-        </p>
-        <p>
-          Sebuah website memiliki satu atau lebih halaman web terkait,
-          tergantung pada bagaimana itu dirancang. Halaman web pada situs yang
-          dihubungkan bersama melalui sistem hyperlink, memungkinkan untuk
-          melompat di antara halaman web dengan mengklik pada link.
-        </p>
-        <p>
-          Uniform Resource Locators atau URL adalah alamat yang digunakan untuk
-          menemukan file. Informasi yang terkandung dalam URL memberi kemampuan
-          untuk berpindah dari satu halaman web yang lain hanya dengan klik.
-          Mengetik URL ke browser atau klik link hypertext, browser mengirim
-          permintaan ke komputer remote, yang disebut server web, untuk men-
-          download satu atau lebih file. Setiap URL unik, mengidentifikasi satu
-          file tertentu.
+          Profesi dalam pengembangan aplikasi web terus berkembang seiring
+          dengan perkembangan teknologi dan kebutuhan pasar. Namun, ada beberapa
+          tantangan dan tren yang menjadi perhatian para profesional dalam
+          industri ini:
         </p>
         <div>
-          <p className="font-semibold">Contoh URL :</p>
-          <ol type="1">
-            <li>http://belajar.kemdikbud.go.id/</li>
-            <li>https://www.w3schools.com/</li>
-            <li>https://www.dicoding.com/</li>
-          </ol>
+          <h3 className="font-semibold text-xl">Perkembangan Teknologi</h3>
+          <p>
+            Teknologi terus berubah dan berkembang dengan cepat dalam
+            pengembangan aplikasi web. Para profesional harus selalu memperbarui
+            pengetahuan dan keterampilan mereka untuk tetap relevan. Mereka
+            perlu mengikuti tren baru dalam bahasa pemrograman, kerangka kerja,
+            alat pengembangan, dan konsep terkini seperti pengembangan
+            responsif, aplikasi berbasis cloud, dan pemrograman berorientasi
+            objek.
+          </p>
         </div>
-        <p>
-          Sebagian dari URL yang akan menggunakan start dengan http, yang
-          merupakan singkatan dari Hypertext Transfer Protocol, metode yang file
-          HTML yang ditransfer melalui Web.
-        </p>
-        <p>
-          Jika mengetik URL tidak benar, browser tidak akan dapat menemukan
-          situs atau sumber daya yang inginkan. Jika mendapatkan pesan error
-          atau mengakses situs yang salah, periksalah untuk melihat apakah
-          mengeja alamat dengan benar.
-        </p>
+        <div>
+          <h3 className="font-semibold text-xl">Desain Responsif</h3>
+          <p>
+            Dengan semakin banyak pengguna yang mengakses aplikasi web melalui
+            perangkat seluler, desain responsif menjadi sangat penting.
+            Profesional dalam pengembangan aplikasi web harus memahami bagaimana
+            membuat antarmuka pengguna yang responsif, dapat menyesuaikan dengan
+            berbagai perangkat dan ukuran layar.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Keamanan Aplikasi Web</h3>
+          <p>
+            Serangan keamanan terhadap aplikasi web semakin kompleks dan serius.
+            Profesional dalam pengembangan aplikasi web harus memiliki pemahaman
+            yang kuat tentang praktik keamanan, enkripsi data, dan perlindungan
+            terhadap serangan seperti Cross-Site Scripting (XSS) atau SQL
+            Injection. Mereka juga harus memperhatikan keamanan pengelolaan
+            akses pengguna dan perlindungan terhadap data pribadi.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Pengembangan Berbasis Cloud</h3>
+          <p>
+            Layanan cloud computing semakin populer dalam pengembangan aplikasi
+            web. Profesional harus memahami konsep dan alat-alat yang digunakan
+            dalam pengembangan berbasis cloud, seperti arsitektur mikro layanan,
+            penyimpanan data terdistribusi, dan skalabilitas aplikasi.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Keterampilan Soft Skills</h3>
+          <p>
+            Selain keterampilan teknis, keterampilan soft skills juga penting
+            dalam profesi pengembangan aplikasi web. Kemampuan komunikasi yang
+            baik, kemampuan bekerja dalam tim, dan kemampuan manajemen proyek
+            yang efektif menjadi faktor penting dalam keberhasilan proyek.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">
+            Perhatian Terhadap Pengalaman Pengguna
+          </h3>
+          <p>
+            Dalam era di mana persaingan aplikasi web semakin ketat, fokus pada
+            pengalaman pengguna (user experience/UX) menjadi sangat penting.
+            Profesional harus memahami bagaimana merancang aplikasi web yang
+            intuitif, mudah digunakan, dan memberikan nilai tambah bagi
+            pengguna.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Pengembangan Berkelanjutan</h3>
+          <p>
+            Profesional dalam pengembangan aplikasi web harus mengadopsi
+            pendekatan pengembangan berkelanjutan (continuous development) dan
+            menerapkan praktik DevOps. Hal ini melibatkan penggunaan alat
+            otomatisasi, pengujian berkelanjutan, dan penerapan perubahan secara
+            teratur untuk menjaga kualitas dan fleksibilitas aplikasi.
+          </p>
+        </div>
       </div>
     </>
   );

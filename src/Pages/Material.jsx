@@ -83,7 +83,7 @@ const Material = () => {
               {getFullJudul()}
             </h1>
           </div>
-          <div className="col-span-8 pr-2 max-h-[700px] overflow-y-auto">
+          <div className="col-span-8 text-sm pr-2 max-h-[700px] overflow-y-auto">
             {getMateriOnCourse().map((item, key) => {
               return (
                 <div key={key}>

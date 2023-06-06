@@ -1,51 +1,118 @@
 const HTML_M1_2 = () => {
   return (
     <>
-      <h1 className="font-semibold text-2xl">MATERI 2 - Profesi dalam Pengembangan Web</h1>
-      <div className="py-5 text-black opacity-70 flex flex-col gap-y-4 font-medium">
-        <div>
-          <h3 className="font-semibold text-xl">Web Desainer</h3>
-          <p>
-            Seorang desainer Web adalah orang yang bertanggung jawab untuk
-            menentukan tampilan sebuah website. Tugasnya adalah pendisainan
-            tampilan situs (web) mulai dari pengolahan gambar, tata letak,
-            warna, dan semua aspek visual situs. Fokus utama mereka adalah
-            tampilan / layout dari web.
-          </p>
-        </div>
-        <div>
-          <h3 className="font-semibold text-xl">Web Programmer</h3>
-          <p>
-            Web Programmer sebagai orang yang bertanggung jawab untuk
-            mengimplementasikan tampilan website yang telah dirancang oleh Web
-            Designer dengan menggunakan bahasa pemrograman seperti HTML, CSS,
-            JavaScript, PHP dan sebagainya.
-          </p>
-        </div>
-        <div>
-          <h3 className="font-semibold text-xl">Web Administrator</h3>
-          <p>
-            Tugas dari seorang web administrator adalah untuk memaintenance
-            suatu server, mengerti akan Sistem Operasi Server, baik itu mulai
-            dari instalasi sampai kepada masalah (troubleshooting), biasanya
-            seorang Web Administrator harus menguasai OS, Jaringan dan Keamanan
-            Server.
-          </p>
-        </div>
-        <div>
-          <h3 className="font-semibold text-xl">Web Master</h3>
-          <p>
-            Seoarang Web Master adalah seorang yang mengerti akan kesemua hal
-            mulai dari desain, program dan keamanan server namun tidak terlalu
-            turut mencampuri ke masing-masing divisi, cukup dengan
-            mempertanggung jawabkan atas jalannya suatu situs (web).
-          </p>
-        </div>
+      <h1 className="font-semibold text-2xl">
+        MATERI 2 - Syarat dan Keterampilan Pengembangan Web
+      </h1>
+      <div className="py-5 text-black opacity-70 flex flex-col gap-y-4 font-normal">
         <p>
-          Kegiatan diatas secara keseluruhan dinamakan suatu team yang dinamakan
-          Web Developer. Web developer memberi bantuan seperti konsultasi web,
-          konsep web yang akan di buat, membangun sebuat website.
+          Profesi dalam pengembangan aplikasi web membutuhkan sejumlah
+          persyaratan dan keterampilan khusus. Untuk menjadi seorang profesional
+          yang sukses di bidang ini, penting untuk memahami persyaratan dasar
+          dan menguasai keterampilan yang relevan. Berikut adalah beberapa
+          persyaratan dan keterampilan yang diperlukan dalam pengembangan
+          aplikasi web:
         </p>
+        <div>
+          <h3 className="font-semibold text-xl">
+            Pemahaman Bahasa Pemrograman
+          </h3>
+          <p>
+            Penguasaan bahasa pemrograman menjadi dasar dalam pengembangan
+            aplikasi web. Penting untuk memahami setidaknya satu bahasa
+            pemrograman seperti HTML, CSS, JavaScript, Python, Java, atau PHP.
+            Setiap bahasa pemrograman memiliki sintaks, konsep, dan kegunaan
+            yang berbeda-beda, oleh karena itu pemahaman mendalam tentang bahasa
+            yang digunakan sangat penting.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Kerangka Kerja (Framework)</h3>
+          <p>
+            Kerangka kerja (framework) adalah perangkat lunak yang menyediakan
+            struktur dan alat bantu dalam pengembangan aplikasi web. Penguasaan
+            kerangka kerja populer seperti React, Angular, Vue, Django, Spring,
+            atau Laravel dapat memberikan keunggulan dalam membangun aplikasi
+            yang efisien dan scalable.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Markup Language dan Styling</h3>
+          <p>
+            Pemahaman tentang bahasa markah seperti HTML dan CSS sangat penting
+            dalam merancang tata letak halaman dan mengatur gaya visual. Ini
+            meliputi struktur HTML yang benar, pemahaman tentang elemen HTML dan
+            atributnya, serta kemampuan untuk menerapkan gaya dengan CSS.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Pengetahuan Basis Data</h3>
+          <p>
+            Sebagian besar aplikasi web melibatkan interaksi dengan basis data
+            untuk menyimpan dan mengambil informasi. Oleh karena itu, pemahaman
+            tentang konsep basis data, seperti SQL dan desain basis data, sangat
+            diperlukan. Pengetahuan tentang penggunaan basis data seperti MySQL,
+            PostgreSQL, atau MongoDB juga penting dalam pengembangan aplikasi
+            web.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">
+            Prinsip Desain Antarmuka Pengguna
+          </h3>
+          <p>
+            Profesional dalam pengembangan aplikasi web harus memiliki pemahaman
+            dasar tentang prinsip desain antarmuka pengguna (UI/UX) untuk
+            membuat pengalaman pengguna yang baik. Ini termasuk pemahaman
+            tentang penempatan elemen, navigasi yang intuitif, penggunaan warna
+            dan tipografi, dan desain responsif untuk berbagai perangkat.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Keamanan Aplikasi Web</h3>
+          <p>
+            Keamanan aplikasi web adalah aspek yang penting dalam pengembangan
+            aplikasi web. Para profesional harus memahami prinsip-prinsip
+            keamanan, kerentanan umum, dan praktik pengujian keamanan. Mereka
+            juga harus memiliki pemahaman tentang enkripsi data, perlindungan
+            terhadap serangan seperti Cross-Site Scripting (XSS) atau SQL
+            Injection, serta keamanan pengelolaan akses pengguna.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">
+            Keterampilan Problem Solving
+          </h3>
+          <p>
+            Keterampilan problem solving atau pemecahan masalah adalah aspek
+            penting dalam pengembangan aplikasi web. Para profesional harus
+            mampu menganalisis masalah, mengidentifikasi solusi yang tepat, dan
+            mengimplementasikan solusi tersebut secara efektif.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">Kemampuan Belajar Mandiri</h3>
+          <p>
+            Dalam industri yang terus berkembang, profesional dalam pengembangan
+            aplikasi web harus memiliki kemampuan untuk belajar mandiri. Mereka
+            harus mampu mengikuti perkembangan teknologi baru, bahasa
+            pemrograman baru, dan tren terkini dalam pengembangan web. Kemampuan
+            ini akan membantu mereka untuk terus meningkatkan dan memperbarui
+            keterampilan mereka.
+          </p>
+        </div>
+        <div>
+          <h3 className="font-semibold text-xl">
+            Keterampilan Komunikasi dan Kolaborasi
+          </h3>
+          <p>
+            Pengembangan aplikasi web sering melibatkan kolaborasi dalam tim.
+            Keterampilan komunikasi yang baik dan kemampuan bekerja dalam tim
+            menjadi penting. Kemampuan untuk berkomunikasi dengan jelas, berbagi
+            ide, mendengarkan, dan bekerja sama dengan rekan tim serta klien
+            adalah keterampilan yang sangat berharga.
+          </p>
+        </div>
       </div>
     </>
   );
