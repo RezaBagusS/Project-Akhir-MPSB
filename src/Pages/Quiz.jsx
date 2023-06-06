@@ -4,7 +4,7 @@ import { getQuiz } from "../data/dataQuiz";
 import NavbarCourse from "../Component/DetailCourseComp/NavbarCourse";
 import FooterHome from "../Component/HomeComp/FooterHome";
 import GetReady from "../Component/QuizComp/GetReady";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import QuizField from "../Component/QuizComp/QuizField";
 
 const Quiz = () => {

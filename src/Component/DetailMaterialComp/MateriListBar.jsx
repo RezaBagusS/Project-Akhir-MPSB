@@ -79,8 +79,8 @@ const MateriListBar = ({ sendValue }) => {
                 onClick={() => {
                   sendValue.setActiveSubJudul(index + 1);
                 }}
-                className={`w-11/12 mx-auto pl-3 pr-3 py-2 text-base font-medium rounded-md cursor-pointer
-                  ${index + 1 === sendValue.getActiveSubJudul() ? "bg-blue-800 text-white" : "bg-gray-300 text-cust-blue"}
+                className={`w-11/12 mx-auto pl-3 pr-3 py-2 text-base font-medium rounded-md cursor-pointer transition-all duration-300
+                  ${index + 1 === sendValue.getActiveSubJudul() ? "bg-blue-800 text-white" : "bg-gray-300 text-cust-blue hover:bg-sky-400"}
                 `}
               >
                 {item}

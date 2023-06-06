@@ -16,7 +16,7 @@ const QuizField = ({ data }) => {
 
   const handleNoSoal = () => {
     setTimeout(() => {
-      if (!(noSoal === data().length)) {
+      if ((noSoal !== data().length)) {
         setNoSoal((prev) => prev + 1);
       }
     }, 700);
@@ -25,16 +25,19 @@ const QuizField = ({ data }) => {
   const handleTotalBenar = (id) => {
     updateTotalBenar((prev) => prev + 1);
     updateGetIdSoalBenar((prev) => [...prev, id]);
+    console.log(id);
   };
 
   const getButtonBenar = () => {
     return (
       <button
         onClick={() => {
-          handleNoSoal();
-          handleTotalBenar(data()[noSoal - 1].id);
-          if (noSoal === data().length) {
-            setShowSubmit(prev => !prev);
+          if (noSoal <= data().length+1){
+            if (noSoal === data().length) {
+              setShowSubmit(true);
+            }
+            handleNoSoal();
+            handleTotalBenar(data()[noSoal - 1].id);
           }
         }}
         className={`w-1/2 h-[150px] p-3 bg-cust-purple text-white rounded-md active:ring-4`}
@@ -48,9 +51,11 @@ const QuizField = ({ data }) => {
     return (
       <button
         onClick={() => {
-          handleNoSoal();
-          if (noSoal === data().length) {
-            setShowSubmit(prev => !prev);
+          if (noSoal <= data().length+1){
+            if (noSoal === data().length) {
+              setShowSubmit(true);
+            }
+            handleNoSoal();
           }
         }}
         className={`w-1/2 h-[150px] p-3 bg-cust-purple text-white rounded-md active:ring-4`}
