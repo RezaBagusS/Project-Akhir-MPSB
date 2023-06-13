@@ -7,9 +7,9 @@ import { verifyToken } from "../Helpers/AuthHelpers";
 
 const Challenge = () => {
   const { challengeId } = useParams();
-  const textAreaHTML = useRef(null);
-  const textAreaCSS = useRef(null);
-  const textAreaJS = useRef(null);
+  const textAreaHTML = useRef({});
+  const textAreaCSS = useRef({});
+  const textAreaJS = useRef({});
   const [challenge, setChallenge] = useState(null);
   const [htmlCode, setHtmlCode] = useState("");
   const [cssCode, setCssCode] = useState("");
@@ -18,13 +18,14 @@ const Challenge = () => {
 
   useEffect(() => {
     setChallenge(getChallenge());
+    isLogin();
+    handleCloseDate();
 
     const handleTabKeyPress = (event, textareaRef) => {
       if (event.key === "Tab") {
         event.preventDefault();
         const { selectionStart, selectionEnd } = textareaRef.current;
 
-        // Memperoleh teks sebelum dan sesudah seleksi
         const textBeforeSelection = textareaRef.current.value.substring(
           0,
           selectionStart
@@ -32,10 +33,8 @@ const Challenge = () => {
         const textAfterSelection =
           textareaRef.current.value.substring(selectionEnd);
 
-        // Menambahkan tab pada teks sebelum dan sesudah seleksi
         textareaRef.current.value = `${textBeforeSelection}\t${textAfterSelection}`;
 
-        // Memperbarui posisi seleksi
         const newSelectionStart = selectionStart + 1;
         textareaRef.current.setSelectionRange(
           newSelectionStart,
@@ -45,26 +44,47 @@ const Challenge = () => {
     };
 
     const handleTabHTMLKeyPress = (event) => {
-      handleTabKeyPress(event, textAreaHTML);
+      if (textAreaHTML.current) {
+        handleTabKeyPress(event, textAreaHTML);
+      }
     };
     const handleTabCSSKeyPress = (event) => {
-      handleTabKeyPress(event, textAreaCSS);
+      if (textAreaCSS.current) {
+        handleTabKeyPress(event, textAreaCSS);
+      }
     };
     const handleTabJSKeyPress = (event) => {
-      handleTabKeyPress(event, textAreaJS);
+      if (textAreaJS.current) {
+        handleTabKeyPress(event, textAreaJS);
+      }
     };
 
-    textAreaHTML.current.addEventListener("keydown", handleTabHTMLKeyPress);
-    textAreaCSS.current.addEventListener("keydown", handleTabCSSKeyPress);
-    textAreaJS.current.addEventListener("keydown", handleTabJSKeyPress);
+    if (textAreaHTML.current) {
+      textAreaHTML.current.addEventListener("keydown", handleTabHTMLKeyPress);
+    }
+    if (textAreaCSS.current) {
+      textAreaCSS.current.addEventListener("keydown", handleTabCSSKeyPress);
+    }
+    if (textAreaJS.current) {
+      textAreaJS.current.addEventListener("keydown", handleTabJSKeyPress);
+    }
 
     return () => {
-      textAreaHTML.current.removeEventListener(
-        "keydown",
-        handleTabHTMLKeyPress
-      );
-      textAreaCSS.current.removeEventListener("keydown", handleTabCSSKeyPress);
-      textAreaJS.current.removeEventListener("keydown", handleTabJSKeyPress);
+      if (textAreaHTML.current) {
+        textAreaHTML.current.removeEventListener(
+          "keydown",
+          handleTabHTMLKeyPress
+        );
+      }
+      if (textAreaCSS.current) {
+        textAreaCSS.current.removeEventListener(
+          "keydown",
+          handleTabCSSKeyPress
+        );
+      }
+      if (textAreaJS.current) {
+        textAreaJS.current.removeEventListener("keydown", handleTabJSKeyPress);
+      }
     };
   }, []);
 
@@ -74,6 +94,19 @@ const Challenge = () => {
       return true;
     }
     return window.location.replace("/auth/login");
+  };
+
+  const handleCloseDate = () => {
+    const openDate = new Date(getChallenge().openDate);
+    const closeDate = new Date(getChallenge().closeDate);
+    const now = new Date();
+    if (now >= openDate && now <= closeDate) {
+      console.log("YOU CAN ACCESS THIS PAGE");
+    } else if (now < openDate && now < closeDate) {
+      navigate("/dashboard");
+    } else {
+      navigate("/dashboard");
+    }
   };
 
   const getChallenge = () => {
@@ -123,7 +156,6 @@ const Challenge = () => {
 
   return (
     <>
-      {isLogin()}
       <div className="h-[100px] bg-cust-blue grid items-center sm:mt-0 drop-shadow-[0px_3px_5px_rgb(0,0,0,0.2)]">
         <div className="flex flex-col sm:flex-row sm:justify-between cust-container bg-cust-blue rounded-md mt-5 p-3">
           <div
@@ -149,9 +181,7 @@ const Challenge = () => {
               />
             </svg>
           </div>
-          <div
-            className="px-4 sm:px-5 mx-auto sm:mx-0 font-semibold text-lg sm:text-2xl flex items-center text-cust-beige"
-          >
+          <div className="px-4 sm:px-5 mx-auto sm:mx-0 font-semibold text-lg sm:text-2xl flex items-center text-cust-beige">
             <i>CHALLENGES</i>
           </div>
         </div>
@@ -182,7 +212,7 @@ const Challenge = () => {
                 <textarea
                   ref={textAreaHTML}
                   onChange={(e) => handleInput("HTML", e)}
-                  className="w-full h-44 bg-sky-700 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
+                  className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
                   id="HTML"
                 ></textarea>
               </div>
@@ -191,7 +221,7 @@ const Challenge = () => {
                 <textarea
                   ref={textAreaCSS}
                   onChange={(e) => handleInput("CSS", e)}
-                  className="w-full h-44 bg-sky-700 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
+                  className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
                   id="CSS"
                 ></textarea>
               </div>
@@ -200,7 +230,7 @@ const Challenge = () => {
                 <textarea
                   ref={textAreaJS}
                   onChange={(e) => handleInput("JS", e)}
-                  className="w-full h-44 bg-sky-700 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
+                  className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
                   id="JS"
                 ></textarea>
               </div>
@@ -211,9 +241,10 @@ const Challenge = () => {
               </div>
               <iframe className="bg-white ring-2 ring-slate-400 w-full h-3/4 rounded-md"></iframe>
               <div className="flex flex-row justify-between w-full">
-                <button 
+                <button
                   onClick={() => console.log("SUBMIT YAK BRO ?")}
-                className="px-4 py-3 mt-4 w-3/12 rounded-md bg-cust-purple text-cust-beige hover:bg-cust-purple/80 hover:ring-2 hover:ring-slate-400 text-lg font-semibold transition-all duration-200">
+                  className="px-4 py-3 mt-4 w-3/12 rounded-md bg-cust-purple text-cust-beige hover:bg-cust-purple/80 hover:ring-2 hover:ring-slate-400 text-lg font-semibold transition-all duration-200"
+                >
                   Submit
                 </button>
                 <div className="flex flex-row justify-end gap-x-5 w-9/12">
