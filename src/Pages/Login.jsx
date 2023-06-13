@@ -37,12 +37,10 @@ const Login = () => {
         setTimeout(() => {
           navigate("/dashboard");
         }, 2000);
-      } else {
-        setLoginError(true);
       }
     } catch (error) {
+      setLoading(false);
       setLoginError(true);
-      console.log(error);
     }
   };
 

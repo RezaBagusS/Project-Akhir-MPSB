@@ -5,7 +5,6 @@ export const LoginValidation = async (username, password) => {
     const storedUsername = localStorage.getItem("username");
 
     if (storedUsername && storedUsername !== username) {
-      // Hapus data akun yang lama jika ada perubahan akun
       localStorage.removeItem("username");
       localStorage.removeItem("token");
     }
@@ -22,15 +21,13 @@ export const LoginValidation = async (username, password) => {
         password: password,
       }
     );
-
-    // console.log(response.data);
     const token = response.data.token;
     localStorage.setItem("username", username);
     localStorage.setItem("token", token);
     return true;
   } catch (error) {
-    console.error("Error:", error);
-    return false;
+    // console.error("Error:", error);
+    return response.data.message;
   }
 };
 
