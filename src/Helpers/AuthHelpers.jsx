@@ -80,6 +80,22 @@ export const verifyToken = async () => {
   }
 };
 
+export const sendClaimClass = async (tag) => {
+  try{
+    const response = await axios.post(
+      "https://project-akhir-mpsb-back-end.vercel.app/api/claimClass",
+      // "http://localhost:3000/api/claimClass",
+      {
+        tag: tag,
+        token: localStorage.getItem("token"),
+      }
+    );
+    console.log(response.data.message);
+  } catch (error) {
+    console.error("Error",error);
+  }
+}
+
 export const getDataFromToken = async (token) => {
   try {
     const response = await axios.post(

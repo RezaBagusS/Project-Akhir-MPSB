@@ -1,6 +1,6 @@
 import dataCoursesModule from "../../data/dataCoursesModule";
 
-const CoursesCardModule = () => {
+const CoursesCardModule = ({ getClaim }) => {
   return dataCoursesModule.map((item) => {
     return (
       <div className="xl:w-[32%] lg:w-[40%] md:w-[45%] h-fit sm:h-[490px] bg-white p-2 rounded-md" key={item.id}>
@@ -34,7 +34,9 @@ const CoursesCardModule = () => {
             </div>
             <p className="text-cust-orange ">{item.status}</p>
           </div>
-          <button className="bg-sky-600 hover:bg-sky-700 w-full h-fit py-2 rounded-md mt-auto text-cust-beige hover:text-white font-medium transition-all duration-300">
+          <button 
+          onClick={() => getClaim(item.tag.toLowerCase())}
+          className="bg-sky-600 hover:bg-sky-700 w-full h-fit py-2 rounded-md mt-auto text-cust-beige hover:text-white font-medium transition-all duration-300">
             Klaim Kelas
           </button>
         </footer>

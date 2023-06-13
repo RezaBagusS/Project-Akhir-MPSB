@@ -5,7 +5,6 @@ const ModalConfirm = ({ text, sendValue }) => {
   const { courseId } = useParams();
 
   const handleValue = (value) => {
-    // console.log("Data dalam Modal Confirm: ", value);
     if (!value) {
       sendValue.handleModalConfirmValue(value);
     } else {
