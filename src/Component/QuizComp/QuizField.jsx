@@ -24,7 +24,6 @@ const QuizField = ({ data }) => {
 
   const handleTotalBenar = (id) => {
     updateGetIdSoalBenar((prev) => [...prev, id]);
-    console.log(id);
   };
 
   const getButtonBenar = () => {

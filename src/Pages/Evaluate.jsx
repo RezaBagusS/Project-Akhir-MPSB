@@ -40,11 +40,12 @@ const Evaluate = () => {
 
   const getStyleTotalBenar = () => {
     let getTotalBenar = clearDuplicateOnIdSoal().length;
-    console.log("TotalBenar : ",getTotalBenar);
     if (getTotalBenar === 0) {
       return `w-0 hidden`;
     } else if (getTotalBenar === 5) {
       return `w-full`;
+    } else if (getTotalBenar === 1) {
+      return `w-1/5`;
     }
     return `w-${getTotalBenar}/5`;
   };
@@ -55,6 +56,8 @@ const Evaluate = () => {
       return `w-0 hidden`;
     } else if (getTotalSalah === 5) {
       return `w-full`;
+    } else if (getTotalSalah === 1) {
+      return `ml-1 w-1/5`;
     }
     return `ml-1 w-${getTotalSalah}/5`;
   };
@@ -81,12 +84,11 @@ const Evaluate = () => {
   };
 
   const handleQuiz = () => {
-    const quiz = getQuiz(courseId, quizCode).find((item) => item).soalQuiz;
+    const quiz = getQuiz(courseId, quizCode).find((item) => item.id == quizCode).soalQuiz;
     return quiz;
   };
 
   const handleCorrection = () => {
-    console.log(clearDuplicateOnIdSoal());
     const bgCorrection = clearDuplicateOnIdSoal().includes(noSoal)
       ? {
           benar: "bg-green-600",

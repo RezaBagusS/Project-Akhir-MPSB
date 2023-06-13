@@ -6,13 +6,14 @@ import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard";
 import SecCourses from "./Modules/Sec_Courses";
 import SecMyCourses from "./Modules/Sec_MyCourses";
-import SecChallange from "./Modules/Sec_Challange";
+import SecChallenge from "./Modules/Sec_Challenge";
 import NotFound from "./Pages/NotFound";
 import Courses from "./Pages/Courses";
 import Material from "./Pages/Material";
 import Quiz from "./Pages/Quiz";
 import Evaluate from "./Pages/Evaluate";
 import { QuizProvider } from "./Helpers/QuizContext";
+import Challenge from "./Pages/Challenge";
 
 function App() {
   return (
@@ -25,8 +26,9 @@ function App() {
           <Route path="/dashboard/*" element={<Dashboard />}>
             <Route path="courses" element={<SecCourses />} />
             <Route path="mycourses" element={<SecMyCourses />} />
-            <Route path="challanges" element={<SecChallange />} />
+            <Route path="challenges" element={<SecChallenge />} />
           </Route>
+          <Route path="/dashboard/challenges/:challengeId" element={<Challenge />} />
           <Route path="/dashboard/mycourses/:courseId" element={<Courses />} />
           <Route path="/dashboard/mycourses/:courseId/material" element={<Material />} />
           <Route path="/dashboard/mycourses/:courseId/quiz/:quizCode" element={<Quiz />} />

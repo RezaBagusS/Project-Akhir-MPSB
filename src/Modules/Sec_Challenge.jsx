@@ -3,7 +3,7 @@ import ChallangeCard from "../Component/ModulesComp/ChallangeCard";
 import CheckboxChallange from "../Component/ModulesComp/CheckboxChallange";
 import { useState } from "react";
 
-const Challange = () => {
+const SecChallenge = () => {
   const [isChecked, setIsChecked] = useState([]);
   const [filterOpen, setFilterOpen] = useState(false);
 
@@ -60,4 +60,4 @@ const Challange = () => {
   );
 };
 
-export default Challange;
+export default SecChallenge;

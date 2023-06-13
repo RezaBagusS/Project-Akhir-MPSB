@@ -61,7 +61,7 @@ const FooterCourse = () => {
             <a href="/dashboard">Dashboard</a>
             <a href="/dashboard/courses">Courses</a>
             <a href="/dashboard/mycourses">My Courses</a>
-            <a href="/dashboard/challanges">Challanges</a>
+            <a href="/dashboard/challenges">Challenges</a>
           </div>
 
         </div>

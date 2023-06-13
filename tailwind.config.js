@@ -1,16 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
-      backgroundImage:{
-        "hero-pattern": "url('https://res.cloudinary.com/dr0lbokc5/image/upload/v1682941478/topography_y1faek.svg')",
+      backgroundImage: {
+        "hero-pattern":
+          "url('https://res.cloudinary.com/dr0lbokc5/image/upload/v1682941478/topography_y1faek.svg')",
       },
       colors: {
         "cust-yellow": "#f9d816",
@@ -23,5 +22,4 @@ export default {
     },
   },
   plugins: [],
-}
-
+};

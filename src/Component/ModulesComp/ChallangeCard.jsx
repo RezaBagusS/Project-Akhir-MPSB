@@ -1,6 +1,9 @@
 import { dataChallange } from "../../data/dataChallange";
+import { useNavigate } from "react-router-dom";
 
 const ChallangeCard = ({ filter }) => {
+  const navigate = useNavigate();
+
   const handleDate = (date) => {
     const d = new Date(date);
     const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
@@ -68,6 +71,7 @@ const ChallangeCard = ({ filter }) => {
             <p className="opacit y-70">Close : {handleDate(item.closeDate)}</p>
           </div>
           <button
+            onClick={() => navigate(`/dashboard/challenges/${item.id}`)}
             disabled={!isOpen(item.openDate, item.closeDate)}
             className={`w-32 py-2 text-base font-medium cursor-pointer rounded-md transition-all duration-300
                   ${

@@ -3,7 +3,7 @@ import SidebarLeft from "../Component/DashboardComp/sidebarLeft";
 import SecDashboard from "../Modules/Sec_Dashboard";
 import SecCourses from "../Modules/Sec_Courses";
 import SecMyCourses from "../Modules/Sec_MyCourses";
-import SecChallange from "../Modules/Sec_Challange";
+import SecChallange from "../Modules/Sec_Challenge";
 import { useEffect } from "react";
 import { verifyToken } from "../Helpers/AuthHelpers";
 
@@ -24,7 +24,7 @@ const Dashboard = () => {
     if (location.pathname === "/dashboard/mycourses") {
       return <SecMyCourses />;
     }
-    if (location.pathname === "/dashboard/challanges") {
+    if (location.pathname === "/dashboard/challenges") {
       return <SecChallange />;
     }
   };

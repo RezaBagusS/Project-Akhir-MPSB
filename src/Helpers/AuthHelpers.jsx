@@ -65,13 +65,10 @@ export const verifyToken = async () => {
   try {
     const response = await axios.post(
       "https://project-akhir-mpsb-back-end.vercel.app/api/verifyToken",
-      // "http://localhost:3000/api/verifyToken",
       {
         token: localStorage.getItem("token"),
       }
     );
-
-    // console.log(response.data.status);
 
     if (response.data.status === "success") {
       return true;

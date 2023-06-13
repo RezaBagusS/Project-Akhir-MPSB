@@ -1,20 +1,31 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginputComp from "../Component/LoginputComp.jsx";
 import { dataSVG } from "../data/dataSVG.jsx";
 import { LoginValidation } from "../Helpers/AuthHelpers.jsx";
 import ModalLoading from "../Component/ModalLoading.jsx";
+import { verifyToken } from "../Helpers/AuthHelpers.jsx";
 
 const Login = () => {
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    getToken();
+  },[]);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     let username = document.getElementById("Username").value;
     let password = document.getElementById("Password").value;
     processLogin(username, password);
+  };
+
+  const getToken = () => {
+    if (localStorage.getItem("token")) {
+      verifyToken();
+    }
   };
 
   const processLogin = async (username, password) => {

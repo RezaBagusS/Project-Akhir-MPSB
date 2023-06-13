@@ -6,11 +6,9 @@ const SidebarLeft = () => {
 
   const getClicked = () => {
     if (!isClose) {
-      setIsClose(
-        prev => !prev
-      );
+      setIsClose((prev) => !prev);
     }
-  }
+  };
 
   return (
     <div
