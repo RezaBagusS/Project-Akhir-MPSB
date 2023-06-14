@@ -14,7 +14,7 @@ const DashboardCardNoIMG = () => {
       description:
         "Uji kemampuanmu dalam bidang web development dan raih kesempatan untuk meningkatkan skill ngodingmu.",
       button: "Ikut Challange",
-      link: "/dashboard/challanges",
+      link: "/dashboard/challenges",
     },
   ];
 

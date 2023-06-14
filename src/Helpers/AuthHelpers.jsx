@@ -96,6 +96,24 @@ export const sendClaimClass = async (tag) => {
   }
 }
 
+export const getDataCoursesModule = async () => {
+  try {
+    
+    const response = await axios.post(
+      "https://project-akhir-mpsb-back-end.vercel.app/api/dataClass",
+      // "http://localhost:3000/api/dataClass",
+      {
+        token: localStorage.getItem("token"),
+      }
+    );
+
+    return response.data.data;
+
+  } catch (error) {
+    console.log("Error:", error);
+  }
+}
+
 export const getDataFromToken = async (token) => {
   try {
     const response = await axios.post(

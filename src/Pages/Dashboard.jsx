@@ -5,7 +5,7 @@ import SecCourses from "../Modules/Sec_Courses";
 import SecMyCourses from "../Modules/Sec_MyCourses";
 import SecChallange from "../Modules/Sec_Challenge";
 import { useEffect } from "react";
-import { verifyToken } from "../Helpers/AuthHelpers";
+import { getDataCoursesModule, verifyToken } from "../Helpers/AuthHelpers";
 
 const Dashboard = () => {
   let location = useLocation();
@@ -13,6 +13,10 @@ const Dashboard = () => {
   useEffect(() => {
     console.log(location.pathname);
   }, [location.pathname]);
+
+  useEffect(() => {
+    handleProcessGetCourses();
+  },[]);
 
   const handlePath = () => {
     if (location.pathname === "/dashboard") {
@@ -36,6 +40,18 @@ const Dashboard = () => {
     }
     return window.location.replace("/auth/login");
   };
+
+  const handleProcessGetCourses = async () => {
+    try {
+      const result = await getDataCoursesModule();
+      if (result) {
+        // console.log(result);
+        localStorage.setItem("dataKlaim", result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>

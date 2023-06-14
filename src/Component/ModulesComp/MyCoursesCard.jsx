@@ -1,11 +1,16 @@
+import { data } from "autoprefixer";
 import dataCoursesModule from "../../data/dataCoursesModule";
 import { useNavigate } from "react-router-dom";
 
 const MyCoursesCard = () => {
-
   const navigate = useNavigate();
+  let dataKlaim = localStorage.getItem("dataKlaim")
+    ? localStorage.getItem("dataKlaim").split(",")
+    : [];
+  console.log(dataKlaim);
 
-  return dataCoursesModule.map((item) => {
+  return dataKlaim.includes(dataCoursesModule.map((item) => item.tag.toLowerCase())) ? (
+  dataCoursesModule.map((item) => {
     return (
       <div
         key={item.id}
@@ -37,7 +42,13 @@ const MyCoursesCard = () => {
         </div>
       </div>
     );
-  });
+  }))
+  :
+  (
+    <div className="flex justify-center align-middle text-lg">
+      Tidak ada kelas yang telah kamu klaim
+    </div>
+  )
 };
 
 export default MyCoursesCard;

@@ -2,7 +2,6 @@ import CoursesCardModule from "../Component/ModulesComp/CoursesCardModule";
 import HeaderDashboard from "../Component/DashboardComp/HeaderDashboard";
 import dataCoursesModule from "../data/dataCoursesModule";
 import { useState } from "react";
-import { sendClaimClass } from "../Helpers/AuthHelpers";
 
 const courses = () => {
   const [openOption, setOpenOption] = useState(false);
@@ -10,22 +9,6 @@ const courses = () => {
   const handleOpenOption = () => {
     setOpenOption((prev) => !prev);
   };
-
-  const handleProcessClaim = async (tag) => {
-
-    try {
-      const result = await sendClaimClass(tag);
-      if (result) {
-        console.log(result);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getClickClaim = (tag) => {
-    handleProcessClaim(tag);
-  }
 
   return (
     <>
@@ -88,7 +71,7 @@ const courses = () => {
             <h4>Terdapat {dataCoursesModule.length} Kelas yang tersedia</h4>
           </div>
           <div className="flex flex-wrap gap-5 justify-center h-fit pb-10">
-            <CoursesCardModule getClaim={getClickClaim} />
+            <CoursesCardModule />
           </div>
         </div>
       </div>
