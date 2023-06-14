@@ -8,7 +8,8 @@ import {
 const CoursesCardModule = () => {
   const [loading, setLoading] = useState(false);
   const [tag, setTag] = useState("");
-  const [dataKlaim, setDataKlaim] = useState([]
+  const [dataKlaim, setDataKlaim] = useState(
+    localStorage.getItem("dataKlaim")
   );
 
   useEffect(() => {
