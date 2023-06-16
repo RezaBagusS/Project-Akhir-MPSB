@@ -59,10 +59,10 @@ const HeaderDashboard = ({ name }) => {
             ${isDown ? "block max-h-fit" : "hidden max-h-0"}
           `}
           >
-            <div class="px-4 py-3 text-sm text-gray-900">
+            <div className="px-4 py-3 text-sm text-gray-900">
               <div>{localStorage.getItem("username")}</div>
             </div>
-            <div class="py-2">
+            <div className="py-2">
               <a
                 href="/"
                 onClick={() => {
@@ -70,7 +70,7 @@ const HeaderDashboard = ({ name }) => {
                   localStorage.removeItem("username");
                   localStorage.removeItem("dataKlaim");
                 }}
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white"
               >
                 Sign out
               </a>

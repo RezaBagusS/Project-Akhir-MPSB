@@ -45,7 +45,7 @@ export const SignupValidation = async (username, email, password) => {
     );
 
     const msg = response.data.message;
-    console.log(msg);
+    // console.log(msg);
 
     return true;
   } catch (error) {
@@ -96,7 +96,7 @@ export const sendClaimClass = async (tag) => {
         token: localStorage.getItem("token"),
       }
     );
-    console.log(response.data.message);
+    // console.log(response.data.message);
   } catch (error) {
     console.error("Error",error);
   }
