@@ -100,11 +100,11 @@ const dataCoursesModule = [
         />
       </svg>
     ),
-    status: "GRATIS",
-    statusDiskon: true,
-    totalDiskon: 100,
-    harga: "Rp. 200.000",
-    linkCourses: `/dashboard/mycourses/css`,
+    status: "COMING SOON", // Status di card
+    statusDiskon: false, // Status diskon di card
+    totalDiskon: 0, // Total diskon di card
+    harga: "", // Harga di card
+    linkCourses: `/dashboard/mycourses/css`, // Link ke halaman course
   },
 
   {
@@ -154,10 +154,10 @@ const dataCoursesModule = [
         />
       </svg>
     ),
-    status: "BELI",
+    status: "COMING SOON",
     statusDiskon: false,
     totalDiskon: 0,
-    harga: "Rp. 500.000",
+    harga: "",
     linkCourses: `/dashboard/mycourses/javascript`,
   },
 ];

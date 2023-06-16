@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const LoginValidation = async (username, password) => {
   try {
@@ -53,10 +54,15 @@ export const SignupValidation = async (username, email, password) => {
   }
 };
 
-export const Logout = () => {
-  localStorage.removeItem("token");
-  window.location.reload();
-};
+// export const Logout = () => {
+//   const navigate = useNavigate();
+
+//   localStorage.removeItem("token");
+//   localStorage.removeItem("username");
+//   localStorage.removeItem("dataKlaim");
+
+//   navigate("/");
+// };
 
 export const verifyToken = async () => {
   try {

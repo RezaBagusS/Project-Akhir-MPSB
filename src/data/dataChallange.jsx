@@ -21,15 +21,15 @@ export const dataChallange = [
         tag: "HTML",
         title: "Make it Form with HTML",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-        openDate: new Date("2023-06-08T16:00:00.999+07:00"),
-        closeDate: new Date("2023-06-15T23:59:59.999+07:00"),
+        openDate: new Date("2023-06-02T16:00:00.999+07:00"),
+        closeDate: new Date("2023-06-05T23:59:59.999+07:00"),
     },
-    {
-        id: 4,
-        tag: "CSS",
-        title: "Styling your table with CSS",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-        openDate: new Date("2023-06-15T16:00:00.999+07:00"),
-        closeDate: new Date("2023-06-20T23:59:59.999+07:00"),
-    }
+    // {
+    //     id: 4,
+    //     tag: "CSS",
+    //     title: "Styling your table with CSS",
+    //     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+    //     openDate: new Date("2023-06-15T16:00:00.999+07:00"),
+    //     closeDate: new Date("2023-06-20T23:59:59.999+07:00"),
+    // }
 ];

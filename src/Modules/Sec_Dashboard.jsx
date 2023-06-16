@@ -29,7 +29,7 @@ const SecDashboard = () => {
               <p>
                 LearnByCode adalah sebuah aplikasi media pembelajaran yang
                 inovatif dan modern, yang dirancang khusus untuk para pengguna
-                yang ingin memperdalam dan memperluas pengetahuan mereka dalam
+                yang ingin memperdalam dan memperluas pengetahuan dalam
                 bidang web development.
               </p>
               <motion.svg

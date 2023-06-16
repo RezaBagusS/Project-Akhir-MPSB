@@ -1,15 +1,11 @@
 import dataCoursesModule from "../../data/dataCoursesModule";
 import { useNavigate } from "react-router-dom";
 
-const MyCoursesCard = () => {
+const MyCoursesCard = ({ getCourse }) => {
   const navigate = useNavigate();
-  let dataKlaim = localStorage.getItem("dataKlaim")
-    ? localStorage.getItem("dataKlaim").split(",")
-    : [];
-  console.log(dataKlaim);
 
   const filteredCourses = dataCoursesModule.filter((item) =>
-    dataKlaim.includes(item.tag.toLowerCase())
+   getCourse.includes(item.tag.toLowerCase())
   );
 
   return filteredCourses.length === 0 ? (

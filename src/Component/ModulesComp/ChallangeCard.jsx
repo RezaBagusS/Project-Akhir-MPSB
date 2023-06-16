@@ -33,22 +33,33 @@ const ChallangeCard = ({ filter }) => {
     }
   };
 
-  const filteredChallanges =
+  const filteredChallenges =
     filter.length > 0
-      ? dataChallange.filter((item) => filter.includes(item.tag))
-      : dataChallange;
+      ? dataChallange.filter(
+          (item) =>
+            filter.includes(item.tag) &&
+            new Date(item.closeDate) >
+            new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+        )
+      : dataChallange.filter(
+          (item) =>
+            new Date(item.closeDate) >
+            new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+        );
 
-  if (filteredChallanges.length === 0) {
+  filteredChallenges.sort((a, b) => a.closeDate - b.closeDate);
+
+  if (filteredChallenges.length === 0) {
     return (
-        <div className="w-full flex items-center justify-center h-20 border-t-2">
-            <h1 className="font-semibold text-center text-2xl rounded-lg mt-5 bg-slate-200 py-5 px-10">
-                Challange belum ada !! 😥😥 
-            </h1>
-        </div>
-    )
+      <div className="w-full flex items-center justify-center h-20 border-t-2">
+        <h1 className="font-semibold text-center text-2xl rounded-lg mt-5 bg-slate-200 py-5 px-10">
+          Challange belum ada !! 😥😥
+        </h1>
+      </div>
+    );
   }
 
-  return filteredChallanges.map((item) => {
+  return filteredChallenges.map((item) => {
     return (
       <div
         key={item.id}
