@@ -74,7 +74,6 @@ const NavMateri = () => {
                 onClick={() => {
                   localStorage.removeItem("token");
                   localStorage.removeItem("username");
-                  localStorage.removeItem("dataKlaim");
                 }}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white"
               >

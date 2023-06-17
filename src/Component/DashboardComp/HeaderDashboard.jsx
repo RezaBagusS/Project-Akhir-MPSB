@@ -28,7 +28,7 @@ const HeaderDashboard = ({ name }) => {
         <div className="relative">
           <div
             onClick={handleClick}
-            className={`flex items-center ml-2 group ring-1 hover:text-white hover:ring-0 hover:bg-blue-500 rounded-lg p-2 cursor-pointer transition-all duration-200
+            className={`flex justify-center items-center ml-2 group ring-1 hover:text-white hover:ring-0 hover:bg-blue-500 rounded-lg p-2 cursor-pointer transition-all duration-200
                 ${isDown && "bg-slate-300 ring-2 ring-slate-400"}
                 `}
           >
@@ -68,7 +68,6 @@ const HeaderDashboard = ({ name }) => {
                 onClick={() => {
                   localStorage.removeItem("token");
                   localStorage.removeItem("username");
-                  localStorage.removeItem("dataKlaim");
                 }}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white"
               >

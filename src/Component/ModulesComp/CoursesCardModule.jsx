@@ -5,6 +5,7 @@ import { sendClaimClass } from "../../Helpers/AuthHelpers";
 const CoursesCardModule = ({ getCourses, searchResult, apiCourses }) => {
   const [loading, setLoading] = useState(false);
   const [tag, setTag] = useState("");
+  const [newDataCourses, setNewDataCourses] = useState([]);
 
   const handleLoading = () => {
     setLoading((prev) => !prev);
@@ -13,6 +14,8 @@ const CoursesCardModule = ({ getCourses, searchResult, apiCourses }) => {
   const handleProcessClaim = async (tag) => {
     try {
       await sendClaimClass(tag);
+      setNewDataCourses([...newDataCourses, tag]);
+      localStorage.setItem("newDataCourses", newDataCourses);
       await apiCourses();
       setTag("");
       handleLoading();

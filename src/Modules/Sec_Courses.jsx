@@ -5,7 +5,6 @@ import { useDebounce } from "../Helpers/UseDebounce";
 import { useState, useEffect } from "react";
 import { getDataCoursesModule } from "../Helpers/AuthHelpers";
 
-
 const courses = () => {
   const [searchResult, setSearchResult] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,19 +13,41 @@ const courses = () => {
   const searchDebounce = useDebounce(searchQuery, 1000) || "";
   
   useEffect(() => {
+    setSearchResult(getSearchQuery());
+  }, [searchDebounce]);
+  
+  useEffect(() => {
     handleProcessGetCourses();
   }, []);
 
-  useEffect(() => {
-    setSearchResult(getSearchQuery());
-  }, [searchDebounce]);
-
-
   const handleProcessGetCourses = async () => {
     try {
-      const result = await getDataCoursesModule();
+      let storedData = localStorage.getItem("oldDataCourses");
+      if (!storedData) {
+        let result = await getDataCoursesModule();
+
+        setDataCourses(result);
+        result = JSON.stringify(result);
+        localStorage.setItem("oldDataCourses", result);
+        localStorage.setItem("newDataCourses", result);
+        // console.log("Data Updated 1");
+      }
+
+      if (localStorage.getItem("oldDataCourses") !== localStorage.getItem("newDataCourses")) {
+        let result = await getDataCoursesModule();
+
+        setDataCourses(result);
+        result = JSON.stringify(result);
+        localStorage.setItem("oldDataCourses", result);
+        localStorage.setItem("newDataCourses", result);
+        // console.log("Data Updated 2");
+      }
+
+      setDataCourses(JSON.parse(localStorage.getItem("oldDataCourses")));
+      // console.log("Data Updated 3");
       setLoading(false);
-      setDataCourses(result);
+      return true;
+
     } catch (error) {
       console.log(error);
     }

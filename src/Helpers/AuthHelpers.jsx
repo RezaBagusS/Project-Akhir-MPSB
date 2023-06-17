@@ -54,16 +54,6 @@ export const SignupValidation = async (username, email, password) => {
   }
 };
 
-// export const Logout = () => {
-//   const navigate = useNavigate();
-
-//   localStorage.removeItem("token");
-//   localStorage.removeItem("username");
-//   localStorage.removeItem("dataKlaim");
-
-//   navigate("/");
-// };
-
 export const verifyToken = async () => {
   try {
     const response = await axios.post(
