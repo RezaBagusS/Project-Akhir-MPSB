@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import FooterCourse from "../Component/DetailCourseComp/FooterCourse";
 import FooterHome from "../Component/HomeComp/FooterHome";
 import { verifyToken } from "../Helpers/AuthHelpers";
+import { ValidatorCode } from "../Helpers/ValidatorCode";
 
 const Challenge = () => {
   const { challengeId } = useParams();
@@ -11,9 +12,9 @@ const Challenge = () => {
   const textAreaCSS = useRef({});
   const textAreaJS = useRef({});
   const [challenge, setChallenge] = useState(null);
-  const [htmlCode, setHtmlCode] = useState("");
-  const [cssCode, setCssCode] = useState("");
-  const [jsCode, setJsCode] = useState("");
+  const [htmlCode, setHtmlCode] = useState(localStorage.getItem("html") ? localStorage.getItem("html") : "");
+  const [cssCode, setCssCode] = useState(localStorage.getItem("css") ? localStorage.getItem("css") : "");
+  const [jsCode, setJsCode] = useState(localStorage.getItem("js") ? localStorage.getItem("js") : "");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -125,6 +126,9 @@ const Challenge = () => {
     const html = textAreaHTML.current.value;
     const css = textAreaCSS.current.value;
     const js = textAreaJS.current.value;
+    localStorage.setItem("html", html);
+    localStorage.setItem("css", css);
+    localStorage.setItem("js", js);
     setHtmlCode(html);
     setCssCode(css);
     setJsCode(js);
@@ -134,6 +138,9 @@ const Challenge = () => {
     setHtmlCode("");
     setCssCode("");
     setJsCode("");
+    localStorage.removeItem("html");
+    localStorage.removeItem("css");
+    localStorage.removeItem("js");
     textAreaHTML.current.value = "";
     textAreaCSS.current.value = "";
     textAreaJS.current.value = "";
@@ -142,16 +149,29 @@ const Challenge = () => {
   const handleRun = () => {
     let preview = document.querySelector("iframe");
     preview.srcdoc = `
-    <html>
-      <head>
-        <style>${cssCode}</style>
-      </head>
-      <body>
-        ${htmlCode}
-        <script>${jsCode}</script>
-      </body>
-    </html>
+      <html>
+        <head>
+          <style>${cssCode}</style>
+        </head>
+        <body>
+          ${htmlCode}
+          <script>
+            try {
+              ${jsCode}
+            } catch (error) {
+              const errorMessage = document.createElement('div');
+              errorMessage.innerText = "Error: " + error;
+              errorMessage.style.color = "red";
+              document.body.appendChild(errorMessage);
+            }
+          </script>
+        </body>
+      </html>
     `;
+  };
+
+  const handleSubmit = () => {
+    ValidatorCode(htmlCode, cssCode, jsCode, challengeId);
   };
 
   return (
@@ -211,6 +231,7 @@ const Challenge = () => {
                 <h1 className="text-white text-lg">HTML</h1>
                 <textarea
                   ref={textAreaHTML}
+                  value={localStorage.getItem("html") && localStorage.getItem("html")}
                   onChange={(e) => handleInput("HTML", e)}
                   className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
                   id="HTML"
@@ -220,6 +241,7 @@ const Challenge = () => {
                 <h1 className="text-white text-lg">CSS</h1>
                 <textarea
                   ref={textAreaCSS}
+                  value={localStorage.getItem("css") && localStorage.getItem("css")}
                   onChange={(e) => handleInput("CSS", e)}
                   className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
                   id="CSS"
@@ -229,6 +251,7 @@ const Challenge = () => {
                 <h1 className="text-white text-lg">Javascript</h1>
                 <textarea
                   ref={textAreaJS}
+                  value={localStorage.getItem("js") && localStorage.getItem("js")}
                   onChange={(e) => handleInput("JS", e)}
                   className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
                   id="JS"
@@ -239,10 +262,10 @@ const Challenge = () => {
               <div className="flex justify-center font-semibold text-white text-xl mb-12">
                 Preview
               </div>
-              <iframe className="bg-white ring-2 ring-slate-400 w-full h-3/4 rounded-md"></iframe>
+              <iframe className="bg-white ring-2 ring-slate-400 w-full h-3/4 rounded-md overflow-y-auto"></iframe>
               <div className="flex flex-row justify-between w-full">
                 <button
-                  onClick={() => console.log("SUBMIT YAK BRO ?")}
+                  onClick={handleSubmit}
                   className="px-4 py-3 mt-4 w-3/12 rounded-md bg-cust-purple text-cust-beige hover:bg-cust-purple/80 hover:ring-2 hover:ring-slate-400 text-lg font-semibold transition-all duration-200"
                 >
                   Submit

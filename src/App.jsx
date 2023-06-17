@@ -14,11 +14,10 @@ import Quiz from "./Pages/Quiz";
 import Evaluate from "./Pages/Evaluate";
 import { QuizProvider } from "./Helpers/QuizContext";
 import Challenge from "./Pages/Challenge";
-import { ModalConfirmProvider } from "./Helpers/ModalConfirmContext";
+// import { ModalConfirmProvider } from "./Helpers/ModalConfirmContext";
 
 function App() {
   return (
-    <ModalConfirmProvider>
       <QuizProvider> 
         <Router>
           <Routes>
@@ -39,7 +38,6 @@ function App() {
           </Routes>
         </Router>
       </QuizProvider>
-    </ModalConfirmProvider>
   );
 }
 
