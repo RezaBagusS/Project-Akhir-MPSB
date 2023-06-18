@@ -1,7 +1,7 @@
 import { dataChallange } from "../../data/dataChallange";
 import { useNavigate } from "react-router-dom";
 
-const ChallangeCard = ({ filter }) => {
+const ChallangeCard = ({ filter, dataIdChallenge }) => {
   const navigate = useNavigate();
 
   const handleDate = (date) => {
@@ -20,16 +20,20 @@ const ChallangeCard = ({ filter }) => {
     return now >= openDate && now <= closeDate;
   };
 
-  const statusChallange = (open, close) => {
+  const statusChallange = (open, close, id) => {
     const openDate = new Date(open);
     const closeDate = new Date(close);
     const now = new Date();
-    if (now >= openDate && now <= closeDate) {
-      return "OPEN";
-    } else if (now < openDate && now < closeDate) {
-      return "ONGOING";
+    if (dataIdChallenge.includes(id)) {
+      return "COMPLETED";
     } else {
-      return "CLOSED";
+      if (now >= openDate && now <= closeDate) {
+        return "OPEN";
+      } else if (now < openDate && now < closeDate) {
+        return "ONGOING";
+      } else {
+        return "CLOSED";
+      }
     }
   };
 
@@ -39,7 +43,7 @@ const ChallangeCard = ({ filter }) => {
           (item) =>
             filter.includes(item.tag) &&
             new Date(item.closeDate) >
-            new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+              new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
         )
       : dataChallange.filter(
           (item) =>
@@ -88,11 +92,11 @@ const ChallangeCard = ({ filter }) => {
                   ${
                     isOpen(item.openDate, item.closeDate)
                       ? "bg-blue-700 hover:bg-cust-blue"
-                      : "bg-red-500"
+                      : "bg-red-500 hover:cursor-not-allowed"
                   }
               `}
           >
-            {statusChallange(item.openDate, item.closeDate)}
+            {statusChallange(item.openDate, item.closeDate, item.id)}
           </button>
         </div>
       </div>

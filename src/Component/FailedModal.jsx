@@ -9,7 +9,7 @@ import {
 } from "@material-tailwind/react";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 
-export const FailedModal = ({ open, setOpen, responseFailed }) => {
+export const FailedModal = ({ open, setOpen }) => {
 
     return (
         <Fragment>

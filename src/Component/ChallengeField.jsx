@@ -84,9 +84,6 @@ const ChallengeField = ({ challenge, handleTextArea }) => {
   };
   const handleResponseSubmit = () => {
     setOpenResponse(!openResponse);
-    feedBackChallenge
-      ? setResponseFailed(!responseFailed)
-      : setResponseSuccess(!responseSuccess);
   };
 
   return (

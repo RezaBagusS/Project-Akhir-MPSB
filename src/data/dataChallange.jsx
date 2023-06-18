@@ -26,6 +26,7 @@ export const dataChallange = [
       { element: "tr", value: "" },
       { element: "td", value: "Bakso" || "Soto" || "Nasi Goreng" },
       { element: "thead", value: "" },
+      { element: "tbody", value: "" },
       { element: "th", value: "Nama Produk" || "Harga" || "Ketersediaan" },
     ],
     requiredAttributes: [

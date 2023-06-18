@@ -74,6 +74,8 @@ export const verifyToken = async () => {
       localStorage.removeItem("js");
       localStorage.removeItem("newDataCourses");
       localStorage.removeItem("oldDataCourses");
+      localStorage.removeItem("newDataChallenges");
+      localStorage.removeItem("oldDataChallenges");
       return window.location.replace("/auth/login");
     }
   } catch (error) {
@@ -128,3 +130,39 @@ export const getDataFromToken = async (token) => {
     console.error("Error:", error);
   }
 };
+
+export const sendSubmitChallenge = async (token , challengeId) => {
+  try {
+    const response = await axios.post(
+      // "https://project-akhir-mpsb-back-end.vercel.app/api/submitChallenge",
+      "http://localhost:3000/api/submitChallenge",
+      {
+        token: localStorage.getItem("token"),
+        challengeId: challengeId,
+      }
+    );
+
+    return response.data.status;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+export const getChallenge = async (token) => {
+
+  try {
+    
+    const response = await axios.post(
+      // "https://project-akhir-mpsb-back-end.vercel.app/api/getChallenge",
+      "http://localhost:3000/api/getChallenge",
+      {
+        token : localStorage.getItem("token"),
+      }
+    )
+
+    return response.data.data;
+  } catch (error) {
+    console.log("Error:", error);
+  }
+
+}
