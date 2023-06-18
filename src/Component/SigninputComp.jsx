@@ -2,7 +2,7 @@ const SigninputComp = ({label, sample, svg, type}) => {
   return (
     <div className="group">
       <div className="flex justify-center w-full mt-10 mb-5 group-focus-within:border-2 group-focus-within:mt-10 rounded-md">
-        <div className="bg-zinc-700 p-5 rounded-s-md">
+        <div className="bg-blue-gray-900 p-5 rounded-s-md">
           { svg }
         </div>
         <div className="relative">
@@ -15,7 +15,7 @@ const SigninputComp = ({label, sample, svg, type}) => {
             placeholder={ sample }
             required
             autoComplete="off"
-            className="bg-zinc-600 rounded-e-md px-5 h-full w-full outline-none"
+            className="bg-blue-gray-800 rounded-e-md px-5 h-full w-full outline-none"
           />
         </div>
       </div>

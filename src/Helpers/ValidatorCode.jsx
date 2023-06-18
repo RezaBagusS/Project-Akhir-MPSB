@@ -91,6 +91,12 @@ export const ValidatorCode = (htmlCode, cssCode, jsCode, challenge) => {
 
     return errMessage;
   } else {
+    if (htmlCode === "") {
+      let errMessage = [];
+      errMessage.push(`Tambahkan kode HTML sesuai dengan ketentuan studi kasus.`);
+      return errMessage;
+    }
+      
     console.log("Selamat, halaman web memenuhi kriteria studi kasus!");
     console.log("Kode memenuhi persyaratan.");
     return false;

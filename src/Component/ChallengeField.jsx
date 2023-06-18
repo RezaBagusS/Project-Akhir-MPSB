@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { ValidatorCode } from "../Helpers/ValidatorCode";
-import { useParams } from "react-router-dom";
+import { QuestionModal } from "./QuestionModal";
+import { SuccessModal } from "./SuccessModal";
+import { FailedModal } from "./FailedModal";
 
 const ChallengeField = ({ challenge, handleTextArea }) => {
   const [feedBackChallenge, setFeedBackChallenge] = useState([]);
-  const { challengeId } = useParams();
   const [htmlCode, setHtmlCode] = useState(
     localStorage.getItem("html") ? localStorage.getItem("html") : ""
   );
@@ -14,6 +15,10 @@ const ChallengeField = ({ challenge, handleTextArea }) => {
   const [jsCode, setJsCode] = useState(
     localStorage.getItem("js") ? localStorage.getItem("js") : ""
   );
+  const [open, setOpen] = useState(false);
+  const [openResponse, setOpenResponse] = useState(false);
+  const [responseSuccess, setResponseSuccess] = useState(false);
+  const [responseFailed, setResponseFailed] = useState(false);
 
   const handleDate = (date) => {
     const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
@@ -74,12 +79,37 @@ const ChallengeField = ({ challenge, handleTextArea }) => {
   };
 
   const handleSubmit = () => {
-    
+    setOpen(!open);
+    setFeedBackChallenge(ValidatorCode(htmlCode, cssCode, jsCode, challenge));
+  };
+  const handleResponseSubmit = () => {
+    setOpenResponse(!openResponse);
+    feedBackChallenge
+      ? setResponseFailed(!responseFailed)
+      : setResponseSuccess(!responseSuccess);
   };
 
   return (
     <div className="bg-cust-beige p-5">
       <div className="w-full mt-5 px-5 py-3 cust-container">
+        <QuestionModal
+          open={open}
+          handleSubmit={handleSubmit}
+          handleResponseSubmit={handleResponseSubmit}
+        />
+        {feedBackChallenge ? (
+          <FailedModal
+            open={openResponse}
+            setOpen={setOpenResponse}
+            responseSuccess={responseFailed}
+          />
+        ) : (
+          <SuccessModal
+            open={openResponse}
+            setOpen={setOpenResponse}
+            responseSuccess={responseSuccess}
+          />
+        )}
         <div className="flex flex-row justify-between">
           <p className="w-9/12 text-2xl font-semibold">{challenge?.title}</p>
           <p className="w-3/12 text-end">

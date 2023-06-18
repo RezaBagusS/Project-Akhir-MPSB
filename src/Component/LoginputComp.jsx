@@ -21,7 +21,7 @@ const LoginputComp = ({ label, svg }) => {
             : "flex justify-center w-full my-5 group-focus-within:border-2 group-focus-within:mt-10 transition-all duration-100 rounded-md"
         }
       >
-        <div className="bg-zinc-700 p-5 rounded-s-md">{svg}</div>
+        <div className="bg-blue-gray-900 p-5 rounded-s-md">{svg}</div>
         <div className="relative">
           <div
             className={
@@ -40,7 +40,7 @@ const LoginputComp = ({ label, svg }) => {
             autoComplete="off"
             onChange={(e) => handleOnChange(e)}
             value={handleState()}
-            className="bg-zinc-600 rounded-e-md px-5 h-full w-full outline-none"
+            className="bg-blue-gray-800 rounded-e-md px-5 h-full w-full outline-none"
           />
         </div>
       </div>
