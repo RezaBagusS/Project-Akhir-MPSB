@@ -16,27 +16,29 @@ const SecChallenge = () => {
 
   const handleProcessGetChallenges = async () => {
     try {
-      let storedData = localStorage.getItem("oldDataIdChallenge");
+      let storedData = localStorage.getItem("oldDataIdChallenges");
+
+      if (
+        localStorage.getItem("oldDataIdChallenges") !==
+        localStorage.getItem("newDataIdChallenges")
+      ) {
+        let result = await getChallenge();
+        console.log(result);
+        setDataIdChallenge(result);
+        result = JSON.stringify(result);
+        localStorage.setItem("oldDataIdChallenges", result);
+        localStorage.setItem("newDataIdChallenges", result);
+      }
 
       if (!storedData) {
         let result = await getChallenge();
-
         setDataIdChallenge(result);
         result = JSON.stringify(result);
-        localStorage.setItem("oldDataChallenges", result);
-        localStorage.setItem("newDataChallenges", result);
+        localStorage.setItem("oldDataIdChallenges", result);
+        localStorage.setItem("newDataIdChallenges", result);
       }
 
-      if (localStorage.getItem("oldDataChallenges") !== localStorage.getItem("newDataChallenges")) {
-        let result = await getChallenge();
-
-        setDataIdChallenge(result);
-        result = JSON.stringify(result);
-        localStorage.setItem("oldDataChallenges", result);
-        localStorage.setItem("newDataChallenges", result);
-      }
-
-      setDataIdChallenge(JSON.parse(localStorage.getItem("oldDataChallenges")));
+      setDataIdChallenge(localStorage.getItem("oldDataIdChallenges"));
       setLoading(false);
       return true;
     } catch (error) {
@@ -79,27 +81,28 @@ const SecChallenge = () => {
         </div>
         <div className="relative grid sm:grid-cols-12">
           <div className="sm:col-span-9 flex flex-col gap-y-7 w-full p-2 pl-0 pr-5 sm:border-r-2">
-            {
-              loading ? (
-                <div className="flex flex-col items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-[10%] mx-auto animate-spin my-28"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.755 10.059a7.5 7.5 0 0112.548-3.364l1.903 1.903h-3.183a.75.75 0 100 1.5h4.992a.75.75 0 00.75-.75V4.356a.75.75 0 00-1.5 0v3.18l-1.9-1.9A9 9 0 003.306 9.67a.75.75 0 101.45.388zm15.408 3.352a.75.75 0 00-.919.53 7.5 7.5 0 01-12.548 3.364l-1.902-1.903h3.183a.75.75 0 000-1.5H2.984a.75.75 0 00-.75.75v4.992a.75.75 0 001.5 0v-3.18l1.9 1.9a9 9 0 0015.059-4.035.75.75 0 00-.53-.918z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p>Loading . . . </p>
-                </div>
-              ) : (
-                <ChallangeCard filter={isChecked} dataIdChallenge={dataIdChallenge} />
-              )
-            }
+            {loading ? (
+              <div className="flex flex-col items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-[10%] mx-auto animate-spin my-28"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.755 10.059a7.5 7.5 0 0112.548-3.364l1.903 1.903h-3.183a.75.75 0 100 1.5h4.992a.75.75 0 00.75-.75V4.356a.75.75 0 00-1.5 0v3.18l-1.9-1.9A9 9 0 003.306 9.67a.75.75 0 101.45.388zm15.408 3.352a.75.75 0 00-.919.53 7.5 7.5 0 01-12.548 3.364l-1.902-1.903h3.183a.75.75 0 000-1.5H2.984a.75.75 0 00-.75.75v4.992a.75.75 0 001.5 0v-3.18l1.9 1.9a9 9 0 0015.059-4.035.75.75 0 00-.53-.918z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <p>Loading . . . </p>
+              </div>
+            ) : (
+              <ChallangeCard
+                filter={isChecked}
+                dataIdChallenge={dataIdChallenge}
+              />
+            )}
           </div>
           <div
             className={`absolute sm:relative sm:block sm:right-0 col-span-3 w-1/2 sm:w-full py-5 sm:p-2 pl-5 rounded-l-md bg-sky-300 sm:bg-slate-100 transition-all duration-300
