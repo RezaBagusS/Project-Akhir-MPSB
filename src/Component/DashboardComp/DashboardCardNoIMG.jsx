@@ -21,7 +21,7 @@ const DashboardCardNoIMG = () => {
   return dataCard.map((data) => {
     return (
       <div key={data.id} 
-        className="max-w-sm flex flex-wrap justify-center text-center mx-auto p-2 bg-white rounded-lg">
+        className="max-w-sm flex ring-2 ring-gray-200 flex-wrap justify-center text-center mx-auto p-2 bg-white rounded-lg">
         <h3 className="font-semibold text-lg py-2">{data.title}</h3>
         <p className="w-full font-medium text-sm my-3 px-4">
           {data.description}

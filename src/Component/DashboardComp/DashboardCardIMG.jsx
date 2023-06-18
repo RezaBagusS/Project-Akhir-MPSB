@@ -14,7 +14,7 @@ const DashboardCardIMG = () => {
 
   return dataCardIMG.map((data) => {
       return (
-          <div key={data.id} className="h-fit max-w-sm flex flex-wrap mx-auto justify-center text-center p-2 bg-white rounded-lg">
+          <div key={data.id} className="h-fit ring-2 ring-gray-200 max-w-sm flex flex-wrap mx-auto justify-center text-center p-2 bg-white rounded-lg">
             <div className="w-full h-40 bg-[url('https://res.cloudinary.com/dr0lbokc5/image/upload/v1683805812/Promo_yuj4d6.svg')] bg-contain bg-no-repeat bg-center"></div>
             <p className="w-full font-medium text-sm my-2 px-4">
               {data.description}

@@ -106,7 +106,7 @@ const Evaluate = () => {
   return (
     <>
       {isLogin()}
-      <div className="cust-outer-container bg-white">
+      <div className="cust-outer-container bg-blue-gray-100">
         <NavbarCourse course={courseId} />
         <div className="cust-container mx-auto w-full h-full flex flex-col">
           <div className="flex flex-col items-center p-5 text-4xl font-semibold">

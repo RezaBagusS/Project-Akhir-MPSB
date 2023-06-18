@@ -52,7 +52,7 @@ const ChallangeCard = ({ filter }) => {
   if (filteredChallenges.length === 0) {
     return (
       <div className="w-full flex items-center justify-center h-20 border-t-2">
-        <h1 className="font-semibold text-center text-2xl rounded-lg mt-5 bg-slate-200 py-5 px-10">
+        <h1 className="font-semibold text-center text-2xl rounded-lg mt-5 bg-gray-400 py-5 px-10">
           Challange belum ada !! 😥😥
         </h1>
       </div>
@@ -63,7 +63,7 @@ const ChallangeCard = ({ filter }) => {
     return (
       <div
         key={item.id}
-        className="flex flex-col gap-y-4 sm:gap-0 sm:flex-row justify-between items-center rounded-lg ring-1 ring-zinc-500 px-8 py-5"
+        className="flex flex-col gap-y-4 sm:gap-0 sm:flex-row justify-between items-center rounded-lg bg-gray-200 ring-1 ring-light-blue-300 px-8 py-5"
       >
         <h1
           className={`font-medium text-base md:text-lg 
@@ -84,11 +84,11 @@ const ChallangeCard = ({ filter }) => {
           <button
             onClick={() => navigate(`/dashboard/challenges/${item.id}`)}
             disabled={!isOpen(item.openDate, item.closeDate)}
-            className={`w-32 py-2 text-base font-medium cursor-pointer rounded-md transition-all duration-300
+            className={`w-32 py-2 text-base font-medium cursor-pointer rounded-md transition-all duration-300 text-cust-beige
                   ${
                     isOpen(item.openDate, item.closeDate)
-                      ? "bg-slate-300 hover:bg-cust-blue text-cust-blue hover:text-cust-beige"
-                      : "bg-red-300 text-cust-beige"
+                      ? "bg-blue-700 hover:bg-cust-blue"
+                      : "bg-red-500"
                   }
               `}
           >

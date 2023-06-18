@@ -40,7 +40,7 @@ const Quiz = () => {
   return (
     <>
       {isLogin()}
-      <div className="cust-outer-container bg-cust-beige">
+      <div className="cust-outer-container bg-blue-gray-100">
         <NavbarCourse course={courseId} />
         <div className="cust-container h-autopx-8 py-10">
           <div className="w-full flex justify-center py-2 text-4xl font-semibold">

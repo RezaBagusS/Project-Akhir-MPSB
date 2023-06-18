@@ -68,6 +68,12 @@ const HeaderDashboard = ({ name }) => {
                 onClick={() => {
                   localStorage.removeItem("token");
                   localStorage.removeItem("username");
+                  localStorage.removeItem("data");
+                  localStorage.removeItem("css");
+                  localStorage.removeItem("html");
+                  localStorage.removeItem("js");
+                  localStorage.removeItem("newDataCourses");
+                  localStorage.removeItem("oldDataCourses");
                 }}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white"
               >

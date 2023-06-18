@@ -35,7 +35,9 @@ const NavMateri = () => {
           <div
             onClick={handleClick}
             className={`flex items-center ml-2 group ring-1 hover:text-white hover:ring-0 hover:bg-blue-500 rounded-lg p-2 cursor-pointer transition-all duration-200
-                ${isDown ? "bg-blue-500 ring-2 ring-slate-200" : "bg-cust-beige"}
+                ${
+                  isDown ? "bg-blue-500 ring-2 ring-slate-200" : "bg-blue-400"
+                }
                 `}
           >
             <p className="text-md px-2 hidden sm:flex">
@@ -74,6 +76,12 @@ const NavMateri = () => {
                 onClick={() => {
                   localStorage.removeItem("token");
                   localStorage.removeItem("username");
+                  localStorage.removeItem("data");
+                  localStorage.removeItem("css");
+                  localStorage.removeItem("html");
+                  localStorage.removeItem("js");
+                  localStorage.removeItem("newDataCourses");
+                  localStorage.removeItem("oldDataCourses");
                 }}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white"
               >

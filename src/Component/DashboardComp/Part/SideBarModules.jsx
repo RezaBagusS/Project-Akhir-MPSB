@@ -73,8 +73,8 @@ const SideBarModules = ({ isClose, sendData }) => {
             navigate(module.link);
             sendData();
           }}
-          className={`relative hover:bg-slate-500 cursor-pointer px-3 py-3 rounded-lg transition-all duration-300
-          ${location.pathname === module.link ? "bg-slate-500" : "bg-slate-600"}
+          className={`relative hover:bg-blue-gray-700 cursor-pointer px-3 py-3 rounded-lg transition-all duration-300
+          ${location.pathname === module.link ? "bg-blue-gray-700" : "bg-gray-800/80"}
           `}
         >
           <div

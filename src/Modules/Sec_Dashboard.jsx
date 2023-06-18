@@ -25,7 +25,7 @@ const SecDashboard = () => {
         {/* Introduction */}
         <div className="col-span-2">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <div className="lg:col-span-2 h-fit font-medium text-sm sm:text-md text-justify justify-center p-8 bg-white rounded-lg">
+            <div className="lg:col-span-2 h-fit ring-2 ring-gray-200 font-medium text-sm sm:text-md text-justify justify-center p-8 bg-white rounded-lg">
               <p>
                 LearnByCode adalah sebuah aplikasi media pembelajaran yang
                 inovatif dan modern, yang dirancang khusus untuk para pengguna

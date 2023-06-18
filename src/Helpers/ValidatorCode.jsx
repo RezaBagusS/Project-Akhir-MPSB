@@ -1,19 +1,10 @@
-export const ValidatorCode = (htmlCode, cssCode, jsCode, challengeId) => {
-  console.log(challengeId);
+export const ValidatorCode = (htmlCode, cssCode, jsCode, challenge) => {
+  // console.log(challenge);
   // Persyaratan kode CSS dan JavaScript
-  const requiredCSS = "background-color: blue;";
-  const requiredJS = "addEventListener";
-  const requiredElements = [
-    { element: "p", value: "INI P" },
-    { element: "td", value: "INI TABLE" },
-    { element: "i", value: "MIRING" },
-    { element: "b", value: "HBD" },
-  ];
-  const requiredAttributes = [
-    { att: "border", value: "2" },
-    { att: "cellpadding", value: "0" },
-    { att: "cellspacing", value: "0" },
-  ];
+  const requiredCSS = challenge?.requiredCSS;
+  const requiredJS = challenge?.requiredJS;
+  const requiredElements = challenge?.requiredElements;
+  const requiredAttributes = challenge?.requiredAttributes;
 
   // Buat elemen temporary untuk melakukan parsing kode HTML
   const tempElement = document.createElement("div");
@@ -43,6 +34,14 @@ export const ValidatorCode = (htmlCode, cssCode, jsCode, challengeId) => {
   const hasRequiredJS = jsCode.includes(requiredJS);
 
   // Tampilkan pesan hasil validasi
+  if (htmlCode === "") {
+    let errMessage = [];
+
+    errMessage.push(`Tambahkan kode HTML sesuai dengan ketentuan studi kasus.`);
+
+    return errMessage;
+  }
+
   if (
     missingElements.length > 0 ||
     missingAttributes.length > 0 ||
@@ -50,27 +49,50 @@ export const ValidatorCode = (htmlCode, cssCode, jsCode, challengeId) => {
     !hasRequiredJS
   ) {
     console.log("Error: Halaman web tidak memenuhi kriteria studi kasus.");
+    let errMessage = [];
 
     if (missingElements.length > 0) {
       console.log("Elemen yang tidak ditemukan: ", missingElements);
+      missingElements.forEach((element) => {
+        element.value
+          ? errMessage.push(
+              `Tambahkan elemen ${element.element} dengan isi ${element.value}`
+            )
+          : errMessage.push(`Tambahkan elemen ${element.element}`);
+      });
+      // errMessage.push(`Tambahkan elemen ${missingElements[0].element} dengan isi ${missingElements[0].value}`);
     }
 
     if (missingAttributes.length > 0) {
-      console.log(
-        "Atribut yang tidak ditemukan atau nilai yang tidak sesuai: ",
-        missingAttributes
+      // console.log(
+      //   "Atribut yang tidak ditemukan atau nilai yang tidak sesuai: ",
+      //   missingAttributes
+      // );
+      errMessage.push(
+        `Tambahkan atribut ${missingAttributes[0].att} dengan nilai ${missingAttributes[0].value}`
       );
     }
 
-    if (!hasRequiredCSS) {
-      console.log("Kode CSS tidak memenuhi persyaratan.");
+    if (requiredCSS.length > 0) {
+      // console.log("Kode CSS tidak memenuhi persyaratan.");
+      hasRequiredCSS &&
+        errMessage.push(
+          `Tambahkan style css sesuai dengan ketentuan studi kasus.`
+        );
     }
 
-    if (!hasRequiredJS) {
-      console.log("Kode JavaScript tidak memenuhi persyaratan.");
+    if (requiredJS.length > 0) {
+      // console.log("Kode JavaScript tidak memenuhi persyaratan.");
+      hasRequiredJS &&
+        errMessage.push(
+          `Tambahkan kode JavaScript yang sesuai dengan ketentuan studi kasus. Silahkan cek code editor dan previewnya kembali.`
+        );
     }
+
+    return errMessage;
   } else {
     console.log("Selamat, halaman web memenuhi kriteria studi kasus!");
     console.log("Kode memenuhi persyaratan.");
+    return false;
   }
 };

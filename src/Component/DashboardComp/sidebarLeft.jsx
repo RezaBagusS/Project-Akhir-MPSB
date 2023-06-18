@@ -12,7 +12,7 @@ const SidebarLeft = () => {
 
   return (
     <div
-      className={`bg-slate-600 absolute z-10 sm:sticky h-screen w-full sm:w-5/12 md:w-4/12 lg:w-3/12 text-cust-beige
+      className={` bg-gray-900 absolute z-10 sm:sticky h-screen w-full sm:w-5/12 md:w-4/12 lg:w-3/12 text-cust-beige
         ${
           isClose &&
           "-translate-x-full sm:-translate-x-0 w-[90px] sm:w-[80px] md:w-[80px] lg:w-[80px]"

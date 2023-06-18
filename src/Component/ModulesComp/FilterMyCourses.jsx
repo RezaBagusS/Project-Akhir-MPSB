@@ -5,8 +5,8 @@ const FilterMyCourses = () => {
   const [isClicked2, setIsClicked2] = useState(false);
   const [isClicked3, setIsClicked3] = useState(false);
 
-  const styleFalse = `block py-2 px-4 cursor-pointer bg-white hover:bg-slate-200 text-xs sm:text-base hover:font-medium hover:ring-1 rounded-lg drop-shadow-sm`;
-  const styleTrue = `block py-2 px-4 cursor-pointer bg-slate-200 text-xs sm:text-base font-medium ring-1 rounded-lg drop-shadow-sm`;
+  const styleFalse = `block py-2 px-4 cursor-pointer bg-white hover:bg-blue-200 text-xs sm:text-base hover:font-medium hover:ring-1 rounded-lg drop-shadow-sm`;
+  const styleTrue = `block py-2 px-4 cursor-pointer bg-blue-200 text-xs sm:text-base font-medium ring-1 rounded-lg drop-shadow-sm`;
 
   return (
     <div className="flex flex-wrap justify-start gap-5 align-middle font-normal">

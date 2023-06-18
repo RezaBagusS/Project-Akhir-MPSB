@@ -77,10 +77,10 @@ const CoursesCardModule = ({ getCourses, searchResult, apiCourses }) => {
   return filterCourses().map((item) => {
     return (
       <div
-        className="xl:w-[32%] lg:w-[40%] md:w-[45%] h-fit sm:h-[490px] bg-white p-2 rounded-md"
+        className="xl:w-[32%] lg:w-[40%] md:w-[45%] h-fit sm:h-[490px] bg-white p-2 ring-2 ring-gray-200 rounded-md"
         key={item.id}
       >
-        <div className="flex justify-center items-center w-full h-[40%] sm:h-[50%] bg-slate-300 py-4 rounded-t-md">
+        <div className="flex justify-center items-center w-full h-[40%] sm:h-[50%] bg-blue-gray-200 py-4 rounded-t-md">
           <div className="w-2/5 h-2/5 sm:w-4/5 sm:h-4/5">{item.svg}</div>
         </div>
         <main className="w-full h-[40%] sm:h-[30%] text-cust-blue px-3">
@@ -116,11 +116,11 @@ const CoursesCardModule = ({ getCourses, searchResult, apiCourses }) => {
             <button
               disabled={loading}
               onClick={() => handleClaimClick(item)}
-              className={`bg-sky-600 hover:bg-sky-700 w-full h-fit py-2 rounded-md mt-auto text-cust-beige hover:text-white font-medium transition-all duration-300
+              className={`bg-light-blue-900 hover:bg-light-blue-800 w-full h-fit py-2 rounded-md mt-auto text-cust-beige hover:text-white font-medium transition-all duration-300
                   ${loading && "opacity-90 hover:cursor-not-allowed"}
                   ${
                     getCourses.includes(item.tag.toLowerCase()) &&
-                    "bg-sky-900 hover:bg-sky-950 opacity-80 hover:cursor-not-allowed"
+                    "bg-light-blue-900 hover:bg-light-blue-800 opacity-80 hover:cursor-not-allowed"
                   }
                   `}
             >
@@ -151,7 +151,7 @@ const CoursesCardModule = ({ getCourses, searchResult, apiCourses }) => {
           ) : (
             <button
               disabled={true}
-              className={`bg-sky-950 hover:cursor-not-allowed w-full h-fit py-2 rounded-md mt-auto text-cust-beige hover:text-white font-medium
+              className={`bg-blue-gray-800 hover:cursor-not-allowed w-full h-fit py-2 rounded-md mt-auto text-cust-beige hover:text-white font-medium
                   `}
             >
               COMING SOON

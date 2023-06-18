@@ -4,17 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import FooterCourse from "../Component/DetailCourseComp/FooterCourse";
 import FooterHome from "../Component/HomeComp/FooterHome";
 import { verifyToken } from "../Helpers/AuthHelpers";
-import { ValidatorCode } from "../Helpers/ValidatorCode";
+import ChallengeField from "../Component/ChallengeField";
+
 
 const Challenge = () => {
   const { challengeId } = useParams();
+  const [challenge, setChallenge] = useState(null);
   const textAreaHTML = useRef({});
   const textAreaCSS = useRef({});
   const textAreaJS = useRef({});
-  const [challenge, setChallenge] = useState(null);
-  const [htmlCode, setHtmlCode] = useState(localStorage.getItem("html") ? localStorage.getItem("html") : "");
-  const [cssCode, setCssCode] = useState(localStorage.getItem("css") ? localStorage.getItem("css") : "");
-  const [jsCode, setJsCode] = useState(localStorage.getItem("js") ? localStorage.getItem("js") : "");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -89,6 +87,7 @@ const Challenge = () => {
     };
   }, []);
 
+
   const isLogin = () => {
     if (localStorage.getItem("token")) {
       verifyToken();
@@ -96,6 +95,25 @@ const Challenge = () => {
     }
     return window.location.replace("/auth/login");
   };
+
+  const getChallenge = () => {
+  
+    if (localStorage.getItem("challengeId")) {
+      if (localStorage.getItem("challengeId") == challengeId) {
+        localStorage.setItem("challengeId", challengeId);
+      } else {
+        localStorage.setItem("challengeId", challengeId);
+        localStorage.removeItem("html");
+        localStorage.removeItem("css");
+        localStorage.removeItem("js");
+      }
+    } else {
+      localStorage.setItem("challengeId", challengeId);
+    }
+  
+    return dataChallange.filter((item) => item.id == challengeId)[0];
+  };
+  
 
   const handleCloseDate = () => {
     const openDate = new Date(getChallenge().openDate);
@@ -108,70 +126,6 @@ const Challenge = () => {
     } else {
       navigate("/dashboard");
     }
-  };
-
-  const getChallenge = () => {
-    return dataChallange.filter((item) => item.id == challengeId)[0];
-  };
-
-  const handleDate = (date) => {
-    const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
-    const mo = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
-    const da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
-    const ho = new Intl.DateTimeFormat("en", { hour: "2-digit" }).format(date);
-    return `${da} ${mo} ${ye}, ${ho}`;
-  };
-
-  const handleInput = () => {
-    const html = textAreaHTML.current.value;
-    const css = textAreaCSS.current.value;
-    const js = textAreaJS.current.value;
-    localStorage.setItem("html", html);
-    localStorage.setItem("css", css);
-    localStorage.setItem("js", js);
-    setHtmlCode(html);
-    setCssCode(css);
-    setJsCode(js);
-  };
-
-  const handleReset = () => {
-    setHtmlCode("");
-    setCssCode("");
-    setJsCode("");
-    localStorage.removeItem("html");
-    localStorage.removeItem("css");
-    localStorage.removeItem("js");
-    textAreaHTML.current.value = "";
-    textAreaCSS.current.value = "";
-    textAreaJS.current.value = "";
-  };
-
-  const handleRun = () => {
-    let preview = document.querySelector("iframe");
-    preview.srcdoc = `
-      <html>
-        <head>
-          <style>${cssCode}</style>
-        </head>
-        <body>
-          ${htmlCode}
-          <script>
-            try {
-              ${jsCode}
-            } catch (error) {
-              const errorMessage = document.createElement('div');
-              errorMessage.innerText = "Error: " + error;
-              errorMessage.style.color = "red";
-              document.body.appendChild(errorMessage);
-            }
-          </script>
-        </body>
-      </html>
-    `;
-  };
-
-  const handleSubmit = () => {
-    ValidatorCode(htmlCode, cssCode, jsCode, challengeId);
   };
 
   return (
@@ -206,89 +160,7 @@ const Challenge = () => {
           </div>
         </div>
       </div>
-      <div className="bg-cust-beige p-5">
-        <div className="w-full mt-5 px-5 py-3 cust-container">
-          <div className="flex flex-row justify-between">
-            <p className="w-9/12 text-2xl font-semibold">{challenge?.title}</p>
-            <p className="w-3/12 text-end">
-              <span className="px-4 py-2 bg-cust-orange whitespace-nowrap text-cust-beige rounded-md drop-shadow-[3px_4px_0px_rgb(0,0,0,0.2)]">
-                Close : {handleDate(challenge?.closeDate)}
-              </span>
-            </p>
-          </div>
-          <div className="mt-5 ring-2 p-2 bg-white rounded-md drop-shadow-[3px_5px_0px_rgb(0,0,0,0.2)]">
-            <p className="text-base font-normal">{challenge?.description}</p>
-          </div>
-          <div className="mt-5 ring-2 p-2 bg-white rounded-md drop-shadow-[3px_5px_0px_rgb(0,0,0,0.2)]">
-            <p className="text-base font-normal">{challenge?.studyCase}</p>
-          </div>
-          <div className="mt-5 grid grid-cols-2 gap-x-4 px-5 py-3 bg-cust-blue rounded-md drop-shadow-[3px_5px_2px_rgb(0,0,0,0.2)]">
-            <div className="text-start w-full p-2 text-white">
-              <div className="flex justify-center font-semibold text-white text-xl mb-5">
-                Code Editor
-              </div>
-              <div>
-                <h1 className="text-white text-lg">HTML</h1>
-                <textarea
-                  ref={textAreaHTML}
-                  value={localStorage.getItem("html") && localStorage.getItem("html")}
-                  onChange={(e) => handleInput("HTML", e)}
-                  className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
-                  id="HTML"
-                ></textarea>
-              </div>
-              <div className="my-5">
-                <h1 className="text-white text-lg">CSS</h1>
-                <textarea
-                  ref={textAreaCSS}
-                  value={localStorage.getItem("css") && localStorage.getItem("css")}
-                  onChange={(e) => handleInput("CSS", e)}
-                  className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
-                  id="CSS"
-                ></textarea>
-              </div>
-              <div className="my-5">
-                <h1 className="text-white text-lg">Javascript</h1>
-                <textarea
-                  ref={textAreaJS}
-                  value={localStorage.getItem("js") && localStorage.getItem("js")}
-                  onChange={(e) => handleInput("JS", e)}
-                  className="w-full h-44 bg-black/50 ring-2 ring-slate-400 resize-none rounded-md text-sm p-2"
-                  id="JS"
-                ></textarea>
-              </div>
-            </div>
-            <div className="flex flex-col w-full p-2">
-              <div className="flex justify-center font-semibold text-white text-xl mb-12">
-                Preview
-              </div>
-              <iframe className="bg-white ring-2 ring-slate-400 w-full h-3/4 rounded-md overflow-y-auto"></iframe>
-              <div className="flex flex-row justify-between w-full">
-                <button
-                  onClick={handleSubmit}
-                  className="px-4 py-3 mt-4 w-3/12 rounded-md bg-cust-purple text-cust-beige hover:bg-cust-purple/80 hover:ring-2 hover:ring-slate-400 text-lg font-semibold transition-all duration-200"
-                >
-                  Submit
-                </button>
-                <div className="flex flex-row justify-end gap-x-5 w-9/12">
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-3 mt-4 w-3/12 rounded-md text-white hover:bg-cust-yellow/50 hover:text-cust-blue text-lg font-semibold transition-all duration-300"
-                  >
-                    Reset
-                  </button>
-                  <button
-                    onClick={handleRun}
-                    className="px-4 py-3 mt-4 w-3/12 bg-cust-yellow hover:bg-cust-yellow/50 rounded-md text-cust-blue text-lg font-semibold transition-all duration-300"
-                  >
-                    Run
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ChallengeField challenge={challenge} handleTextArea={{ textAreaHTML, textAreaCSS, textAreaJS}} />
       <FooterCourse />
       <FooterHome />
     </>
@@ -296,3 +168,19 @@ const Challenge = () => {
 };
 
 export default Challenge;
+
+{
+  /* 
+  check : 
+  <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+        <span class="sr-only">Check icon</span>
+    </div>
+
+  cross : 
+  <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        <span class="sr-only">Error icon</span>
+    </div>
+*/
+}

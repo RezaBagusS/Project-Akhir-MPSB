@@ -40,9 +40,9 @@ const MyCoursesCard = ({ getCourse }) => {
         return (
           <div
             key={item.id}
-            className="mt-5 grid grid-cols-1 md:grid-cols-10 -z-50 gap-x-4 p-4 bg-white rounded-md drop-shadow-sm"
+            className="mt-5 ring-2 ring-gray-200 grid grid-cols-1 md:grid-cols-10 -z-50 gap-x-4 p-4 bg-white rounded-md drop-shadow-sm"
           >
-            <div className="p-2 bg-slate-300 w-full flex justify-center items-center rounded-md md:col-span-2">
+            <div className="p-2 bg-blue-gray-200 w-full flex justify-center items-center rounded-md md:col-span-2">
               <div className="w-20 h-24">{item.svg}</div>
             </div>
             <div className="flex justify-center items-center p-2 md:col-span-6 lg:col-span-7">

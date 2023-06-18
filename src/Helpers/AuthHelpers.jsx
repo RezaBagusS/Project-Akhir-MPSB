@@ -68,6 +68,12 @@ export const verifyToken = async () => {
     } else {
       localStorage.removeItem("token");
       localStorage.removeItem("username");
+      localStorage.removeItem("data");
+      localStorage.removeItem("css");
+      localStorage.removeItem("html");
+      localStorage.removeItem("js");
+      localStorage.removeItem("newDataCourses");
+      localStorage.removeItem("oldDataCourses");
       return window.location.replace("/auth/login");
     }
   } catch (error) {
