@@ -2,6 +2,7 @@
 import MyCoursesCard from "../Component/ModulesComp/MyCoursesCard";
 import HeaderDashboard from "../Component/DashboardComp/HeaderDashboard";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   getDataCoursesModule,
   getProgressMateri,
@@ -33,9 +34,18 @@ const MyCourses = () => {
     <div className="h-fit">
       <HeaderDashboard name={"MyCourses"} />
       <div className="mx-2 sm:mx-5">
-        <div className="font-bold text-3xl text-cust-blue py-5">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            transition: { duration: 0.5 },
+            type: "spring",
+          }}
+          className="font-bold text-3xl text-cust-blue py-5"
+        >
           <h3>Kelas Saya</h3>
-        </div>
+        </motion.div>
         {/* <FilterMyCourses /> */}
         <div className="py-3 w-full font-medium text-cust-blue">
           <h4>Berikut kelas yang telah saya klaim :</h4>
@@ -58,12 +68,20 @@ const MyCourses = () => {
               <p>Loading . . . </p>
             </div>
           ) : (
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.5 },
+                type: "spring",
+              }}
+            >
               <MyCoursesCard
                 getCourse={dataCoursesModule}
                 getProgress={getProgress}
               />
-            </div>
+            </motion.div>
           )}
         </div>
       </div>

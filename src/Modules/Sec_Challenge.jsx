@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import HeaderDashboard from "../Component/DashboardComp/HeaderDashboard";
 import ChallangeCard from "../Component/ModulesComp/ChallangeCard";
 import CheckboxChallange from "../Component/ModulesComp/CheckboxChallange";
@@ -59,9 +60,18 @@ const SecChallenge = () => {
       <HeaderDashboard name={"Challanges"} />
 
       <div className="pb-14 mx-2 sm:mx-5">
-        <div className="font-bold text-3xl text-cust-blue py-5">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            transition: { duration: 0.5 },
+            type: "spring",
+          }}
+          className="font-bold text-3xl text-cust-blue py-5"
+        >
           <h3>Challanges</h3>
-        </div>
+        </motion.div>
         <div className="flex items-center justify-between pb-3 w-full font-medium text-cust-blue">
           <h4>Berikut Challange yang dapat diikuti :</h4>
           <button
@@ -98,10 +108,21 @@ const SecChallenge = () => {
                 <p>Loading . . . </p>
               </div>
             ) : (
-              <ChallangeCard
-                filter={isChecked}
-                dataIdChallenge={dataIdChallenge}
-              />
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5 },
+                  type: "spring",
+                }}
+                className="flex flex-col gap-y-5 w-full"
+              >
+                <ChallangeCard
+                  filter={isChecked}
+                  dataIdChallenge={dataIdChallenge}
+                />
+              </motion.div>
             )}
           </div>
           <div

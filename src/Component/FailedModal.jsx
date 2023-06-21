@@ -21,7 +21,7 @@ export const FailedModal = ({ open, setOpen }) => {
             </DialogHeader>
             <DialogBody divider className="grid place-items-center gap-4">
               <CheckBadgeIcon className="h-16 w-16 text-red-500" />
-              <Typography color="red" variant="h4">
+              <Typography color="red" variant="h4" className="text-center">
                 Maaf!! kamu belum berhasil menyelesaikan challenge ini.
               </Typography>
               <Typography className="text-center font-normal">

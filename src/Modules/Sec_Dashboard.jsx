@@ -10,15 +10,18 @@ const SecDashboard = () => {
       <HeaderDashboard name={"Dashboard"} />
 
       {/* welcome */}
-      <div className="flex flex-wrap items-center justify-center text-center py-2 mb-12 bg-cust-blue">
-        <div className="py-2 text-cust-beige">
+      <div className="flex flex-wrap items-center justify-center text-center py-2 mb-12 bg-cust-blue overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0 ,y: -100}}
+          animate={{ opacity: 1 ,y: 0, transition: { duration: 1, type:"spring" }}}
+          className="py-2 text-cust-beige">
           <h3 className="w-full font-bold text-2xl sm:text-3xl">
             Hi, {localStorage.getItem("username")} 👋
           </h3>
           <p className="w-full font-medium text-md sm:text-lg py-2">
             Bagaimana kabarmu? senang bisa berjumpa kembali !!
           </p>
-        </div>
+        </motion.div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-5 w-10/12 sm:w-9/12 mx-auto">

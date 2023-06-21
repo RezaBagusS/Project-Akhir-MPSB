@@ -1,6 +1,7 @@
 import { getDataHeader } from "../../data/dataHeaderDashboard";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const HeaderDashboard = ({ name }) => {
   const [isDown, setIsDown] = useState(false);
