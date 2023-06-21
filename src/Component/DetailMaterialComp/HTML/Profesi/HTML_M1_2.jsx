@@ -4,7 +4,14 @@ const HTML_M1_2 = () => {
       <h1 className="font-semibold text-2xl">
         MATERI 2 - Syarat dan Keterampilan Pengembangan Web
       </h1>
-      <div className="py-5 text-black opacity-70 flex flex-col gap-y-4 font-normal">
+      <div className="w-10/12 mx-auto p-2 mt-5">
+        <img
+          className="rounded-lg mx-auto w-8/12 opacity-100 drop-shadow-[0px_8px_10px_rgba(0,0,0,0.4)]"
+          src="https://res.cloudinary.com/dr0lbokc5/image/upload/v1687317248/M2_G1_qolqau.png"
+          alt="MissingIMG"
+        />
+      </div>
+      <div className="py-5 text-black flex flex-col opacity-70 gap-y-4 font-normal">
         <p>
           Profesi dalam pengembangan aplikasi web membutuhkan sejumlah
           persyaratan dan keterampilan khusus. Untuk menjadi seorang profesional

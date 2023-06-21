@@ -2,6 +2,13 @@ const HTML_M1_1 = () => {
   return (
     <>
       <h1 className="font-semibold text-2xl">MATERI 1 - Pendahuluan</h1>
+      <div className="w-10/12 mx-auto p-2 mt-5 opacity-100">
+        <img
+          className="rounded-lg mx-auto w-8/12 drop-shadow-[0px_8px_10px_rgba(0,0,0,0.4)]"
+          src="https://res.cloudinary.com/dr0lbokc5/image/upload/v1687317112/M1_G1_lppjzt.png"
+          alt="MissingIMG"
+        />
+      </div>
       <div className="py-5 text-black opacity-70 flex flex-col gap-y-4 font-normal">
         <p>
           Dalam era digital yang terus berkembang, aplikasi web telah menjadi

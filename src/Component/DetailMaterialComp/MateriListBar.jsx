@@ -46,30 +46,58 @@ const MateriListBar = ({ sendValue, getProgress }) => {
             handleId(item.id);
             handleClickMateri(item.id);
           }}
-          className={`flex flex-row relative justify-between cursor-pointer pl-3 pr-2 py-3 text-base font-medium rounded-md
+          className={`flex flex-row relative overflow-hidden justify-between pl-3 pr-2 py-3 text-base font-medium rounded-md
             ${
               id === item.id
                 ? "bg-blue-800 text-white"
                 : "bg-gray-200 text-cust-blue"
             }
+            ${
+              getProgress == 0 && item.id === 1
+                ? "cursor-pointer"
+                : getProgress >= item.id
+                ? "cursor-pointer"
+                : "opacity-50 pointer-events-none"
+            }
           `}
         >
           {getProgress >= item.id && (
             <>
-              <span className="absolute right-0 top-0 bg-cust-blue/50 p-1 h-full rounded-r-md"></span>
+              <span className="absolute right-0 -top-1/2 bg-cust-yellow -rotate-45 p-2 h-full rounded-r-md"></span>
             </>
           )}
           {item.judul}
           <span className="p-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className={`h-3 ${
-                isDownMateri === item.id && "-rotate-180"
-              } transition-all duration-500`}
-            >
-              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-            </svg>
+            {getProgress == 0 && item.id === 1 ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className={`h-3 ${
+                  isDownMateri === item.id && "-rotate-180"
+                } transition-all duration-500`}
+              >
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            ) : getProgress < item.id ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 448 512"
+                className="h-3"
+              >
+                <path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className={`h-3 ${
+                  isDownMateri === item.id && "-rotate-180"
+                } transition-all duration-500`}
+              >
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            )}
           </span>
         </div>
         <div
@@ -81,22 +109,35 @@ const MateriListBar = ({ sendValue, getProgress }) => {
                 }
               `}
         >
-          {getSubJudul().map((item, index) => {
+          {getSubJudul().map((title, index) => {
             return (
               <div
                 key={index}
                 onClick={() => {
                   sendValue.setActiveSubJudul(index + 1);
                 }}
-                className={`w-11/12 mx-auto pl-3 pr-3 py-2 text-base font-medium rounded-md cursor-pointer transition-all duration-300
+                className={`relative overflow-hidden w-11/12 mx-auto pl-3 pr-5 py-2 text-base font-medium rounded-md cursor-pointer transition-all duration-300
                   ${
                     index + 1 === sendValue.getActiveSubJudul()
-                      ? "bg-blue-800 text-white"
-                      : "bg-gray-300 text-cust-blue hover:bg-sky-400"
+                      ? "bg-blue-800 text-white fill-white"
+                      : "bg-gray-300 text-cust-blue hover:bg-sky-400 fill-green-600"
                   }
                 `}
               >
-                {item}
+                {getProgress >= item.id && (
+                  <>
+                    <div className="absolute right-0 top-0 p-2 h-full rounded-r-md">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 512 512"
+                      >
+                        <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z" />
+                      </svg>
+                    </div>
+                  </>
+                )}
+                {title}
               </div>
             );
           })}

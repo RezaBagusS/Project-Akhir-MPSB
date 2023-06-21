@@ -14,6 +14,21 @@ import HTML_M3_2 from "../Component/DetailMaterialComp/HTML/PengenalanHTML/HTML_
 import HTML_M3_3 from "../Component/DetailMaterialComp/HTML/PengenalanHTML/HTML_M3_3";
 import HTML_M3_4 from "../Component/DetailMaterialComp/HTML/PengenalanHTML/HTML_M3_4";
 
+import HTML_M4_1 from "../Component/DetailMaterialComp/HTML/JenisListHTML/HTML_M4_1";
+import HTML_M4_2 from "../Component/DetailMaterialComp/HTML/JenisListHTML/HTML_M4_2";
+import HTML_M4_3 from "../Component/DetailMaterialComp/HTML/JenisListHTML/HTML_M4_3";
+
+import HTML_M5_1 from "../Component/DetailMaterialComp/HTML/HyperLink/HTML_M5_1";
+import HTML_M5_2 from "../Component/DetailMaterialComp/HTML/HyperLink/HTML_M5_2";
+import HTML_M5_3 from "../Component/DetailMaterialComp/HTML/HyperLink/HTML_M5_3";
+
+import HTML_M6_1 from "../Component/DetailMaterialComp/HTML/PenggunaanTabel/HTML_M6_1";
+import HTML_M6_2 from "../Component/DetailMaterialComp/HTML/PenggunaanTabel/HTML_M6_2";
+
+import HTML_M7_1 from "../Component/DetailMaterialComp/HTML/JenisInputNForm/HTML_M7_1";
+import HTML_M7_2 from "../Component/DetailMaterialComp/HTML/JenisInputNForm/HTML_M7_2";
+import HTML_M7_3 from "../Component/DetailMaterialComp/HTML/JenisInputNForm/HTML_M7_3";
+
 const dataMaterial = [
     {
         tag: 'html',
@@ -93,30 +108,74 @@ const dataMaterial = [
             {
                 id: 4,
                 judul: 'Jenis list dalam HTML.',
-                subJudul: ['list1', 'list2', 'list3', 'list4'],
-                file: [`HTML_M4_1`, `HTML_M4_2`, `HTML_M4_3`, `HTML_M4_4`],
-                fileQuiz: `HTML_M4_Quiz`,
+                subJudul: ['Pendahuluan', 'Jenis List', 'List Kombinasi'],
+                file: [
+                    {
+                        id: 1,
+                        page: <HTML_M4_1 />,
+                    },
+                    {
+                        id: 2,
+                        page: <HTML_M4_2 />,
+                    },
+                    {   
+                        id: 3,
+                        page: <HTML_M4_3 />,
+                    }
+                ],
             },
             {
                 id: 5,
                 judul: 'Penggunaan hyperlink dalam HTML.',
-                subJudul: ['link1', 'link2', 'link3', 'link4'],
-                file: [`HTML_M5_1`, `HTML_M5_2`, `HTML_M5_3`, `HTML_M5_4`],
-                fileQuiz: `HTML_M5_Quiz`,
+                subJudul: ['Pendahuluan', 'Mengenal Tag <a> (anchor)', 'Jenis-jenis Link dalam HTML'],
+                file: [
+                    {
+                        id: 1,
+                        page: <HTML_M5_1 />,
+                    },
+                    {
+                        id: 2,
+                        page: <HTML_M5_2 />,
+                    },
+                    {
+                        id: 3,
+                        page: <HTML_M5_3 />,
+                    }
+                ],
             },
             {
                 id: 6,
                 judul: 'Penggunaan tabel dalam HTML.',
-                subJudul: ['tabel1', 'tabel2', 'tabel3', 'tabel4'],
-                file: [`HTML_M6_1`, `HTML_M6_2`, `HTML_M6_3`, `HTML_M6_4`],
-                fileQuiz: `HTML_M6_Quiz`,
+                subJudul: ['Pembuatan Tabel', 'Menggabungkan Tabel'],
+                file: [
+                    {
+                        id: 1,
+                        page: <HTML_M6_1 />,
+                    },
+                    {
+                        id: 2,
+                        page: <HTML_M6_2 />,
+                    }
+                ],
             },
             {
                 id: 7,
                 judul: 'Jenis input dan formulir dalam HTML.',
-                subJudul: ['form1', 'form2', 'form3', 'form4'],
-                file: [`HTML_M7_1`, `HTML_M7_2`, `HTML_M7_3`, `HTML_M7_4`],
-                fileQuiz: `HTML_M7_Quiz`,
+                subJudul: ['Definisi dan Fungsi Form', 'Elemen Input ', 'Macam-macam input'],
+                file: [
+                    {
+                        id: 1,
+                        page: <HTML_M7_1 />,
+                    },
+                    {
+                        id: 2,
+                        page: <HTML_M7_2 />,
+                    },
+                    {
+                        id: 3,
+                        page: <HTML_M7_3 />,
+                    },
+                ],
             }
         ],
     },

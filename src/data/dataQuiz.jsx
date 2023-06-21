@@ -99,7 +99,8 @@ const dataQuiz = [
                 soal: "Apa yang dimaksud dengan tag dalam HTML ?",
                 jawabanBenar:
                   "Elemen yang digunakan untuk menyusun struktur tampilan halaman web",
-                jawabanSalah: "Elemen yang digunakan untuk menghias halaman web",
+                jawabanSalah:
+                  "Elemen yang digunakan untuk menghias halaman web",
               },
               {
                 id: 3,
@@ -118,7 +119,170 @@ const dataQuiz = [
                 soal: "Apa yang dimaksud dengan atribut dalam HTML ?",
                 jawabanBenar:
                   "Elemen yang digunakan untuk memberikan informasi tambahan pada tag",
-                jawabanSalah: "Elemen yang digunakan untuk memberikan informasi tambahan pada halaman web",
+                jawabanSalah:
+                  "Elemen yang digunakan untuk memberikan informasi tambahan pada halaman web",
+              },
+            ],
+          },
+          {
+            id: 4,
+            judul: "Jenis List dalam HTML",
+            soalQuiz: [
+              {
+                id: 1,
+                soal: "Apa yang dimaksud dengan list dalam HTML?",
+                jawabanBenar:
+                  "Sebuah elemen yang digunakan untuk menampilkan serangkaian item terstruktur.",
+                jawabanSalah:
+                  "Sebuah daftar yang menampilkan data dalam bentuk tabel.",
+              },
+              {
+                id: 2,
+                soal: "Tag HTML yang digunakan untuk membuat list terurut dalam bentuk angka adalah:",
+                jawabanBenar: "<ol type='1'>",
+                jawabanSalah: "<ul >",
+              },
+              {
+                id: 3,
+                soal: "Tag <li> digunakan untuk ... ",
+                jawabanBenar: "Membuat item dalam list",
+                jawabanSalah: "Membuat definisi list yang digunakan",
+              },
+              {
+                id: 4,
+                soal: "Dalam sebuah website, seorang pengembang ingin membuat sublist dalam list tak terurut. Bagaimana cara pengembang tersebut dapat mencapai hal tersebut?",
+                jawabanBenar:
+                  "Menambahkan tag <ul> di dalam tag <li> untuk membuat sublist.",
+                jawabanSalah:
+                  "Menambahkan tag <ol> di dalam tag <ul> untuk membuat sublist.",
+              },
+              {
+                id: 5,
+                soal: "Atribut 'type' pada sebuah tag list, digunakan untuk ... ",
+                jawabanBenar: "Menentukan jenis list yang akan ditampilkan",
+                jawabanSalah: "Menentukan jumlah item yang akan ditampilkan",
+              },
+            ],
+          },
+          {
+            id: 5,
+            judul: "Penggunaan hyperlink dalam HTML",
+            soalQuiz: [
+              {
+                id: 1,
+                soal: "Apa yang dimaksud dengan hyperlink dalam HTML ?",
+                jawabanBenar:
+                  "Sebuah elemen yang digunakan untuk membuat tautan ke halaman web lain.",
+                jawabanSalah:
+                  "Sebuah elemen yang digunakan untuk membuat tautan ke sebuah file di server/directory yang berbeda.",
+              },
+              {
+                id: 2,
+                soal: "Apa fungsi dari sebuah link di dalam sebuah website ?",
+                jawabanBenar:
+                  "Untuk memudahkan pengunjung web dalam menelusuri/menjelajahi seluruh isi atau informasi yang tersimpan dalam situs web bersangkutan.",
+                jawabanSalah:
+                  "Untuk menghubungkan antara satu user dengan user lainnya.",
+              },
+              {
+                id: 3,
+                soal: "Warna teks secara default dalam sebuah link adalah ... ",
+                jawabanBenar: "Biru",
+                jawabanSalah: "Merah",
+              },
+              {
+                id: 4,
+                soal: "Tag HTML yang digunakan untuk membuat hyperlink adalah ... ",
+                jawabanBenar: "Tag <a>",
+                jawabanSalah: "Tag <link>",
+              },
+              {
+                id: 5,
+                soal: "Atribut 'href' pada sebuah tag <a>, digunakan untuk ... ",
+                jawabanBenar:
+                  "Menentukan alamat URL yang akan dituju oleh link tersebut",
+                jawabanSalah:
+                  "Memberikan informasi tambahan pada link tersebut seperti judul dan deskripsi",
+              },
+            ],
+          },
+          {
+            id: 5,
+            judul: "Penggunaan Tabel dalam HTML",
+            soalQuiz: [
+              {
+                id: 1,
+                soal: "Apa yang dimaksud dengan tabel dalam HTML ?",
+                jawabanBenar:
+                  "Tag HTML yang digunakan untuk menampilkan data dalam bentuk tabel.",
+                jawabanSalah:
+                  "Tag HTML yang digunakan untuk menampilkan data dalam bentuk list.",
+              },
+              {
+                id: 2,
+                soal: "<thead>, <tbody> & <tfoot> adalah contoh dari ... ",
+                jawabanBenar:
+                  "Elemen yang digunakan untuk mengelompokkan data didalamnya",
+                jawabanSalah:
+                  "Elemen yang digunakan untuk menampilkan data dalam bentuk tabel",
+              },
+              {
+                id: 3,
+                soal: "Atribut 'border' pada sebuah tag <table>, digunakan untuk ... ",
+                jawabanBenar: "Menentukan ketebalan garis pada tabel",
+                jawabanSalah: "Menentukan warna garis pada tabel",
+              },
+              {
+                id: 4,
+                soal: "Atribut yang digunakan untuk menggabungkan 2 atau lebih sel dalam tabel adalah ... ",
+                jawabanBenar: "colspan & rowspan",
+                jawabanSalah: "colsget & rowsget",
+              },
+              {
+                id: 5,
+                soal: "Secara default data pada baris header kita akan ditampilkan dengan tebal dengan tag ... ",
+                jawabanBenar: "<th> : table head",
+                jawabanSalah: "<tb> : table bold",
+              },
+            ],
+          },
+          {
+            id: 5,
+            judul: "Jenis input dan formulir dalam HTML.",
+            soalQuiz: [
+              {
+                id: 1,
+                soal: "Apa yang dimaksud dengan form dalam HTML ?",
+                jawabanBenar:
+                  "Salah satu bentuk halaman web yang digunakan untuk menerima masukan dari pengguna.",
+                jawabanSalah:
+                  "Salah satu bentuk halaman web yang digunakan untuk menampilkan data dalam bentuk form.",
+              },
+              {
+                id: 2,
+                soal: "Mengapa form di HTML itu penting ?",
+                jawabanBenar:
+                  "Karena form dapat digunakan untuk mengumpulkan informasi dari pengguna.",
+                jawabanSalah:
+                  "Karena form dapat digunakan untuk mengirim informasi ke pengguna.",
+              },
+              {
+                id: 3,
+                soal: "Jenis input yang digunakan untuk membuat kotak string dalam form ?",
+                jawabanBenar: "<input type='text'>",
+                jawabanSalah: "<input type='string'>",
+              },
+              {
+                id: 4,
+                soal: "Apa saja input yang dapat digunakan dalam form ?",
+                jawabanBenar: "text, password, radio, checkbox, file, dll",
+                jawabanSalah: "string, password, check, file, dll",
+              },
+              {
+                id: 5,
+                soal: "Ketika pengguna ingin memilih lebih dari 1 pilihan, input apa yang dapat digunakan ?",
+                jawabanBenar: "<input type='checkbox'>",
+                jawabanSalah: "<input type='option'>",
               },
             ],
           },

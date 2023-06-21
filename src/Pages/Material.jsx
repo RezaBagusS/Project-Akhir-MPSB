@@ -102,7 +102,7 @@ const Material = () => {
       `}
       >
         <NavMateri />
-        <div className="cust-container p-5 pr-0 grid grid-cols-12 h-fit text-cust-blue bg-cust-beige">
+        <div className="cust-container p-5 pr-0 grid grid-cols-12 h-fit text-cust-blue bg-white">
           <div className="col-span-12 flex justify-center items-center p-3 mb-5">
             <h1 className="font-bold text-2xl text-center lg:text-4xl">
               {getFullJudul()}
