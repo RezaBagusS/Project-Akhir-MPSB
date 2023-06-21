@@ -1,17 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getMaterial } from "../data/dataMaterial";
 import { getCourse } from "../data/dataCoursesModule";
 import ModalConfirm from "../Component/ModalConfirm";
 import NavMateri from "../Component/DetailMaterialComp/NavMateri";
 import MateriBar from "../Component/DetailMaterialComp/MateriBar";
-import { verifyToken } from "../Helpers/AuthHelpers";
+import ModalLoading from "../Component/ModalLoading.jsx";
+import {
+  getProgressMateri,
+  verifyToken,
+  getDataCoursesModule,
+} from "../Helpers/AuthHelpers";
 import { useParams } from "react-router-dom";
 
 const Material = () => {
   const [activeComponent, setActiveComponent] = useState(1);
   const [activeJudul, setActiveJudul] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [getProgress, setGetProgress] = useState(0);
   const [showModalConfirm, setShowModalConfirm] = useState(false);
   let { courseId } = useParams();
+
+  useEffect(() => {
+    handleProgressMateri();
+  }, []);
+
+  const handleProgressMateri = async () => {
+    let dataKelas = await getDataCoursesModule();
+    const response = await getProgressMateri(dataKelas.data[0].kodeKelas);
+    setGetProgress(response);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
 
   const handleActiveComponent = (value) => {
     setActiveComponent(value);
@@ -49,7 +69,7 @@ const Material = () => {
   const getFullJudul = () => {
     let judul = getCourse(courseId).materi[activeJudul - 1];
     return judul;
-  } 
+  };
 
   const getIdJudul = (id) => {
     setActiveJudul(id);
@@ -57,11 +77,12 @@ const Material = () => {
 
   const getActiveJudul = () => {
     return activeJudul;
-  }
+  };
 
   return (
     <>
       {isLogin()}
+      {loading && <ModalLoading />}
       <div className="">
         {showModalConfirm &&
           (window.scrollTo(0, 0),
@@ -71,11 +92,15 @@ const Material = () => {
               text={
                 "Apakah anda yakin telah membaca materi & siap menyelesaikan quiz ? "
               }
-              sendValue={{handleModalConfirmValue, getActiveJudul}}
+              sendValue={{ handleModalConfirmValue, getActiveJudul }}
             />
           ))}
       </div>
-      <div className="cust-outer-container bg-blue-gray-100">
+      <div
+        className={`cust-outer-container bg-blue-gray-100
+        ${loading ? "overflow-hidden h-screen" : "overflow-y-auto"}
+      `}
+      >
         <NavMateri />
         <div className="cust-container p-5 pr-0 grid grid-cols-12 h-fit text-cust-blue bg-cust-beige">
           <div className="col-span-12 flex justify-center items-center p-3 mb-5">
@@ -86,9 +111,7 @@ const Material = () => {
           <div className="col-span-8 text-sm pr-2 max-h-[700px] overflow-y-auto">
             {getMateriOnCourse().map((item, key) => {
               return (
-                <div key={key}>
-                  {activeComponent === key + 1 && item.page}
-                </div>
+                <div key={key}>{activeComponent === key + 1 && item.page}</div>
               );
             })}
           </div>
@@ -98,6 +121,8 @@ const Material = () => {
               handleActiveComponent: handleActiveComponent,
               handleModalConfirmisShow: handleModalConfirmisShow,
             }}
+
+            getProgress={getProgress}
           />
         </div>
       </div>

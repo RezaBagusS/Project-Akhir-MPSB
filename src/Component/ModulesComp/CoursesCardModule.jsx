@@ -37,6 +37,7 @@ const CoursesCardModule = ({ getCourses, searchResult, apiCourses }) => {
   const filterCourses = () => {
     let result = [];
 
+    console.log(searchResult);
     dataCoursesModule.forEach((item) => {
       if (searchResult.includes(item.tag.toLowerCase())) {
         result = [...result, item];
@@ -119,13 +120,13 @@ const CoursesCardModule = ({ getCourses, searchResult, apiCourses }) => {
               className={`bg-light-blue-900 hover:bg-light-blue-800 w-full h-fit py-2 rounded-md mt-auto text-cust-beige hover:text-white font-medium transition-all duration-300
                   ${loading && "opacity-90 hover:cursor-not-allowed"}
                   ${
-                    getCourses.includes(item.tag.toLowerCase()) &&
+                    getCourses.data[0].tag.includes(item.tag.toLowerCase()) &&
                     "bg-light-blue-900 hover:bg-light-blue-800 opacity-80 hover:cursor-not-allowed"
                   }
                   `}
             >
               {
-              getCourses.includes(item.tag.toLowerCase()) ? (
+              getCourses.data[0].tag.includes(item.tag.toLowerCase()) ? (
                 "Sudah diambil"
               ) : item.tag.toLowerCase() === tag.toLowerCase() ? (
                 <svg

@@ -1,3 +1,4 @@
+
 import dataCoursesModule from "../../data/dataCoursesModule";
 
 const DetailCourseCard = ({ course }) => {

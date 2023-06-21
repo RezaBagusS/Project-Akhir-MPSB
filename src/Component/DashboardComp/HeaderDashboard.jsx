@@ -76,6 +76,8 @@ const HeaderDashboard = ({ name }) => {
                   localStorage.removeItem("oldDataCourses");
                   localStorage.removeItem("newDataIdChallenges");
                   localStorage.removeItem("oldDataIdChallenges");
+                  localStorage.removeItem("challengeId");
+                  localStorage.removeItem("myDataCourses");
                 }}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-600 hover:text-white"
               >

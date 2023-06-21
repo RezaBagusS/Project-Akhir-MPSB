@@ -22,15 +22,15 @@ const courses = () => {
 
   const handleProcessGetCourses = async () => {
     try {
-      let storedData = localStorage.getItem("oldDataCourses");
+      let storedData = JSON.parse(localStorage.getItem("oldDataCourses"));
+      let result = await getDataCoursesModule();
+      console.log(storedData);
       if (!storedData) {
-        let result = await getDataCoursesModule();
 
         setDataCourses(result);
         result = JSON.stringify(result);
         localStorage.setItem("oldDataCourses", result);
         localStorage.setItem("newDataCourses", result);
-        // console.log("Data Updated 1");
       }
 
       if (localStorage.getItem("oldDataCourses") !== localStorage.getItem("newDataCourses")) {
@@ -40,13 +40,13 @@ const courses = () => {
         result = JSON.stringify(result);
         localStorage.setItem("oldDataCourses", result);
         localStorage.setItem("newDataCourses", result);
-        // console.log("Data Updated 2");
       }
 
-      setDataCourses(JSON.parse(localStorage.getItem("oldDataCourses")));
-      // console.log("Data Updated 3");
-      setLoading(false);
-      return true;
+      setTimeout(() => {
+        setDataCourses(JSON.parse(localStorage.getItem("oldDataCourses")));
+        setLoading(false);
+        return () => clearTimeout();
+      },1000);
 
     } catch (error) {
       console.log(error);

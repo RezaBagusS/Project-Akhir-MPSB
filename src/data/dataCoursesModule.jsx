@@ -110,7 +110,7 @@ const dataCoursesModule = [
   {
     id: 3,
     tag: "Javascript",
-    title: "JS Fundamental",
+    title: "Javascript Fundamental",
     description:
       "JavaScript adalah bahasa pemrograman server dan client yang digunakan untuk membuat halaman web yang interaktif dan dinamis.",
     descriptionDetail:

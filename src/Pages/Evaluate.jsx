@@ -1,21 +1,24 @@
 import { useNavigate, useParams } from "react-router-dom";
 import NavbarCourse from "../Component/DetailCourseComp/NavbarCourse";
-import { verifyToken } from "../Helpers/AuthHelpers";
+import { getMaterial } from "../data/dataMaterial";
+import { updateProgressMateri, getDataCoursesModule, verifyToken } from "../Helpers/AuthHelpers";
 import { useQuizContext } from "../Helpers/QuizContext";
 import FooterHome from "../Component/HomeComp/FooterHome";
 import { useEffect, useState } from "react";
 import { getQuiz } from "../data/dataQuiz";
+import ModalLoading from "../Component/ModalLoading.jsx";
 
 const Evaluate = () => {
   const { getIdSoalBenar } = useQuizContext();
   const { courseId, quizCode } = useParams();
   const [noSoal, setNoSoal] = useState(1);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const clearDuplicateOnIdSoal = () => {
     let IdSoalBenar = [...new Set(getIdSoalBenar)];
     return IdSoalBenar;
-  }
+  };
 
   const isLogin = () => {
     if (localStorage.getItem("token")) {
@@ -84,7 +87,9 @@ const Evaluate = () => {
   };
 
   const handleQuiz = () => {
-    const quiz = getQuiz(courseId, quizCode).find((item) => item.id == quizCode).soalQuiz;
+    const quiz = getQuiz(courseId, quizCode).find(
+      (item) => item.id == quizCode
+    ).soalQuiz;
     return quiz;
   };
 
@@ -103,25 +108,48 @@ const Evaluate = () => {
     return bgCorrection;
   };
 
+  const handleTitleQuiz = () => {
+    let materi = getMaterial(courseId)[quizCode];
+    return materi.judul;
+  }
+
+  const handleNextMateri = async () => {
+    setLoading(true);
+    try {
+      let dataCourse = await getDataCoursesModule();
+      const response = await updateProgressMateri(dataCourse.data[0].kodeKelas, quizCode);
+      setTimeout(() => {
+        setLoading(false);
+        navigate(`/dashboard/mycourses/${courseId}/material`);
+      }, 500);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
   return (
     <>
       {isLogin()}
-      <div className="cust-outer-container bg-blue-gray-100">
+      <div className={`cust-outer-container bg-blue-gray-100
+        ${loading ? "overflow-hidden h-screen" : "overflow-y-auto"}
+      `}>
+        {loading && <ModalLoading />}
         <NavbarCourse course={courseId} />
         <div className="cust-container mx-auto w-full h-full flex flex-col">
           <div className="flex flex-col items-center p-5 text-4xl font-semibold">
-            <h1>Selamat, kamu telah menyelesaikan quiz {quizCode}</h1>
+            <h1>Selamat, kamu telah menyelesaikan quiz {handleTitleQuiz()}</h1>
           </div>
           <div className="flex flex-wrap justify-center mt-5">
             <h1 className="w-full text-center font-medium text-3xl">
               HASIL QUIZ
             </h1>
             <div className="bg-[#33122F] relative rounded-lg my-5 p-5 w-10/12 text-cust-beige border-2 border-gray-200 drop-shadow-[0px_5px_5px_rgb(0,0,0,0.5)]">
-              <div 
-                onClick={() => {
-                  navigate(`/dashboard/mycourses/${courseId}/material`)
-                }}
-                className="absolute left-5 top-4 flex flex-row gap-x-2 cursor-pointer hover:bg-[#40223C] active:bg-[#40223C] p-2 rounded-md transition-all duration-300">
+              <div
+                onClick={handleNextMateri}
+                className="absolute left-5 top-4 flex flex-row gap-x-2 cursor-pointer hover:bg-[#61365b] active:bg-[#40223C] p-2 rounded-md transition-all duration-300"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -172,11 +200,15 @@ const Evaluate = () => {
               <h1 className="mt-5">Statistik :</h1>
               <div className="grid grid-cols-2 gap-x-5">
                 <div className="flex flex-col justify-center items-center h-20 bg-[#40223C] rounded-md">
-                  <h3 className="text-3xl">{clearDuplicateOnIdSoal().length}</h3>
+                  <h3 className="text-3xl">
+                    {clearDuplicateOnIdSoal().length}
+                  </h3>
                   <h1>Benar</h1>
                 </div>
                 <div className="flex flex-col justify-center items-center h-20 bg-[#40223C] rounded-md">
-                  <h3 className="text-3xl">{5 - clearDuplicateOnIdSoal().length}</h3>
+                  <h3 className="text-3xl">
+                    {5 - clearDuplicateOnIdSoal().length}
+                  </h3>
                   <h1>Salah</h1>
                 </div>
               </div>

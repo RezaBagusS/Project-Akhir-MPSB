@@ -2,31 +2,31 @@ import { useParams } from "react-router-dom";
 import { getMaterial } from "../../data/dataMaterial";
 import { useEffect, useState } from "react";
 
-const MateriListBar = ({ sendValue }) => {
+const MateriListBar = ({ sendValue, getProgress }) => {
   const [isDownMateri, setIsDownMateri] = useState(null);
   const [id, setId] = useState(1);
   const { courseId } = useParams();
 
   useEffect(() => {
     sendIdtoParent();
-  },[id]);
+  }, [id]);
 
   const handleClickMateri = (id) => {
     if (isDownMateri === id) {
       setIsDownMateri(null);
-    } else{
-        setIsDownMateri(id);
+    } else {
+      setIsDownMateri(id);
     }
   };
 
   const handleId = (id) => {
     console.log("ID : ", id);
     setId(id);
-  }
+  };
 
   const sendIdtoParent = () => {
     sendValue.getActiveJudul(id);
-  }
+  };
 
   const getSubJudul = () => {
     let subJudul = [];
@@ -46,10 +46,19 @@ const MateriListBar = ({ sendValue }) => {
             handleId(item.id);
             handleClickMateri(item.id);
           }}
-          className={`flex flex-row justify-between cursor-pointer pl-3 pr-2 py-3 text-base font-medium rounded-md
-            ${id === item.id ? "bg-blue-800 text-white" : "bg-gray-200 text-cust-blue"}
+          className={`flex flex-row relative justify-between cursor-pointer pl-3 pr-2 py-3 text-base font-medium rounded-md
+            ${
+              id === item.id
+                ? "bg-blue-800 text-white"
+                : "bg-gray-200 text-cust-blue"
+            }
           `}
         >
+          {getProgress >= item.id && (
+            <>
+              <span className="absolute right-0 top-0 bg-cust-blue/50 p-1 h-full rounded-r-md"></span>
+            </>
+          )}
           {item.judul}
           <span className="p-2">
             <svg
@@ -80,7 +89,11 @@ const MateriListBar = ({ sendValue }) => {
                   sendValue.setActiveSubJudul(index + 1);
                 }}
                 className={`w-11/12 mx-auto pl-3 pr-3 py-2 text-base font-medium rounded-md cursor-pointer transition-all duration-300
-                  ${index + 1 === sendValue.getActiveSubJudul() ? "bg-blue-800 text-white" : "bg-gray-300 text-cust-blue hover:bg-sky-400"}
+                  ${
+                    index + 1 === sendValue.getActiveSubJudul()
+                      ? "bg-blue-800 text-white"
+                      : "bg-gray-300 text-cust-blue hover:bg-sky-400"
+                  }
                 `}
               >
                 {item}

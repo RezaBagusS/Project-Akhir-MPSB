@@ -1,11 +1,15 @@
-import FilterMyCourses from "../Component/ModulesComp/FilterMyCourses";
+// import FilterMyCourses from "../Component/ModulesComp/FilterMyCourses";
 import MyCoursesCard from "../Component/ModulesComp/MyCoursesCard";
 import HeaderDashboard from "../Component/DashboardComp/HeaderDashboard";
 import { useEffect, useState } from "react";
-import { getDataCoursesModule } from "../Helpers/AuthHelpers";
+import {
+  getDataCoursesModule,
+  getProgressMateri,
+} from "../Helpers/AuthHelpers";
 
 const MyCourses = () => {
-  const [dataCoursesModule, setDataCoursesModule] = useState([]);
+  const [dataCoursesModule, setDataCoursesModule] = useState();
+  const [getProgress, setGetProgress] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,8 +18,11 @@ const MyCourses = () => {
 
   const getCourse = async () => {
     try {
-      let dataCourse = await getDataCoursesModule();
+      const dataCourse = await getDataCoursesModule();
       setDataCoursesModule(dataCourse);
+      localStorage.setItem("myDataCourses", dataCourse.tag);
+      const progress = await getProgressMateri(dataCourse.data[0].kodeKelas);
+      setGetProgress(progress);
       setLoading(false);
     } catch (error) {
       console.log("Error:", error);
@@ -25,12 +32,11 @@ const MyCourses = () => {
   return (
     <div className="h-fit">
       <HeaderDashboard name={"MyCourses"} />
-
       <div className="mx-2 sm:mx-5">
         <div className="font-bold text-3xl text-cust-blue py-5">
           <h3>Kelas Saya</h3>
         </div>
-        <FilterMyCourses />
+        {/* <FilterMyCourses /> */}
         <div className="py-3 w-full font-medium text-cust-blue">
           <h4>Berikut kelas yang telah saya klaim :</h4>
         </div>
@@ -53,7 +59,10 @@ const MyCourses = () => {
             </div>
           ) : (
             <div>
-              <MyCoursesCard getCourse={dataCoursesModule} />
+              <MyCoursesCard
+                getCourse={dataCoursesModule}
+                getProgress={getProgress}
+              />
             </div>
           )}
         </div>

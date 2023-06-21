@@ -1,12 +1,27 @@
 import dataCoursesModule from "../../data/dataCoursesModule";
+import { Progress } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 
-const MyCoursesCard = ({ getCourse }) => {
+const MyCoursesCard = ({ getCourse, getProgress }) => {
   const navigate = useNavigate();
 
   const filteredCourses = dataCoursesModule.filter((item) =>
-    getCourse.includes(item.tag.toLowerCase())
+    getCourse.tag.includes(item.tag.toLowerCase())
   );
+
+  const numSubMateri = getCourse.data[0].numSubMateri;
+
+  const statusButton = () => {
+    if (getProgress === numSubMateri) {
+      return "Selesai";
+    } else {
+      return "Detail";
+    }
+  }
+
+  const persentase = () => {
+    return Math.round((getProgress / numSubMateri) * 100);
+  };
 
   return filteredCourses.length === 0 ? (
     <div className="flex justify-center align-middle text-lg">
@@ -31,7 +46,9 @@ const MyCoursesCard = ({ getCourse }) => {
           </svg>
           <span className="sr-only">Error icon</span>
         </div>
-        <div className="ml-3 text-sm font-normal">Tidak ada kelas yang telah di Klaim</div>
+        <div className="ml-3 text-sm font-normal">
+          Tidak ada kelas yang telah di Klaim
+        </div>
       </div>
     </div>
   ) : (
@@ -51,20 +68,22 @@ const MyCoursesCard = ({ getCourse }) => {
                   {item.title}
                 </h3>
                 <div className="flex mt-4 mb-2">
-                  <p className="py-2 bg-cust-yellow w-10/12 rounded-full"></p>
-                  <span className="ml-2">0%</span>
+                  <Progress value={persentase()} size="lg" className="mt-1" />
+                  <span className="ml-2 font-semibold">{persentase()}%</span>
                 </div>
-                <p className="font-medium text-sm sm:text-lg text-slate-500">
-                  0/25 Submateri
+                <p className="font-normal text-sm sm:text-lg text-slate-500">
+                  {getProgress}/{numSubMateri} Submateri
                 </p>
               </div>
             </div>
             <div className="flex justify-center items-center p-2 md:col-span-2 lg:col-span-1">
               <button
                 onClick={() => navigate(item.linkCourses)}
-                className="cursor-pointer flex justify-center bg-cust-blue hover:bg-blue-600 w-full h-fit py-2 rounded-md text-cust-beige hover:text-white font-medium transition-all duration-500"
+                className={`cursor-pointer flex justify-center w-full h-fit py-2 rounded-md text-cust-beige hover:text-white font-medium transition-all duration-500
+                  ${getProgress === numSubMateri ? "bg-cust-purple hover:bg-cust-purple/80" : "bg-cust-blue hover:bg-cust-blue/80"}
+                `}
               >
-                Detail
+                {statusButton()}
               </button>
             </div>
           </div>

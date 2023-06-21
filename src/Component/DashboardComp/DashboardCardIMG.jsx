@@ -19,8 +19,9 @@ const DashboardCardIMG = () => {
             <p className="w-full font-medium text-sm my-2 px-4">
               {data.description}
             </p>
-            <a className="w-3/5 cursor-pointer font-semibold text-md p-2 mb-2 text-blue-300 hover:text-white bg-cust-blue hover:bg-blue-800 hover:scale-[.95] rounded-lg transition-all duration-300">
-              {data.button}
+            <a className="w-3/5 cursor-not-allowed font-semibold text-md p-2 mb-2 text-blue-300 hover:text-white bg-cust-blue hover:bg-blue-800 rounded-lg transition-all duration-300">
+              {/* {data.button} */}
+              Coming Soon
             </a>
           </div>
       );

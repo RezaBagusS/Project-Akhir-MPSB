@@ -3,15 +3,23 @@ import DetailCourseCard from "../Component/DetailCourseComp/DetailCourseCard";
 import FooterCourse from "../Component/DetailCourseComp/FooterCourse";
 import NavbarCourse from "../Component/DetailCourseComp/NavbarCourse";
 import FooterHome from "../Component/HomeComp/FooterHome";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { verifyToken } from "../Helpers/AuthHelpers";
 
 const Courses = () => {
   const { courseId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     isLogin();
+    isValidCourse();
   }, []);
+
+  const isValidCourse = () => {
+    if (localStorage.getItem("myDataCourses")) {
+      localStorage.getItem("myDataCourses").includes(courseId) ? true : navigate('/dashboard/mycourses');
+    }
+  }
 
   const isLogin = () => {
     if (localStorage.getItem("token")) {

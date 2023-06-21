@@ -76,6 +76,8 @@ export const verifyToken = async () => {
       localStorage.removeItem("oldDataCourses");
       localStorage.removeItem("newDataIdChallenges");
       localStorage.removeItem("oldDataIdChallenges");
+      localStorage.removeItem("challengeId");
+      localStorage.removeItem("myDataCourses");
       return window.location.replace("/auth/login");
     }
   } catch (error) {
@@ -110,7 +112,7 @@ export const getDataCoursesModule = async () => {
       }
     );
 
-    return response.data.data;
+    return response.data;
   } catch (error) {
     console.log("Error:", error);
   }
@@ -161,3 +163,36 @@ export const getChallenge = async (token) => {
     console.log("Error:", error);
   }
 };
+
+export const getProgressMateri = async ( kodeKelas ) => {
+  try {
+    const response = await axios.post(
+      "https://project-akhir-mpsb-back-end.vercel.app/api/getProgressMateri",
+      // "http://localhost:3000/api/getProgressMateri",
+      {
+        token: localStorage.getItem("token"),
+        kodeKelas: kodeKelas,
+      }
+    );
+
+    return response.data.data;
+  } catch (error) {
+    console.log("Error:", error);
+  }
+}
+
+export const updateProgressMateri = async ( kodeKelas, kodeMateri ) => {
+  try {
+    const response = axios.post(
+      "https://project-akhir-mpsb-back-end.vercel.app/api/updateProgressMateri",
+      // "http://localhost:3000/api/updateProgressMateri",
+      {
+        token: localStorage.getItem("token"),
+        kodeKelas: kodeKelas,
+        kodeMateri: kodeMateri,
+      }
+    )
+  } catch (error) {
+    console.log("Error:", error);
+  }
+}

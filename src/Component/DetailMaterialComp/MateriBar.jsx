@@ -3,7 +3,7 @@ import MateriListBar from "./MateriListBar";
 import { getMaterial } from "../../data/dataMaterial";
 import { useParams } from "react-router-dom";
 
-const MateriBar = ({ sendValue }) => {
+const MateriBar = ({ sendValue, getProgress }) => {
   const [activeComponent, setActiveComponent] = useState(1);
   const [idJudul, setIdJudul] = useState(1);
   let { courseId } = useParams();
@@ -51,7 +51,7 @@ const MateriBar = ({ sendValue }) => {
     <>
       <div className="col-span-4 flex flex-col gap-y-3 px-4 pr-5 bg-white">
         <div className="flex flex-col gap-y-1">
-          <MateriListBar sendValue={{getActiveJudul, getActiveSubJudul, setActiveSubJudul}} />
+          <MateriListBar sendValue={{ getActiveJudul, getActiveSubJudul, setActiveSubJudul}} getProgress={getProgress} />
         </div>
         <div className="flex flex-row justify-between mt-5 pb-5">
           <button
