@@ -23,30 +23,12 @@ const courses = () => {
 
   const handleProcessGetCourses = async () => {
     try {
-      let storedData = JSON.parse(localStorage.getItem("oldDataCourses"));
       let result = await getDataCoursesModule();
-      console.log(storedData);
-      if (!storedData) {
-        setDataCourses(result);
-        result = JSON.stringify(result);
-        localStorage.setItem("oldDataCourses", result);
-        localStorage.setItem("newDataCourses", result);
-      }
-
-      if (
-        localStorage.getItem("oldDataCourses") !==
-        localStorage.getItem("newDataCourses")
-      ) {
-        let result = await getDataCoursesModule();
-
-        setDataCourses(result);
-        result = JSON.stringify(result);
-        localStorage.setItem("oldDataCourses", result);
-        localStorage.setItem("newDataCourses", result);
-      }
-
+      
       setTimeout(() => {
-        setDataCourses(JSON.parse(localStorage.getItem("oldDataCourses")));
+        setDataCourses(result);
+        localStorage.setItem("oldDataCourses", result);
+        localStorage.setItem("newDataCourses", result);
         setLoading(false);
         return () => clearTimeout();
       }, 1000);
