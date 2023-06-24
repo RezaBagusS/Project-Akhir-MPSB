@@ -5,7 +5,7 @@ import { useDebounce } from "../Helpers/UseDebounce";
 import { useState, useEffect } from "react";
 import { getDataCoursesModule } from "../Helpers/AuthHelpers";
 import { motion } from "framer-motion";
- 
+
 const courses = () => {
   const [searchResult, setSearchResult] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,15 +24,13 @@ const courses = () => {
   const handleProcessGetCourses = async () => {
     try {
       let result = await getDataCoursesModule();
-      
-      console.log("result : ",result);
-      setTimeout(() => {
-        setDataCourses(result);
-        localStorage.setItem("oldDataCourses", result);
-        localStorage.setItem("newDataCourses", result);
-        setLoading(false);
-        return () => clearTimeout();
-      }, 1000);
+
+      console.log("result : ", result);
+
+      setDataCourses(result);
+      localStorage.setItem("oldDataCourses", result);
+      localStorage.setItem("newDataCourses", result);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -54,15 +52,19 @@ const courses = () => {
     <>
       <div className="h-full">
         <HeaderDashboard name={"Courses"} />
-        {
-          console.log("data Course : ",dataCourses)
-        }
+        {console.log("data Course : ", dataCourses)}
 
         <div className="mx-2 sm:mx-5">
-          <motion.div 
-            initial={{ opacity: 0 ,x: -100}}
-            animate={{ opacity: 1 ,x: 0, transition: { duration: 0.5 }, type: "spring"}}
-            className="font-bold text-2xl sm:text-3xl text-cust-blue py-5">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              transition: { duration: 0.5 },
+              type: "spring",
+            }}
+            className="font-bold text-2xl sm:text-3xl text-cust-blue py-5"
+          >
             <h3>Klaim kelasmu sekarang!!</h3>
           </motion.div>
           <div className="flex flex-wrap items-center py-2 group">
@@ -101,8 +103,9 @@ const courses = () => {
             ) : (
               <motion.div
                 initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 , transition: { duration: 0.5 }}}
-              className="flex flex-wrap gap-5 justify-center h-fit pb-10">
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+                className="flex flex-wrap gap-5 justify-center h-fit pb-10"
+              >
                 <CoursesCardModule
                   getCourses={dataCourses}
                   searchResult={searchResult}
