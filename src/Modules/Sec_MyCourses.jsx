@@ -20,6 +20,7 @@ const MyCourses = () => {
   const getCourse = async () => {
     try {
       const dataCourse = await getDataCoursesModule();
+      console.log("dataCourse : ", dataCourse);
       setDataCoursesModule(dataCourse);
       localStorage.setItem("myDataCourses", dataCourse.tag);
       const progress = await getProgressMateri(dataCourse.data[0].kodeKelas);

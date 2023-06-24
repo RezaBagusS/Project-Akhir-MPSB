@@ -25,6 +25,7 @@ const courses = () => {
     try {
       let result = await getDataCoursesModule();
       
+      console.log("result : ",result);
       setTimeout(() => {
         setDataCourses(result);
         localStorage.setItem("oldDataCourses", result);
@@ -53,6 +54,9 @@ const courses = () => {
     <>
       <div className="h-full">
         <HeaderDashboard name={"Courses"} />
+        {
+          console.log("data Course : ",dataCourses)
+        }
 
         <div className="mx-2 sm:mx-5">
           <motion.div 
